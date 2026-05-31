@@ -1,0 +1,1985 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#1FA9B4" />
+<title>ClavesIQ — AI, data, and cloud engineering from Toronto.</title>
+<meta name="description" content="ClavesIQ is a Toronto-based AI, data, and cloud engineering firm building production intelligence systems across industries, with deep expertise in US healthcare. AWS-first. Outcome obsessed." />
+<link rel="icon" href="/files/clavesiq-icon-multicolor.svg" type="image/svg+xml" />
+
+<!-- Single font family: Saira — closest free-font match to the brand wordmark.
+     Geometric, wide proportions, soft-rounded letterforms, multiple weights for hierarchy. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+/* =========================================================
+   ClavesIQ — site v2 (light/teal direction)
+   Background: #1FA9B4 (the lighter brand shade)
+   Single font: Saira
+   Brand SVG lockups embedded from /SVG/Asset 23 + Asset 26
+   ========================================================= */
+
+:root{
+  --teal:        #1FA9B4;
+  --teal-deep:   #178A93;
+  --teal-edge:   #38C5D0;
+  --navy:        #0D0826;
+  --navy-2:      #1A1240;
+  --green:       #37DA71;
+  --green-deep:  #2AB85E;
+  --white:       #FFFFFF;
+  --off-white:   #F7F7F7;
+  --bone:        #EFF7F7;
+  --ink:         #FFFFFF;
+  --ink-soft:    rgba(255,255,255,.92);
+  --ink-mute:    rgba(255,255,255,.72);
+  --ink-low:     rgba(255,255,255,.52);
+  --ink-dark:    #0D0826;
+  --ink-dark-2:  rgba(13,8,38,.78);
+  --ink-dark-3:  rgba(13,8,38,.55);
+  --line:        rgba(255,255,255,.22);
+  --line-soft:   rgba(255,255,255,.12);
+  --line-dark:   rgba(13,8,38,.12);
+  --glass:       rgba(255,255,255,.11);
+  --glass-2:     rgba(255,255,255,.06);
+  --maxw:        1280px;
+  --pad:         clamp(20px, 4vw, 56px);
+  --r-sm:        10px;
+  --r-md:        16px;
+  --r-lg:        24px;
+  --r-xl:        32px;
+  --font:        'Saira', system-ui, sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html, body{margin:0; padding:0;}
+body{
+  font-family: var(--font);
+  font-weight: 400;
+  background: var(--teal);
+  color: var(--ink);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* ---------- Typography (single family, weight-based hierarchy) ---------- */
+h1,h2,h3,h4{ font-family: var(--font); font-weight: 700; letter-spacing:0; margin:0; line-height:1.04; }
+h1{ font-size: clamp(42px, 5.8vw, 82px); letter-spacing:0; font-weight:700;}
+h2{ font-size: clamp(30px, 4.4vw, 58px); letter-spacing:0;}
+h3{ font-size: clamp(20px, 2vw, 26px); letter-spacing:0; font-weight: 600;}
+p{ margin: 0; }
+a{ color: inherit; text-decoration: none; }
+
+.eyebrow{
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing:.22em;
+  text-transform: uppercase;
+  display:inline-flex; align-items:center; gap:10px;
+  color: var(--ink);
+}
+.eyebrow::before{
+  content:""; width: 22px; height:1px; background: var(--ink); opacity:.5;
+}
+.eyebrow.dark{ color: var(--ink-dark);}
+.eyebrow.dark::before{ background: var(--ink-dark); opacity:.4;}
+
+/* ---------- Layout ---------- */
+.container{ max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+section{ padding: clamp(70px, 9vw, 140px) 0; position: relative; }
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-family: var(--font); font-weight: 600; font-size: 14.5px;
+  cursor: pointer; border: 1px solid transparent;
+  letter-spacing: 0;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease, color .25s ease;
+}
+.btn .arrow{ transition: transform .3s ease; }
+.btn:hover .arrow{ transform: translateX(4px); }
+.btn-primary{
+  background: var(--ink-dark);
+  color: var(--white);
+  box-shadow: 0 10px 30px -10px rgba(13,8,38,.45);
+}
+.btn-primary:hover{
+  transform: translateY(-1px);
+  background: var(--green);
+  color: var(--ink-dark);
+  box-shadow: 0 14px 36px -10px rgba(55,218,113,.45);
+}
+.btn-ghost{
+  background: rgba(255,255,255,.10);
+  color: var(--white);
+  border-color: rgba(255,255,255,.30);
+  backdrop-filter: blur(10px);
+}
+.btn-ghost:hover{ background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.5); }
+
+.btn-on-dark{
+  background: var(--green);
+  color: var(--ink-dark);
+  box-shadow: 0 12px 30px -10px rgba(55,218,113,.5);
+}
+.btn-on-dark:hover{
+  background: var(--white);
+  color: var(--ink-dark);
+  transform: translateY(-1px);
+}
+
+.btn-dark-ghost{
+  background: rgba(255,255,255,.06);
+  color: var(--white);
+  border-color: rgba(255,255,255,.22);
+}
+.btn-dark-ghost:hover{ background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.4);}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+.nav-wrap{
+  position: sticky; top: 0; z-index: 80;
+  padding: 10px var(--pad);
+  background: rgba(31,169,180,.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line-soft);
+}
+.nav{
+  max-width: var(--maxw); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.brand{ display:flex; align-items:center; gap: 12px; }
+.brand-lockup{ height: 82px; width: auto; display:block; }
+.brand-lockup-footer{ height: 76px; width: auto; display:block; }
+.nav-links{
+  display:flex; gap: 28px; align-items:center;
+  font-size: 15.5px; color: var(--ink-soft); font-weight: 500;
+}
+.nav-links a{ position: relative; padding: 6px 0; transition: color .2s ease; }
+.nav-links a:hover{ color: var(--ink); }
+.nav-links a::after{
+  content:""; position:absolute; left:0; right:0; bottom: -2px; height:1.5px;
+  background: var(--green);
+  transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
+}
+.nav-links a:hover::after{ transform: scaleX(1); }
+.nav-cta{ display:flex; gap:10px; align-items:center;}
+.nav-tag{
+  font-size: 11px; color: var(--ink); font-weight: 500;
+  border:1px solid var(--line); padding: 6px 11px; border-radius: 999px;
+  letter-spacing: .04em;
+  background: rgba(255,255,255,.06);
+}
+.dot{ width:7px; height:7px; border-radius:50%; background: var(--green); box-shadow: 0 0 10px var(--green); display:inline-block; vertical-align: middle; margin-right: 7px; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse{ 0%,100%{opacity:1; transform:scale(1);} 50%{opacity:.6; transform:scale(.8);} }
+.menu-btn{ display:none; background:none; border:0; color:var(--ink); cursor:pointer; }
+
+@media (max-width: 980px){
+  .nav-links, .nav-tag{ display: none; }
+  .menu-btn{ display:inline-flex; }
+}
+
+/* =========================================================
+   HERO — Neural Particle Field + Typewriter + Parallax
+   ========================================================= */
+.hero{
+  min-height: 100svh;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Full-bleed canvas sits behind everything */
+#hero-canvas{
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  display: block;
+  z-index: 0;
+}
+
+/* Radial vignette overlay — darkens edges so text pops */
+.hero-vignette{
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 50%, transparent 40%, rgba(13,8,38,.72) 100%),
+    linear-gradient(180deg, rgba(13,8,38,.35) 0%, transparent 18%, transparent 78%, rgba(13,8,38,.6) 100%);
+}
+
+/* Content wrapper — sits above canvas */
+.hero-content{
+  position: relative; z-index: 2;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: clamp(100px, 10vw, 140px) 0 clamp(64px, 8vw, 100px);
+}
+
+/* Two-column layout — text left, stat cards right */
+.hero-inner{
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  gap: 56px;
+  align-items: center;
+  width: 100%;
+}
+@media (max-width: 980px){ .hero-inner{ grid-template-columns: 1fr; gap: 40px; } }
+
+/* Parallax layers */
+.hero-layer-back{ will-change: transform; }
+.hero-layer-front{ will-change: transform; }
+
+/* H1 */
+.hero h1{
+  color: var(--white);
+  max-width: 820px;
+  line-height: 1.02;
+  letter-spacing: -.01em;
+}
+.hero h1 .line{
+  display: block;
+  overflow: hidden;
+}
+.hero h1 .line-inner{
+  display: block;
+  opacity: 0;
+  transform: translateY(110%);
+}
+.hero h1 .line-inner.line-in{
+  animation: lineSlideUp .75s cubic-bezier(.22,.7,.2,1) forwards;
+}
+.hero h1 .accent{
+  color: var(--green);
+  position: relative;
+}
+
+/* Typewriter cursor */
+.tw-cursor{
+  display: inline-block;
+  width: 3px; height: .85em;
+  background: var(--green);
+  vertical-align: -.08em;
+  margin-left: 2px;
+  border-radius: 2px;
+  animation: twBlink .9s step-end infinite;
+}
+@keyframes twBlink{ 0%,100%{opacity:1} 50%{opacity:0} }
+
+.hero-sub{
+  margin-top: 28px;
+  max-width: 580px;
+  color: rgba(255,255,255,.78);
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.6;
+  font-weight: 400;
+  opacity: 0;
+  animation: heroFadeUp .8s cubic-bezier(.2,.7,.2,1) 1.6s forwards;
+}
+
+.hero-cta{
+  display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap;
+  opacity: 0;
+  animation: heroFadeUp .8s cubic-bezier(.2,.7,.2,1) 1.85s forwards;
+}
+
+/* Discipline list — right column */
+.hero-disciplines{
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  animation: heroFadeUp .9s cubic-bezier(.2,.7,.2,1) 2.0s forwards;
+  border-top: 1px solid rgba(255,255,255,.13);
+}
+@media (max-width: 980px){ .hero-disciplines{ max-width: 520px; } }
+
+.hero-disc{
+  border-bottom: 1px solid rgba(255,255,255,.10);
+  position: relative;
+  overflow: hidden;
+}
+.hero-disc::before{
+  content:"";
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--green);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.hero-disc.open::before,
+.hero-disc:hover::before{ transform: scaleY(1); }
+
+.hero-disc-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0;
+  cursor: pointer;
+  transition: padding-left .3s cubic-bezier(.2,.7,.2,1);
+}
+.hero-disc:hover .hero-disc-header,
+.hero-disc.open .hero-disc-header{ padding-left: 16px; }
+
+/* expand drawer */
+.hero-disc-body{
+  max-height: 0;
+  overflow: hidden;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: rgba(255,255,255,.62);
+  font-weight: 400;
+  padding-left: 16px;
+  transition: max-height .45s cubic-bezier(.2,.7,.2,1), opacity .35s ease, padding-bottom .35s ease;
+  opacity: 0;
+  padding-bottom: 0;
+}
+.hero-disc.open .hero-disc-body{
+  max-height: 200px;
+  opacity: 1;
+  padding-bottom: 20px;
+}
+
+.hero-disc-left{ flex: 1; min-width: 0; }
+
+.hero-disc-idx{
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  color: rgba(255,255,255,.28);
+  margin-bottom: 5px;
+}
+.hero-disc-name{
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -.01em;
+  line-height: 1.1;
+  transition: color .25s ease;
+}
+.hero-disc:hover .hero-disc-name,
+.hero-disc.open .hero-disc-name{ color: var(--green); }
+
+.hero-disc-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.hero-disc-tag{
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  color: rgba(255,255,255,.42);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 999px;
+  padding: 3px 9px;
+  transition: color .25s ease, border-color .25s ease;
+}
+.hero-disc:hover .hero-disc-tag,
+.hero-disc.open .hero-disc-tag{
+  color: rgba(55,218,113,.8);
+  border-color: rgba(55,218,113,.22);
+}
+
+.hero-disc-arrow{
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.3);
+  transition: border-color .25s ease, color .25s ease, transform .3s cubic-bezier(.2,.7,.2,1);
+}
+.hero-disc:hover .hero-disc-arrow{
+  border-color: rgba(55,218,113,.5);
+  color: var(--green);
+}
+.hero-disc.open .hero-disc-arrow{
+  border-color: rgba(55,218,113,.6);
+  color: var(--green);
+  transform: rotate(90deg);
+}
+
+/* Scroll indicator */
+.hero-scroll{
+  position: relative; z-index: 2;
+  display: flex; justify-content: center; align-items: center;
+  padding: 28px 0 20px;
+  gap: 10px;
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(255,255,255,.38); font-weight: 500;
+  opacity: 0;
+  animation: heroFadeUp .8s ease 2.5s forwards;
+}
+.scroll-line{
+  width: 1px; height: 32px;
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,.38));
+  animation: scrollPulse 2.4s ease-in-out infinite;
+}
+@keyframes scrollPulse{ 0%,100%{opacity:.3; transform:scaleY(1);} 50%{opacity:.8; transform:scaleY(1.3); transform-origin:top;} }
+
+/* Entry keyframes */
+@keyframes heroFadeUp{
+  from{ opacity:0; transform:translateY(18px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+@keyframes lineSlideUp{
+  from{ opacity:0; transform:translateY(110%); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+/* =========================================================
+   TRUST STRIP / MARQUEE
+   ========================================================= */
+.trust{
+  padding: 32px 0;
+  background: var(--teal-deep);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.trust-label{
+  text-align:center; font-size: 11px;
+  color: var(--ink-soft); letter-spacing: .22em; text-transform: uppercase; margin-bottom: 22px;
+  font-weight: 500;
+}
+.marquee{ position: relative; overflow: hidden; mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent); }
+.marquee-track{
+  display:flex; gap: 64px; width: max-content;
+  animation: marquee 38s linear infinite;
+  color: var(--ink);
+  font-weight: 500;
+}
+.marquee-track .item{
+  display:flex; align-items:center; gap: 12px;
+  font-size: 20px; white-space: nowrap;
+  letter-spacing: 0;
+}
+.marquee-track .item .bullet{
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green);
+}
+@keyframes marquee{ to{ transform: translateX(-50%);} }
+
+/* =========================================================
+   SECTION HEADERS
+   ========================================================= */
+.section-head{
+  display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end;
+  margin-bottom: 56px;
+}
+@media (max-width: 880px){ .section-head{ grid-template-columns: 1fr; gap: 24px; }}
+.section-head .lede{ max-width: 520px; }
+.section-head h2 + p{ margin-top: 16px; }
+
+.section-head.on-teal h2 { color: var(--white); }
+.section-head.on-teal .lede { color: var(--ink-soft); font-weight: 400;}
+.section-head.on-navy h2 { color: var(--white); }
+.section-head.on-navy .lede{ color: rgba(255,255,255,.78); font-weight: 400;}
+
+/* =========================================================
+   SERVICES (on teal — white cards for pop)
+   ========================================================= */
+.svc-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 980px){ .svc-grid{ grid-template-columns: repeat(2, 1fr);} }
+@media (max-width: 620px){ .svc-grid{ grid-template-columns: 1fr;} }
+
+.svc-card{
+  position: relative;
+  padding: 32px 28px;
+  border-radius: var(--r-lg);
+  background: var(--white);
+  color: var(--ink-dark);
+  overflow: hidden;
+  min-height: 290px;
+  display:flex; flex-direction: column; justify-content: space-between;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;
+  box-shadow: 0 6px 24px -8px rgba(13,8,38,.18);
+}
+.svc-card::before{
+  /* bottom accent line — colored on hover */
+  content:""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+  background: var(--green);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .4s ease;
+}
+.svc-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 40px -12px rgba(13,8,38,.3); }
+.svc-card:hover::before{ transform: scaleX(1);}
+.svc-num{
+  font-size: 11px; color: var(--ink-dark-3); letter-spacing: .2em; font-weight: 600;
+}
+.svc-icon{
+  width: 46px; height: 46px; border-radius: 12px;
+  background: rgba(31,169,180,.12); color: var(--teal-deep);
+  display:flex; align-items:center; justify-content:center;
+  margin: 14px 0 22px; transition: all .35s;
+}
+.svc-card:hover .svc-icon{ background: rgba(55,218,113,.18); color: var(--green-deep);}
+.svc-title{ font-size: 22px; font-weight: 700; letter-spacing:0; color: var(--ink-dark);}
+.svc-desc{ margin-top: 10px; font-size: 14.5px; color: var(--ink-dark-2); line-height: 1.55; font-weight: 400;}
+.svc-tags{ display:flex; flex-wrap: wrap; gap:6px; margin-top: 20px;}
+.svc-tag{ font-size: 11px; font-weight: 500; color: var(--ink-dark-2); padding: 4px 10px; border:1px solid var(--line-dark); border-radius: 999px;}
+
+/* =========================================================
+   HEALTHCARE FOCUS (NAVY contrast block)
+   ========================================================= */
+.dark-section{
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+.dark-section::before{
+  content:""; position: absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(700px circle at 100% 0%, rgba(31,169,180,.18), transparent 60%),
+    radial-gradient(500px circle at 0% 100%, rgba(55,218,113,.08), transparent 60%);
+}
+.dark-section > .container{ position: relative; }
+
+.focus-grid{
+  display:grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center;
+}
+@media (max-width: 980px){ .focus-grid{ grid-template-columns: 1fr; gap: 36px;} }
+.focus-bullets{ list-style: none; padding: 0; margin: 28px 0 0; display:grid; gap: 14px;}
+.focus-bullets li{ display:flex; align-items:flex-start; gap: 14px; color: rgba(255,255,255,.85); font-size: 15.5px; line-height: 1.55; font-weight: 400;}
+.focus-bullets li::before{
+  content:""; flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%; margin-top: 8px;
+  background: var(--green); box-shadow: 0 0 10px var(--green);
+}
+.focus-bullets b{ color: var(--white); font-weight: 600;}
+.focus-cards{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.focus-card{
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: var(--r-lg);
+  padding: 28px 24px 24px;
+  background: rgba(255,255,255,.04);
+  backdrop-filter: blur(12px);
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color .35s ease, background .35s ease, transform .35s ease;
+  cursor: default;
+}
+.focus-card::before{
+  content:""; position:absolute; inset:0;
+  background: radial-gradient(ellipse 90% 80% at 0% 100%, rgba(31,169,180,.13), transparent 65%);
+  opacity: 0; transition: opacity .4s ease;
+}
+.focus-card:hover{
+  border-color: rgba(31,169,180,.38);
+  background: rgba(255,255,255,.07);
+  transform: translateY(-4px);
+}
+.focus-card:hover::before{ opacity: 1; }
+
+.focus-card-label{
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1;
+  color: var(--white);
+}
+.focus-card-sub{
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.42);
+  font-weight: 500;
+  margin-top: 10px;
+  line-height: 1.45;
+}
+
+.focus-pill{
+  display:inline-flex; gap: 8px; align-items:center;
+  padding: 6px 12px; border-radius: 999px;
+  background: rgba(55,218,113,.14); color: var(--green);
+  font-size: 11px; letter-spacing:.15em; text-transform: uppercase; font-weight: 600;
+}
+.focus-pill::before{ content:""; width:6px; height:6px; border-radius:50%; background: var(--green); box-shadow: 0 0 10px var(--green);}
+
+/* =========================================================
+   TECH STACK (on teal)
+   ========================================================= */
+.stack-wrap{ display: grid; grid-template-columns: .9fr 1.1fr; gap: 36px; align-items: start;}
+@media (max-width: 980px){ .stack-wrap{ grid-template-columns: 1fr;} }
+
+.tabs{ display:flex; flex-direction: column; gap: 8px; }
+.tab{
+  display:flex; align-items: center; justify-content: space-between;
+  padding: 18px 22px; border-radius: var(--r-md);
+  border:1px solid var(--line);
+  background: var(--glass-2); cursor: pointer;
+  font-family: var(--font); font-weight: 500; font-size: 17px;
+  color: var(--ink-soft); transition: all .25s ease;
+}
+.tab:hover{ color: var(--ink); border-color: var(--line); background: var(--glass);}
+.tab.active{
+  color: var(--ink-dark);
+  background: var(--white);
+  border-color: var(--white);
+  font-weight: 600;
+}
+.tab .badge{ font-size: 11px; color: var(--ink-mute); font-weight: 500; letter-spacing: .05em;}
+.tab.active .badge{ color: var(--green-deep); font-weight: 600;}
+
+.panel{
+  border:1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 30px;
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  min-height: 380px;
+  position: relative;
+}
+.panel-head{ display:flex; align-items: center; justify-content: space-between; margin-bottom: 22px; flex-wrap: wrap; gap: 10px;}
+.panel-head h3{ font-size: 22px; color: var(--white); font-weight: 600;}
+.panel-head .meta{ font-size: 11px; color: var(--ink-mute); letter-spacing:.15em; text-transform: uppercase; font-weight: 500;}
+.panel-grid{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+}
+@media (max-width: 620px){ .panel-grid{ grid-template-columns: repeat(2, 1fr);} }
+.tool{
+  padding: 14px; border-radius: var(--r-sm); border: 1px solid var(--line-soft);
+  background: rgba(255,255,255,.06);
+  display:flex; align-items:center; gap: 10px;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+}
+.tool:hover{ transform: translateY(-2px); border-color: var(--line); background: rgba(255,255,255,.12);}
+.tool .ic{
+  width: 28px; height: 28px; border-radius: 8px;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(255,255,255,.12);
+  color: var(--white);
+  flex-shrink: 0;
+}
+.tool .nm{ font-size: 14px; font-weight: 600; color: var(--white); letter-spacing: 0;}
+.tool .sb{ font-size: 10px; color: var(--ink-mute); margin-top: 2px; letter-spacing: .04em; font-weight: 500;}
+.panel-note{
+  margin-top: 22px; padding: 14px 18px; border-radius: var(--r-md);
+  border: 1px dashed var(--line);
+  font-size: 12.5px; color: var(--ink-soft); line-height:1.6; font-weight: 400;
+}
+
+/* =========================================================
+   PROCESS (on teal — light surfaces)
+   ========================================================= */
+.process{
+  display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+  position: relative;
+}
+@media (max-width: 980px){ .process{ grid-template-columns: repeat(2, 1fr);} }
+@media (max-width: 540px){ .process{ grid-template-columns: 1fr;} }
+.step{
+  position: relative;
+  border-radius: var(--r-lg);
+  padding: 30px 24px;
+  background: var(--white);
+  color: var(--ink-dark);
+  min-height: 240px;
+  transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 6px 24px -10px rgba(13,8,38,.18);
+}
+.step:hover{ transform: translateY(-3px); box-shadow: 0 16px 36px -14px rgba(13,8,38,.25);}
+.step .k{
+  font-weight: 800;
+  font-size: 64px; line-height: 1; letter-spacing:0;
+  color: var(--teal);
+  margin-bottom: 18px;
+}
+.step:nth-child(2) .k{ color: var(--green);}
+.step:nth-child(3) .k{ color: var(--teal-deep);}
+.step:nth-child(4) .k{ color: var(--green-deep);}
+.step h3{ font-size: 20px; margin-bottom: 8px; color: var(--ink-dark);}
+.step p{ font-size: 14px; color: var(--ink-dark-2); line-height: 1.5; font-weight: 400;}
+.step .arrow{
+  position: absolute; right: -16px; top: 56px;
+  width: 22px; height: 22px; color: var(--white); opacity: .85;
+  z-index: 1;
+}
+@media (max-width: 980px){ .step .arrow{ display:none;} }
+.step:last-child .arrow{ display: none; }
+
+/* =========================================================
+   CASE STUDIES (NAVY contrast block — drama)
+   ========================================================= */
+.cases{ display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 18px; grid-auto-rows: 1fr; }
+@media (max-width: 980px){ .cases{ grid-template-columns: 1fr 1fr;} }
+@media (max-width: 620px){ .cases{ grid-template-columns: 1fr;} }
+.case{
+  position: relative; overflow: hidden;
+  border:1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  min-height: 320px;
+  display:flex; flex-direction: column; justify-content: space-between;
+  background: rgba(255,255,255,.04);
+  transition: transform .35s ease, border-color .35s ease, background .35s;
+}
+.case:hover{ transform: translateY(-3px); border-color: var(--green); background: rgba(255,255,255,.07); }
+.case .case-bg{
+  position:absolute; inset:auto -30% -30% auto; width: 70%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle, rgba(31,169,180,.22), transparent 60%);
+  pointer-events: none;
+}
+.case-pattern-label{
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+  font-weight: 600; color: rgba(255,255,255,.3);
+  margin-bottom: 14px;
+}
+.case-tags{ display:flex; gap: 6px; flex-wrap: wrap; margin-bottom: 22px;}
+.case-tag{
+  font-size: 10px; letter-spacing:.15em; text-transform: uppercase; font-weight: 600;
+  padding: 5px 9px; border-radius: 999px;
+  border:1px solid var(--line); color: var(--ink-soft);
+}
+.case-tag.accent{ background: rgba(31,169,180,.18); color: var(--teal-edge); border-color: rgba(31,169,180,.4);}
+.case-tag.accent-g{ background: rgba(55,218,113,.14); color: var(--green); border-color: rgba(55,218,113,.4);}
+.case h3{ font-size: 22px; line-height: 1.2; margin-bottom: 10px; letter-spacing:0; color: var(--white);}
+.case .case-desc{ font-size: 14.5px; color: var(--ink-soft); line-height: 1.5; font-weight: 400;}
+.case .case-foot{
+  margin-top: 22px; padding-top: 18px; border-top:1px dashed var(--line);
+  display:flex; align-items:flex-end; justify-content: space-between;
+}
+.case .kpi{ font-size: 32px; font-weight: 700; letter-spacing:0;}
+.case .kpi.t{ color: var(--teal-edge);}
+.case .kpi.g{ color: var(--green);}
+.case .kpi-label{ font-size: 10px; color: var(--ink-mute); letter-spacing:.15em; text-transform: uppercase; font-weight: 500;}
+.case .read{ display:inline-flex; gap: 6px; align-items:center; font-size: 11px; color: var(--ink-soft); letter-spacing:.1em; text-transform: uppercase; font-weight: 600;}
+.case .read .arrow{ transition: transform .2s ease;}
+.case:hover .read .arrow{ transform: translateX(3px); }
+
+/* =========================================================
+   WHY / STATS (on teal — translucent stat blocks)
+   ========================================================= */
+.why{
+  display:grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+}
+@media (max-width: 980px){ .why{ grid-template-columns: 1fr; gap: 36px;} }
+.why-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.why-stat{
+  padding: 28px; border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  background: var(--glass);
+  backdrop-filter: blur(6px);
+  color: var(--ink);
+}
+.why-stat .n{ font-size: clamp(34px, 4vw, 56px); font-weight: 800; letter-spacing:0; color: var(--white); line-height: 1;}
+.why-stat .l{ margin-top: 8px; font-size: 13.5px; color: var(--ink-soft); font-weight: 400; line-height: 1.45;}
+.why-list{ list-style:none; padding:0; margin:24px 0 0; display:grid; gap:14px;}
+.why-list li{ display:flex; gap: 14px; align-items: flex-start; font-size: 15.5px; color: var(--ink-soft); font-weight: 400; line-height: 1.5;}
+.why-list li svg{ flex-shrink: 0; margin-top: 2px; color: var(--ink-dark); background: var(--green); border-radius: 50%; padding: 4px;}
+.why-list b{ color: var(--white); font-weight: 600;}
+
+/* =========================================================
+   TESTIMONIALS (on teal, white cards)
+   ========================================================= */
+.tests{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px;}
+@media (max-width: 980px){ .tests{ grid-template-columns: 1fr 1fr;} }
+@media (max-width: 620px){ .tests{ grid-template-columns: 1fr;} }
+.test{
+  border-radius: var(--r-lg);
+  background: var(--white);
+  color: var(--ink-dark);
+  padding: 30px;
+  position: relative;
+  transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 6px 24px -10px rgba(13,8,38,.18);
+}
+.test:hover{ transform: translateY(-3px); box-shadow: 0 16px 36px -14px rgba(13,8,38,.28);}
+.test .q{
+  font-size: 60px; line-height: 0;
+  position: absolute; top: 36px; right: 28px; color: var(--teal); opacity: .35; font-weight: 700;
+}
+.test p{ font-size: 15.5px; color: var(--ink-dark); line-height: 1.55; font-weight: 500;}
+.test-who{
+  margin-top: 22px; display:flex; align-items:center; gap: 12px;
+  padding-top: 18px; border-top: 1px dashed var(--line-dark);
+}
+.test-avi{
+  width: 38px; height: 38px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), var(--green));
+  display:flex; align-items:center; justify-content:center;
+  font-weight: 700; font-size: 13px; color: var(--ink-dark);
+}
+.test-name{ font-weight: 600; font-size: 14px; color: var(--ink-dark);}
+.test-role{ font-size: 11px; color: var(--ink-dark-3); letter-spacing: .04em; font-weight: 500;}
+
+/* =========================================================
+   BIG CTA (NAVY contrast)
+   ========================================================= */
+.bigcta-wrap{ padding: clamp(70px, 9vw, 140px) 0;}
+.bigcta{
+  position: relative; overflow: hidden;
+  border-radius: var(--r-xl);
+  background: var(--navy);
+  padding: clamp(48px, 7vw, 96px);
+  text-align: center;
+}
+.bigcta::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(600px circle at 0% 50%, rgba(31,169,180,.28), transparent 60%),
+    radial-gradient(500px circle at 100% 50%, rgba(55,218,113,.22), transparent 60%);
+}
+.bigcta h2{ font-size: clamp(34px, 5vw, 64px); letter-spacing:0; position: relative; color: var(--white);}
+.bigcta h2 .accent{ color: var(--green);}
+.bigcta p{ max-width: 580px; margin: 18px auto 0; position: relative; color: rgba(255,255,255,.8); font-weight: 400;}
+.bigcta .ctas{ margin-top: 36px; display:flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative;}
+
+/* =========================================================
+   CONTACT (on teal — white form)
+   ========================================================= */
+.contact{ display:grid; grid-template-columns: 1fr 1fr; gap: 56px;}
+@media (max-width: 980px){ .contact{ grid-template-columns: 1fr; gap: 36px;} }
+.contact-info{ position: relative; color: var(--white);}
+.contact-info h2{ color: var(--white);}
+.contact-info .where{
+  margin-top: 36px;
+  border:1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 20px;
+  background: var(--glass);
+  backdrop-filter: blur(6px);
+}
+.contact-info .where-row{ display:flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: 14px; align-items: center; gap: 16px; flex-wrap: wrap;}
+.contact-info .where-row:last-child{ border-bottom: 0; }
+.contact-info .where-row .k{ font-size: 11px; color: var(--ink-mute); letter-spacing:.15em; text-transform: uppercase; font-weight: 500;}
+.contact-info .where-row .v{ color: var(--white); font-weight: 500;}
+
+.form{
+  border-radius: var(--r-lg);
+  padding: 32px;
+  background: var(--white);
+  color: var(--ink-dark);
+  box-shadow: 0 16px 50px -16px rgba(13,8,38,.3);
+}
+.field{ display:flex; flex-direction: column; gap: 6px; margin-bottom: 16px;}
+.field label{ font-size: 11px; color: var(--ink-dark-3); letter-spacing:.15em; text-transform: uppercase; font-weight: 600;}
+.field input, .field textarea, .field select{
+  background: var(--off-white);
+  border: 1px solid var(--line-dark);
+  border-radius: 10px;
+  padding: 13px 14px;
+  font-family: var(--font); font-size: 14.5px; color: var(--ink-dark);
+  font-weight: 400;
+  outline: none;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.field input:focus, .field textarea:focus, .field select:focus{
+  border-color: var(--teal);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(31,169,180,.12);
+}
+.field textarea{ resize: vertical; min-height: 110px;}
+.form-foot{ display:flex; align-items: center; justify-content: space-between; margin-top: 8px; flex-wrap: wrap; gap: 12px;}
+.form-foot .micro{ font-size: 11px; color: var(--ink-dark-3); font-weight: 500;}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer{
+  background: var(--navy);
+  padding: 64px 0 32px;
+  color: var(--ink);
+}
+.footer-grid{
+  display: grid; grid-template-columns: 1.6fr .7fr .7fr; gap: 40px;
+}
+@media (max-width: 880px){ .footer-grid{ grid-template-columns: 1fr 1fr; gap: 30px;} }
+.footer h4{
+  font-size: 11px;
+  font-weight: 600; color: rgba(255,255,255,.55); letter-spacing:.18em; text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.footer ul{ list-style: none; padding: 0; margin: 0; display:grid; gap: 10px;}
+.footer ul a{ color: rgba(255,255,255,.78); font-size: 14px; transition: color .2s ease; font-weight: 400;}
+.footer ul a:hover{ color: var(--white);}
+.footer-brand p{ margin-top: 18px; max-width: 340px; font-size: 14px; color: rgba(255,255,255,.7); line-height: 1.55; font-weight: 400;}
+.footer-contact{ margin-top: 22px; display:grid; gap: 12px; }
+.footer-contact-row{
+  display:flex; align-items:flex-start; gap: 10px;
+  font-size: 13px; color: rgba(255,255,255,.58); line-height: 1.5;
+}
+.footer-contact-row svg{ flex-shrink:0; margin-top: 2px; opacity:.7; }
+.footer-contact-row a{ color: rgba(255,255,255,.58); transition: color .2s ease; }
+.footer-contact-row a:hover{ color: var(--white); }
+.footer-bot{
+  display:flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid rgba(255,255,255,.1); margin-top: 48px; padding-top: 22px;
+  font-size: 11px; color: rgba(255,255,255,.55); letter-spacing:.06em; flex-wrap: wrap; gap: 12px; font-weight: 500;
+}
+.footer-bot .socials{ display:flex; gap: 14px; align-items: center;}
+.footer-bot .socials a{ color: rgba(255,255,255,.6); transition: color .2s ease;}
+.footer-bot .socials a:hover{ color: var(--white);}
+
+/* =========================================================
+   REVEAL ANIMATIONS
+   ========================================================= */
+.reveal{ opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1);}
+.reveal.in{ opacity: 1; transform: translateY(0);}
+.reveal-stagger > *{ opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+.reveal-stagger.in > *{ opacity: 1; transform: translateY(0);}
+.reveal-stagger.in > *:nth-child(1){ transition-delay: .05s;}
+.reveal-stagger.in > *:nth-child(2){ transition-delay: .15s;}
+.reveal-stagger.in > *:nth-child(3){ transition-delay: .25s;}
+.reveal-stagger.in > *:nth-child(4){ transition-delay: .35s;}
+.reveal-stagger.in > *:nth-child(5){ transition-delay: .45s;}
+.reveal-stagger.in > *:nth-child(6){ transition-delay: .55s;}
+
+/* ---------- Utilities ---------- */
+.center{ text-align: center; }
+.mt-2{ margin-top: 16px;}
+.mt-4{ margin-top: 32px;}
+
+:focus-visible{ outline: 2px solid var(--green); outline-offset: 3px; border-radius: 6px; }
+
+</style>
+</head>
+<body>
+
+<!-- ================== NAVBAR ================== -->
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Primary">
+    <a href="#top" class="brand" aria-label="ClavesIQ home">
+      <svg class="brand-lockup" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 922.41 389.32"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path fill="#f7f7f7" d="M447.39,178.44a40.23,40.23,0,1,1,0-80.45,40.48,40.48,0,0,1,38.54,28.65l-3,.9a37.32,37.32,0,0,0-35.53-26.42,37.1,37.1,0,0,0,0,74.19,37.34,37.34,0,0,0,35.54-26.42l3,.9A40.48,40.48,0,0,1,447.39,178.44Z"/><path fill="#f7f7f7" d="M406.65,178.44h-1.06a40.23,40.23,0,1,1,38.89-54,1.58,1.58,0,0,0,1.48,1H556v25.39H446a1.58,1.58,0,0,0-1.49,1.06h0A40.19,40.19,0,0,1,406.65,178.44Zm0-77.32a37.1,37.1,0,0,0-37.08,37.65,37.09,37.09,0,0,0,71.95,12.13,4.74,4.74,0,0,1,4.43-3.13H552.84V128.66H446a4.73,4.73,0,0,1-4.43-3.12A37.2,37.2,0,0,0,406.66,101.12Z"/><path fill="#f7f7f7" d="M541.28,128.66h-16v-7.34H510.61V98h17.82v5.5h9.72V98H556v23.33H541.28Zm-12.85-3.14h9.72v-7.34h14.69V101.12H541.28v5.51h-16v-5.51H513.74v17.06h14.69Z"/><path fill="#f7f7f7" d="M280.19,283H228.8a16.26,16.26,0,0,1-8.58-2.33,17.81,17.81,0,0,1-6.21-6.2,16.4,16.4,0,0,1-2.33-8.58v-30A16.47,16.47,0,0,1,214,227.3a17.81,17.81,0,0,1,6.21-6.2,16.26,16.26,0,0,1,8.58-2.33h51.39a16.41,16.41,0,0,1,8.61,2.33,17.62,17.62,0,0,1,6.2,6.2,16.55,16.55,0,0,1,2.31,8.63h-8.56a8.4,8.4,0,0,0-8.56-8.56H228.8a8.45,8.45,0,0,0-8.56,8.56v30a8.49,8.49,0,0,0,8.56,8.55h51.39a8.44,8.44,0,0,0,8.56-8.55h8.56a16.47,16.47,0,0,1-2.31,8.58,17.62,17.62,0,0,1-6.2,6.2A16.41,16.41,0,0,1,280.19,283Z"/><path fill="#f7f7f7" d="M312.57,283H304V218.77h8.56Z"/><path fill="#f7f7f7" d="M387.57,283H334.06a15,15,0,0,1,0-30H379v-4.3a8.47,8.47,0,0,0-8.56-8.56h-47.1v-8.55h47.1a16.63,16.63,0,0,1,8.6,2.3,17.43,17.43,0,0,1,6.21,6.21,16.57,16.57,0,0,1,2.31,8.6ZM379,274.46V261.6H334.06a6.3,6.3,0,0,0-4.59,1.84,6.16,6.16,0,0,0-1.86,4.57,6.35,6.35,0,0,0,6.45,6.45Z"/><path fill="#f7f7f7" d="M428.05,283h-9.63L389,231.63h9.68l24.6,43,24.55-43h9.68Z"/><path fill="#f7f7f7" d="M521.15,283H475a16.28,16.28,0,0,1-8.58-2.33,18,18,0,0,1-6.21-6.2,16.4,16.4,0,0,1-2.33-8.58V246.64a13.07,13.07,0,0,1,2.42-7.78,16.82,16.82,0,0,1,6.37-5.31,19.09,19.09,0,0,1,8.47-1.92H507a19,19,0,0,1,8.45,1.92,16.88,16.88,0,0,1,6.34,5.31,13.07,13.07,0,0,1,2.42,7.78v15H466.39v4.31a8.49,8.49,0,0,0,8.56,8.55h46.2Zm-5.51-30v-6.4a5.18,5.18,0,0,0-1.06-3.09,7.56,7.56,0,0,0-3-2.42,10.42,10.42,0,0,0-4.59-.95h-31.9a10.43,10.43,0,0,0-4.6.95,7.77,7.77,0,0,0-3,2.42,5.14,5.14,0,0,0-1.08,3.09V253Z"/><path fill="#f7f7f7" d="M579.88,283h-51.4v-8.56h51.4a10.14,10.14,0,0,0,4.52-.94,7.6,7.6,0,0,0,3-2.44,5.29,5.29,0,0,0,1-3.07,5.23,5.23,0,0,0-1-3.05,7.74,7.74,0,0,0-3-2.42,10.27,10.27,0,0,0-4.52-.94H545.6a18.66,18.66,0,0,1-8.41-2,16.6,16.6,0,0,1-6.31-5.33,13.57,13.57,0,0,1,0-15.41,16.62,16.62,0,0,1,6.31-5.34,18.78,18.78,0,0,1,8.41-1.94H597v8.55H545.6a10.15,10.15,0,0,0-4.53.95,7.63,7.63,0,0,0-3,2.42,5.23,5.23,0,0,0-1.05,3.09,5.18,5.18,0,0,0,1.05,3,7.63,7.63,0,0,0,3,2.42,10.15,10.15,0,0,0,4.53.94h34.28a18.58,18.58,0,0,1,8.42,2,16.74,16.74,0,0,1,6.29,5.31,13.62,13.62,0,0,1,0,15.44,16.61,16.61,0,0,1-6.29,5.33A18.58,18.58,0,0,1,579.88,283Z"/><path fill="#f7f7f7" d="M612.08,283h-8.56V218.77h8.56Z"/><path fill="#f7f7f7" d="M682.59,291.58H674L671.7,283H637.91a16.31,16.31,0,0,1-8.58-2.33,17.87,17.87,0,0,1-6.2-6.2,16.31,16.31,0,0,1-2.33-8.58v-30a16.38,16.38,0,0,1,2.33-8.63,17.87,17.87,0,0,1,6.2-6.2,16.31,16.31,0,0,1,8.58-2.33h55.7a16.38,16.38,0,0,1,8.6,2.33,17.65,17.65,0,0,1,6.21,6.2,16.55,16.55,0,0,1,2.31,8.63v30a16.47,16.47,0,0,1-2.31,8.58,17.65,17.65,0,0,1-6.21,6.2,16.38,16.38,0,0,1-8.6,2.33H680.26Zm11-17.12a8.49,8.49,0,0,0,8.56-8.55v-30a8.5,8.5,0,0,0-8.56-8.61h-55.7a8.5,8.5,0,0,0-8.56,8.61v30a8.49,8.49,0,0,0,8.56,8.55h31.5l-2.28-8.55h8.56l2.28,8.55Z"/></g></g></svg>
+    </a>
+
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#healthcare">Industry Depth</a>
+      <a href="#stack">Tech&nbsp;Stack</a>
+      <a href="#work">Patterns</a>
+      <a href="#approach">Approach</a>
+    </div>
+
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">
+        Let's talk
+        <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      <button class="menu-btn" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- ================== HERO ================== -->
+<section class="hero" id="top-hero">
+  <!-- Neural particle field canvas -->
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <!-- Edge vignette -->
+  <div class="hero-vignette" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <div class="container">
+      <div class="hero-inner">
+
+        <!-- Left: headline + CTA -->
+        <div class="hero-layer-front">
+          <h1 id="hero-h1">
+            <span class="line"><span class="line-inner">Keys to</span></span>
+            <span class="line"><span class="line-inner accent" id="hero-typewriter"></span></span>
+            <span class="line"><span class="line-inner">that ships.</span></span>
+          </h1>
+
+          <p class="hero-sub">
+            We architect AI systems, data platforms, and cloud-native products for teams that need decisions to move faster. Deep US healthcare expertise, engineered for any industry.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">
+              Book a discovery call
+              <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="#work" class="btn btn-ghost">Explore solution patterns</a>
+          </div>
+        </div>
+
+        <!-- Right: discipline list — click to expand -->
+        <div class="hero-disciplines hero-layer-back" aria-label="What ClavesIQ builds">
+
+          <div class="hero-disc" data-disc="0">
+            <div class="hero-disc-header">
+              <div class="hero-disc-left">
+                <div class="hero-disc-idx">01</div>
+                <div class="hero-disc-name">Agentic AI &amp; LLM Engineering</div>
+                <div class="hero-disc-tags">
+                  <span class="hero-disc-tag">Autonomous Agents</span>
+                  <span class="hero-disc-tag">RAG</span>
+                  <span class="hero-disc-tag">Evals</span>
+                  <span class="hero-disc-tag">Bedrock</span>
+                </div>
+              </div>
+              <div class="hero-disc-arrow" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </div>
+            </div>
+            <div class="hero-disc-body">
+              Most AI projects fail between the demo and production. We don't build demos. We architect systems where the model is one component in a larger, observable, testable pipeline — with retrieval that stays current, tools that don't drift, evals that catch regressions before users do, and guardrails that hold in edge cases. Whether you need a copilot inside your product, an autonomous agent processing your operations queue, or a decision-support layer on top of clinical or financial data — we've shipped it, and we know what breaks after launch.
+            </div>
+          </div>
+
+          <div class="hero-disc" data-disc="1">
+            <div class="hero-disc-header">
+              <div class="hero-disc-left">
+                <div class="hero-disc-idx">02</div>
+                <div class="hero-disc-name">Data Engineering &amp; Analytics</div>
+                <div class="hero-disc-tags">
+                  <span class="hero-disc-tag">Snowflake</span>
+                  <span class="hero-disc-tag">dbt</span>
+                  <span class="hero-disc-tag">Databricks</span>
+                  <span class="hero-disc-tag">Airflow</span>
+                </div>
+              </div>
+              <div class="hero-disc-arrow" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </div>
+            </div>
+            <div class="hero-disc-body">
+              Decisions move at the speed of your data infrastructure. We design and build modern data stacks — lakehouses, warehouses, ELT pipelines, semantic layers, and analytics products — that teams actually use. Our work spans Snowflake, Databricks, dbt, Airflow, and Dagster. We embed data quality checks and observability from day one, not as an afterthought.
+            </div>
+          </div>
+
+          <div class="hero-disc" data-disc="2">
+            <div class="hero-disc-header">
+              <div class="hero-disc-left">
+                <div class="hero-disc-idx">03</div>
+                <div class="hero-disc-name">Cloud &amp; Platform Architecture</div>
+                <div class="hero-disc-tags">
+                  <span class="hero-disc-tag">AWS-first</span>
+                  <span class="hero-disc-tag">Terraform</span>
+                  <span class="hero-disc-tag">HIPAA LZ</span>
+                  <span class="hero-disc-tag">FinOps</span>
+                </div>
+              </div>
+              <div class="hero-disc-arrow" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </div>
+            </div>
+            <div class="hero-disc-body">
+              Cloud infrastructure done wrong becomes the ceiling on everything else — your AI can't scale, your data can't move fast enough, and your compliance posture becomes a liability. We build AWS-first foundations that are secure by design, not by retrofit: HIPAA-eligible landing zones, network isolation, encryption at the tenant level, and infrastructure-as-code from day one. Every environment we deliver ships with observability, cost controls, and a CI/CD pipeline the engineering team actually owns. GCP and Azure where the workload or the contract requires it.
+            </div>
+          </div>
+
+          <div class="hero-disc" data-disc="3">
+            <div class="hero-disc-header">
+              <div class="hero-disc-left">
+                <div class="hero-disc-idx">04</div>
+                <div class="hero-disc-name">US Healthcare &amp; Regulated Data</div>
+                <div class="hero-disc-tags">
+                  <span class="hero-disc-tag">EHR</span>
+                  <span class="hero-disc-tag">FHIR</span>
+                  <span class="hero-disc-tag">Claims</span>
+                  <span class="hero-disc-tag">HIPAA</span>
+                </div>
+              </div>
+              <div class="hero-disc-arrow" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </div>
+            </div>
+            <div class="hero-disc-body">
+              Healthcare data is not just sensitive — it's structurally complex. Claims travel through five systems before they mean anything. Clinical notes require NLP before they're queryable. FHIR and HL7 don't speak the same dialect twice. We've worked at the intersection of all of it: payer analytics, prior auth automation, EHR integrations, pharmacy data pipelines, and real-world evidence platforms. We design HIPAA-aware systems from the first architecture decision — not patched in at audit time.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ================== TRUST STRIP (MARQUEE) ================== -->
+<div class="trust">
+  <div class="trust-label">Engineering intelligence across regulated, data-heavy businesses</div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="item">Applied AI</span>
+      <span class="item"><span class="bullet"></span>Data Platforms</span>
+      <span class="item"><span class="bullet"></span>Cloud Architecture</span>
+      <span class="item"><span class="bullet"></span>Product Engineering</span>
+      <span class="item"><span class="bullet"></span>US Healthcare</span>
+      <span class="item"><span class="bullet"></span>Analytics Products</span>
+      <span class="item"><span class="bullet"></span>Automation</span>
+      <span class="item"><span class="bullet"></span>Compliance Engineering</span>
+      <span class="item"><span class="bullet"></span>Applied AI</span>
+      <span class="item"><span class="bullet"></span>Data Platforms</span>
+      <span class="item"><span class="bullet"></span>Cloud Architecture</span>
+      <span class="item"><span class="bullet"></span>Product Engineering</span>
+      <span class="item"><span class="bullet"></span>US Healthcare</span>
+      <span class="item"><span class="bullet"></span>Analytics Products</span>
+      <span class="item"><span class="bullet"></span>Automation</span>
+      <span class="item"><span class="bullet"></span>Compliance Engineering</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================== SERVICES ================== -->
+<section id="services">
+  <div class="container">
+    <div class="section-head on-teal reveal">
+      <div>
+        <span class="eyebrow">/01 — What we do</span>
+        <h2 class="mt-2">Six ways we engage.<br/>One standard: <span style="color:var(--ink-dark);">production or nothing.</span></h2>
+      </div>
+      <p class="lede">We don't split AI, automation, and LLM work into three separate line items. We organise around what clients actually buy — and what they actually need to get unstuck.</p>
+    </div>
+
+    <div class="svc-grid reveal-stagger">
+      <article class="svc-card">
+        <div>
+          <div class="svc-num">/ 01</div>
+          <div class="svc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6m11-11h-6M7 12H1m17.07-7.07l-4.24 4.24M9.17 14.83l-4.24 4.24m0-14.14l4.24 4.24m5.66 5.66l4.24 4.24"/></svg>
+          </div>
+          <div class="svc-title">AI Systems That Reach Production</div>
+          <p class="svc-desc">Most AI projects die between the demo and go-live. We merge LLM engineering, agentic automation, and production AI into one discipline — covering agents, copilots, RAG, evals, guardrails, and the observability layer that keeps it honest after launch.</p>
+        </div>
+        <div class="svc-tags">
+          <span class="svc-tag">Agents</span>
+          <span class="svc-tag">RAG</span>
+          <span class="svc-tag">Evals</span>
+          <span class="svc-tag">Bedrock</span>
+          <span class="svc-tag">LangGraph</span>
+        </div>
+      </article>
+
+      <article class="svc-card">
+        <div>
+          <div class="svc-num">/ 02</div>
+          <div class="svc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6"/></svg>
+          </div>
+          <div class="svc-title">Trusted Data Infrastructure</div>
+          <p class="svc-desc">When the data is wrong, everything downstream is wrong. We build pipelines, warehouses, and semantic layers that analysts trust, operators rely on, and AI systems can actually learn from — with quality checks and observability built in, not bolted on.</p>
+        </div>
+        <div class="svc-tags">
+          <span class="svc-tag">Snowflake</span>
+          <span class="svc-tag">Databricks</span>
+          <span class="svc-tag">dbt</span>
+          <span class="svc-tag">Airflow</span>
+        </div>
+      </article>
+
+      <article class="svc-card">
+        <div>
+          <div class="svc-num">/ 03</div>
+          <div class="svc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          </div>
+          <div class="svc-title">Production-Grade Cloud Foundations</div>
+          <p class="svc-desc">Cloud infrastructure done wrong becomes the ceiling on everything else. We build AWS-first environments that are secure by design — HIPAA landing zones, tenant-level encryption, IaC, cost controls — so you're not retrofitting compliance the week before an audit.</p>
+        </div>
+        <div class="svc-tags">
+          <span class="svc-tag">AWS-first</span>
+          <span class="svc-tag">Terraform</span>
+          <span class="svc-tag">HIPAA LZ</span>
+          <span class="svc-tag">FinOps</span>
+        </div>
+      </article>
+
+      <article class="svc-card">
+        <div>
+          <div class="svc-num">/ 04</div>
+          <div class="svc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="svc-title">Healthcare Data, Handled Correctly</div>
+          <p class="svc-desc">Claims, EHR, pharmacy, prior auth, payer analytics — we've worked at every layer of it. We know that FHIR and HL7 don't speak the same dialect twice, that clinical notes need NLP before they're useful, and that HIPAA-aware architecture starts at the first design decision, not the last.</p>
+        </div>
+        <div class="svc-tags">
+          <span class="svc-tag">EHR</span>
+          <span class="svc-tag">FHIR</span>
+          <span class="svc-tag">Claims</span>
+          <span class="svc-tag">HIPAA</span>
+          <span class="svc-tag">NLP</span>
+        </div>
+      </article>
+
+      <article class="svc-card">
+        <div>
+          <div class="svc-num">/ 05</div>
+          <div class="svc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <div class="svc-title">Products Built to Launch and Last</div>
+          <p class="svc-desc">A prototype that doesn't ship is an expensive experiment. We deliver full-stack web and mobile products — frontend, APIs, data models, identity, integrations — and stay involved past launch so what we build doesn't become someone else's maintenance problem six months later.</p>
+        </div>
+        <div class="svc-tags">
+          <span class="svc-tag">React</span>
+          <span class="svc-tag">TypeScript</span>
+          <span class="svc-tag">Node</span>
+          <span class="svc-tag">Python</span>
+        </div>
+      </article>
+
+      <article class="svc-card">
+        <div>
+          <div class="svc-num">/ 06</div>
+          <div class="svc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="svc-title">Senior Technical Partnership</div>
+          <p class="svc-desc">Sometimes what you need isn't a delivery team — it's a senior technical voice in the room. We work with CIOs, founders, and delivery leaders on architecture reviews, AI strategy, vendor selection, and team augmentation. Engagement without a long retainer or a bloated SOW.</p>
+        </div>
+        <div class="svc-tags">
+          <span class="svc-tag">Architecture Review</span>
+          <span class="svc-tag">AI Strategy</span>
+          <span class="svc-tag">Team Augmentation</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================== HEALTHCARE FOCUS (NAVY) ================== -->
+<section id="healthcare" class="dark-section">
+  <div class="container">
+    <div class="focus-grid reveal">
+      <div>
+        <span class="focus-pill">Healthcare &amp; Regulated Data Depth</span>
+        <h2 class="mt-2" style="color:var(--white);">Healthcare data is not just data.<br/><span style="color:var(--green);">It is messy, regulated, coded,<br/>delayed, and consequential.</span></h2>
+        <p class="mt-2" style="max-width:560px; color:rgba(255,255,255,.78); font-weight:400;">
+          We understand the operational reality behind claims, EHR, clinical notes, pharmacy data, eligibility, FHIR/HL7 feeds, payer workflows, and PHI controls. That domain context lets us build AI, data, and cloud systems that survive production scrutiny — not just sandbox demos.
+        </p>
+        <ul class="focus-bullets">
+          <li><span><b>Claims &amp; payer operations</b> — medical and pharmacy claims, risk adjustment, prior auth, utilization management, member journeys, payment integrity, revenue cycle AI, and data mastering across fragmented member and provider records.</span></li>
+          <li><span><b>EHR &amp; clinical text</b> — structured records, clinical notes, NLP extraction, summarization, coding support, chart review, care gap identification, HEDIS/STARS measures, and clinical workflow context for providers and health plans.</span></li>
+          <li><span><b>Interoperability &amp; standards</b> — FHIR, HL7, eligibility feeds, provider directories, data mapping, identity matching, and the source-system inconsistency that makes every integration harder than the spec suggests.</span></li>
+          <li><span><b>Life sciences &amp; RWD</b> — real-world evidence pipelines, patient cohorting, market access analytics, formulary and rebate modeling, commercial AI, and data platforms that support drug development and post-market decisions.</span></li>
+          <li><span><b>Regulated delivery</b> — PHI minimization, role-based access controls, audit-ready logging, model evaluation regimes, human review workflows, and HIPAA-aware architecture from the first design decision — not patched in before the audit.</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="focus-cards">
+          <div class="focus-card">
+            <div class="focus-card-label">Claims</div>
+            <div class="focus-card-sub">Payer, PBM, pharmacy<br/>and risk workflows</div>
+          </div>
+          <div class="focus-card">
+            <div class="focus-card-label">EHR</div>
+            <div class="focus-card-sub">Clinical records,<br/>notes and NLP</div>
+          </div>
+          <div class="focus-card">
+            <div class="focus-card-label">FHIR</div>
+            <div class="focus-card-sub">Interoperability<br/>and regulated exchange</div>
+          </div>
+          <div class="focus-card">
+            <div class="focus-card-label">PHI</div>
+            <div class="focus-card-sub">Privacy, audit<br/>and access controls</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== TECH STACK (TEAL) ================== -->
+<section id="stack">
+  <div class="container">
+    <div class="section-head on-teal reveal">
+      <div>
+        <span class="eyebrow">/02 — Platform choices</span>
+        <h2 class="mt-2"><span style="color:var(--ink-dark);">AWS-first</span> by default.<br/>Portable where the work demands it.</h2>
+      </div>
+      <p class="lede">We choose boring, supportable infrastructure for systems that need to survive production: secure data movement, observable services, governed AI, and clear ownership. AWS is our default — GCP, Azure, and cross-cloud tooling come in when the client environment or workload makes them the right choice.</p>
+    </div>
+
+    <div class="stack-wrap reveal">
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="aws" role="tab" aria-selected="true">
+          AWS Production Core <span class="badge">DEFAULT</span>
+        </button>
+        <button class="tab" data-tab="gcp" role="tab" aria-selected="false">
+          GCP When It Fits <span class="badge">SELECTIVE</span>
+        </button>
+        <button class="tab" data-tab="azure" role="tab" aria-selected="false">
+          Azure Enterprise Integration <span class="badge">SELECTIVE</span>
+        </button>
+        <button class="tab" data-tab="data" role="tab" aria-selected="false">
+          Data &amp; AI Operating Layer <span class="badge">CORE</span>
+        </button>
+        <button class="tab" data-tab="app" role="tab" aria-selected="false">
+          Product Runtime <span class="badge">CORE</span>
+        </button>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h3 id="panel-title">AWS Production Core</h3>
+          <span class="meta" id="panel-meta">DEFAULT FOUNDATION · REGULATED WORKLOADS</span>
+        </div>
+        <div class="panel-grid" id="panel-grid"></div>
+        <div class="panel-note" id="panel-note">
+          Default foundation for secure AI, data, and product workloads: landing zones, IAM, KMS, VPC design, observability, CI/CD, data lakes, model services, and cost controls. HIPAA-sensitive work is designed around BAA coverage, access policy, auditability, and PHI minimization — not just the eligible-services list.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== APPROACH ================== -->
+<section id="approach">
+  <div class="container">
+    <div class="section-head on-teal reveal">
+      <div>
+        <span class="eyebrow">/03 — How we work</span>
+        <h2 class="mt-2">A practical path from idea<br/>to <span style="color:var(--ink-dark);">production.</span></h2>
+      </div>
+      <p class="lede">We do not start with a giant discovery deck. We start with the decision, workflow, data, risk, and success metric — then build the smallest production-shaped system that can prove value with real users. For AI and regulated data, disciplined matters more than rapid.</p>
+    </div>
+
+    <div class="process reveal-stagger">
+      <div class="step">
+        <div class="k">01</div>
+        <h3>Frame the Decision</h3>
+        <p>We identify the workflow, user, data sources, risk level, and business metric. We also map where AI or automation should not be used — that boundary matters as much as the solution.</p>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </div>
+      <div class="step">
+        <div class="k">02</div>
+        <h3>Prove the System</h3>
+        <p>We prototype against real data, define evaluation criteria, test edge cases, and decide what must be automated, reviewed by a human, or rejected outright before anything gets built for production.</p>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </div>
+      <div class="step">
+        <div class="k">03</div>
+        <h3>Ship the Workflow</h3>
+        <p>We build the product surface, APIs, data pipelines, cloud infrastructure, observability, security controls, and release path. Real users early — not after months of isolated build time.</p>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </div>
+      <div class="step">
+        <div class="k">04</div>
+        <h3>Operate and Improve</h3>
+        <p>We monitor quality, cost, drift, adoption, exceptions, and business outcomes — then tune the system with the teams who own it. We stay around long enough to defend the metrics we promised.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== SOLUTION PATTERNS (NAVY contrast) ================== -->
+<section id="work" class="dark-section">
+  <div class="container">
+    <div class="section-head on-navy reveal">
+      <div>
+        <span class="eyebrow">/04 — Solution patterns</span>
+        <h2 class="mt-2">The problems we are<br/><span style="color:var(--green);">built to solve.</span></h2>
+      </div>
+      <p class="lede">ClavesIQ is a new company, but the team is built around patterns we know how to deliver: production AI workflows, trusted data foundations, secure cloud platforms, healthcare data systems, and full-stack product delivery.</p>
+    </div>
+
+    <div class="cases reveal-stagger">
+      <article class="case">
+        <div class="case-bg"></div>
+        <div class="case-pattern-label">Architecture pattern</div>
+        <h3>Document-heavy AI workflows</h3>
+        <p class="case-desc">For teams processing clinical notes, claims, contracts, support tickets, policies, or intake queues. We design retrieval, extraction, review, evaluation, and audit paths around the real workflow — not a generic LLM wrapper.</p>
+      </article>
+
+      <article class="case">
+        <div class="case-bg"></div>
+        <div class="case-pattern-label">Architecture pattern</div>
+        <h3>Trusted data foundations</h3>
+        <p class="case-desc">For teams whose reporting, AI, and operations depend on consistent data definitions, quality checks, semantic layers, and observable pipelines. We build the layer that makes data usable — across clouds, sources, and teams.</p>
+      </article>
+
+      <article class="case">
+        <div class="case-bg"></div>
+        <div class="case-pattern-label">Architecture pattern</div>
+        <h3>Regulated cloud platforms</h3>
+        <p class="case-desc">For teams that need secure AWS environments, PHI/PII controls, deployment paths, observability, and cost discipline from the start — not retrofitted before an audit. We wire compliance into the architecture, not the checklist.</p>
+      </article>
+
+      <article class="case">
+        <div class="case-bg"></div>
+        <div class="case-pattern-label">Architecture pattern</div>
+        <h3>Healthcare data systems</h3>
+        <p class="case-desc">For claims, EHR, FHIR/HL7, pharmacy, payer workflows, risk adjustment, prior auth, real-world data, and clinical text use cases. We understand where health data breaks before it reaches your model or your dashboard.</p>
+      </article>
+
+      <article class="case">
+        <div class="case-bg"></div>
+        <div class="case-pattern-label">Architecture pattern</div>
+        <h3>Product platforms around intelligence</h3>
+        <p class="case-desc">For founders and teams that need usable software around the intelligence layer: UX, APIs, identity, data models, integrations, and the release operations that keep it running after launch. The AI is only as good as the product surface around it.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================== WHY CLAVESIQ (TEAL) ================== -->
+<section>
+  <div class="container">
+    <div class="section-head on-teal reveal">
+      <div>
+        <span class="eyebrow">/05 — Why ClavesIQ</span>
+        <h2 class="mt-2">Senior technical depth.<br/><span style="color:var(--ink-dark);">Built for systems that have to work.</span></h2>
+      </div>
+      <p class="lede">ClavesIQ is built for companies that need more than extra developers. We bring senior architecture, AI/data/cloud execution, healthcare-aware judgment, and production ownership into one small, accountable team.</p>
+    </div>
+
+    <div class="why reveal">
+      <div>
+        <ul class="why-list">
+          <li>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><b>Senior-led, not handoff-led.</b> The people who shape the architecture stay close through build, launch, and iteration. No bait-and-switch to junior staff after kickoff.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><b>Production-first AI.</b> We design for evaluation, observability, fallback paths, human review, and operating ownership from the start — not bolted on before go-live.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><b>Healthcare and regulated-data judgment.</b> Claims, EHR, PHI, FHIR/HL7, payer workflows, and auditability are treated as first-order design constraints, not compliance checkboxes.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><b>Outcome-tied delivery.</b> Every engagement is anchored to a business, workflow, product, or operating metric — not just a task list or a delivery date.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><b>Toronto-based, US-aligned.</b> Remote-first delivery with working-hour overlap across US time zones. Onsite for kickoffs, architecture reviews, and the decisions that need a room.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="why-grid">
+        <div class="why-stat">
+          <div class="n"><span>Senior</span></div>
+          <div class="l">Architecture and delivery owned by the same people from scope to launch</div>
+        </div>
+        <div class="why-stat">
+          <div class="n"><span>Honest</span></div>
+          <div class="l">We tell you what will break, what AI should not do, and what it will actually cost</div>
+        </div>
+        <div class="why-stat">
+          <div class="n"><span>Measured</span></div>
+          <div class="l">Every engagement is tied to a business, product, or operating outcome</div>
+        </div>
+        <div class="why-stat">
+          <div class="n"><span>Regulated</span></div>
+          <div class="l">PHI controls, audit-ready logging, and HIPAA-aware architecture from day one</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== BIG CTA ================== -->
+<div class="bigcta-wrap">
+  <div class="container">
+    <div class="bigcta reveal">
+      <h2>Have an intelligence problem<br/>that <span class="accent">needs to ship?</span></h2>
+      <p>30-minute call. No pitch deck. We'll tell you whether we can help, who you should also talk to, and roughly what it should cost.</p>
+      <div class="ctas">
+        <a href="#contact" class="btn btn-on-dark">
+          Start the conversation
+          <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="mailto:tech@clavesiq.com" class="btn btn-dark-ghost">tech@clavesiq.com</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================== CONTACT ================== -->
+<section id="contact">
+  <div class="container">
+    <div class="contact">
+      <div class="contact-info reveal">
+        <span class="eyebrow">/06 — Let's talk</span>
+        <h2 class="mt-2" style="color:var(--white);">Tell us what you're trying<br/>to <span style="color:var(--ink-dark);">unlock.</span></h2>
+        <p class="mt-2" style="max-width: 480px; color: var(--ink-soft); font-weight: 400;">
+          Drop a short note. We'll get back within one business day — usually faster. If we're not the right fit, we'll say so, and point you at someone who is.
+        </p>
+
+        <div class="where">
+          <div class="where-row"><span class="k">Address</span><span class="v">99 Broadway Ave, Suite LPH 11<br/>Toronto, ON M4P 0E3</span></div>
+          <div class="where-row"><span class="k">Phone</span><span class="v"><a href="tel:+16177857244" style="color:inherit;">617-785-7244</a></span></div>
+          <div class="where-row"><span class="k">Email</span><span class="v"><a href="mailto:tech@clavesiq.com" style="color:inherit;">tech@clavesiq.com</a></span></div>
+        </div>
+      </div>
+
+      <form class="form reveal" onsubmit="handleFormSubmit(event)">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" placeholder="Jane Patel" required />
+        </div>
+        <div class="field">
+          <label for="email">Work Email</label>
+          <input id="email" name="email" type="email" placeholder="jane@payerco.com" required />
+        </div>
+        <div class="field">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" placeholder="Acme Health Plan" />
+        </div>
+        <div class="field">
+          <label for="focus">What are you trying to unlock?</label>
+          <select id="focus" name="focus">
+            <option>Applied AI / LLMs in production</option>
+            <option>Data platform &amp; analytics</option>
+            <option>Product engineering</option>
+            <option>Cloud / AWS architecture</option>
+            <option>Agentic automation</option>
+            <option>Compliance &amp; trust engineering</option>
+            <option>Not sure yet — let's talk</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="ctx">Context</label>
+          <textarea id="ctx" name="ctx" placeholder="A few sentences about the problem, your stack, and your timeline."></textarea>
+        </div>
+        <div class="form-foot">
+          <span class="micro">By submitting, you agree to our privacy policy.</span>
+          <button type="submit" class="btn btn-primary">
+            Send message
+            <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================== FOOTER ================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand">
+          <svg class="brand-lockup-footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 922.41 389.32"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path fill="#f7f7f7" d="M447.39,178.44a40.23,40.23,0,1,1,0-80.45,40.48,40.48,0,0,1,38.54,28.65l-3,.9a37.32,37.32,0,0,0-35.53-26.42,37.1,37.1,0,0,0,0,74.19,37.34,37.34,0,0,0,35.54-26.42l3,.9A40.48,40.48,0,0,1,447.39,178.44Z"/><path fill="#f7f7f7" d="M406.65,178.44h-1.06a40.23,40.23,0,1,1,38.89-54,1.58,1.58,0,0,0,1.48,1H556v25.39H446a1.58,1.58,0,0,0-1.49,1.06h0A40.19,40.19,0,0,1,406.65,178.44Zm0-77.32a37.1,37.1,0,0,0-37.08,37.65,37.09,37.09,0,0,0,71.95,12.13,4.74,4.74,0,0,1,4.43-3.13H552.84V128.66H446a4.73,4.73,0,0,1-4.43-3.12A37.2,37.2,0,0,0,406.66,101.12Z"/><path fill="#f7f7f7" d="M541.28,128.66h-16v-7.34H510.61V98h17.82v5.5h9.72V98H556v23.33H541.28Zm-12.85-3.14h9.72v-7.34h14.69V101.12H541.28v5.51h-16v-5.51H513.74v17.06h14.69Z"/><path fill="#f7f7f7" d="M280.19,283H228.8a16.26,16.26,0,0,1-8.58-2.33,17.81,17.81,0,0,1-6.21-6.2,16.4,16.4,0,0,1-2.33-8.58v-30A16.47,16.47,0,0,1,214,227.3a17.81,17.81,0,0,1,6.21-6.2,16.26,16.26,0,0,1,8.58-2.33h51.39a16.41,16.41,0,0,1,8.61,2.33,17.62,17.62,0,0,1,6.2,6.2,16.55,16.55,0,0,1,2.31,8.63h-8.56a8.4,8.4,0,0,0-8.56-8.56H228.8a8.45,8.45,0,0,0-8.56,8.56v30a8.49,8.49,0,0,0,8.56,8.55h51.39a8.44,8.44,0,0,0,8.56-8.55h8.56a16.47,16.47,0,0,1-2.31,8.58,17.62,17.62,0,0,1-6.2,6.2A16.41,16.41,0,0,1,280.19,283Z"/><path fill="#f7f7f7" d="M312.57,283H304V218.77h8.56Z"/><path fill="#f7f7f7" d="M387.57,283H334.06a15,15,0,0,1,0-30H379v-4.3a8.47,8.47,0,0,0-8.56-8.56h-47.1v-8.55h47.1a16.63,16.63,0,0,1,8.6,2.3,17.43,17.43,0,0,1,6.21,6.21,16.57,16.57,0,0,1,2.31,8.6ZM379,274.46V261.6H334.06a6.3,6.3,0,0,0-4.59,1.84,6.16,6.16,0,0,0-1.86,4.57,6.35,6.35,0,0,0,6.45,6.45Z"/><path fill="#f7f7f7" d="M428.05,283h-9.63L389,231.63h9.68l24.6,43,24.55-43h9.68Z"/><path fill="#f7f7f7" d="M521.15,283H475a16.28,16.28,0,0,1-8.58-2.33,18,18,0,0,1-6.21-6.2,16.4,16.4,0,0,1-2.33-8.58V246.64a13.07,13.07,0,0,1,2.42-7.78,16.82,16.82,0,0,1,6.37-5.31,19.09,19.09,0,0,1,8.47-1.92H507a19,19,0,0,1,8.45,1.92,16.88,16.88,0,0,1,6.34,5.31,13.07,13.07,0,0,1,2.42,7.78v15H466.39v4.31a8.49,8.49,0,0,0,8.56,8.55h46.2Zm-5.51-30v-6.4a5.18,5.18,0,0,0-1.06-3.09,7.56,7.56,0,0,0-3-2.42,10.42,10.42,0,0,0-4.59-.95h-31.9a10.43,10.43,0,0,0-4.6.95,7.77,7.77,0,0,0-3,2.42,5.14,5.14,0,0,0-1.08,3.09V253Z"/><path fill="#f7f7f7" d="M579.88,283h-51.4v-8.56h51.4a10.14,10.14,0,0,0,4.52-.94,7.6,7.6,0,0,0,3-2.44,5.29,5.29,0,0,0,1-3.07,5.23,5.23,0,0,0-1-3.05,7.74,7.74,0,0,0-3-2.42,10.27,10.27,0,0,0-4.52-.94H545.6a18.66,18.66,0,0,1-8.41-2,16.6,16.6,0,0,1-6.31-5.33,13.57,13.57,0,0,1,0-15.41,16.62,16.62,0,0,1,6.31-5.34,18.78,18.78,0,0,1,8.41-1.94H597v8.55H545.6a10.15,10.15,0,0,0-4.53.95,7.63,7.63,0,0,0-3,2.42,5.23,5.23,0,0,0-1.05,3.09,5.18,5.18,0,0,0,1.05,3,7.63,7.63,0,0,0,3,2.42,10.15,10.15,0,0,0,4.53.94h34.28a18.58,18.58,0,0,1,8.42,2,16.74,16.74,0,0,1,6.29,5.31,13.62,13.62,0,0,1,0,15.44,16.61,16.61,0,0,1-6.29,5.33A18.58,18.58,0,0,1,579.88,283Z"/><path fill="#f7f7f7" d="M612.08,283h-8.56V218.77h8.56Z"/><path fill="#f7f7f7" d="M682.59,291.58H674L671.7,283H637.91a16.31,16.31,0,0,1-8.58-2.33,17.87,17.87,0,0,1-6.2-6.2,16.31,16.31,0,0,1-2.33-8.58v-30a16.38,16.38,0,0,1,2.33-8.63,17.87,17.87,0,0,1,6.2-6.2,16.31,16.31,0,0,1,8.58-2.33h55.7a16.38,16.38,0,0,1,8.6,2.33,17.65,17.65,0,0,1,6.21,6.2,16.55,16.55,0,0,1,2.31,8.63v30a16.47,16.47,0,0,1-2.31,8.58,17.65,17.65,0,0,1-6.21,6.2,16.38,16.38,0,0,1-8.6,2.33H680.26Zm11-17.12a8.49,8.49,0,0,0,8.56-8.55v-30a8.5,8.5,0,0,0-8.56-8.61h-55.7a8.5,8.5,0,0,0-8.56,8.61v30a8.49,8.49,0,0,0,8.56,8.55h31.5l-2.28-8.55h8.56l2.28,8.55Z"/></g></g></svg>
+        </a>
+        <p>AI, data &amp; cloud engineering. Deep US healthcare expertise, built in Toronto.</p>
+        <div class="footer-contact">
+          <div class="footer-contact-row">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>99 Broadway Ave, Suite LPH 11<br/>Toronto, ON M4P 0E3, Canada</span>
+          </div>
+          <div class="footer-contact-row">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+16177857244">617-785-7244</a>
+          </div>
+          <div class="footer-contact-row">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:tech@clavesiq.com">tech@clavesiq.com</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>What we do</h4>
+        <ul>
+          <li><a href="#services">AI systems that reach production</a></li>
+          <li><a href="#services">Trusted data infrastructure</a></li>
+          <li><a href="#services">Production-grade cloud</a></li>
+          <li><a href="#services">Healthcare data</a></li>
+          <li><a href="#services">Products built to last</a></li>
+          <li><a href="#services">Senior technical partnership</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#work">Solution Patterns</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#stack">Tech Stack</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Careers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2026 ClavesIQ Inc. · Toronto, ON, Canada</span>
+      <div class="socials">
+        <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14M8.34 17V10H6V17h2.34M7.16 9a1.36 1.36 0 0 0 0-2.72 1.36 1.36 0 0 0 0 2.72M18 17v-3.83c0-2.27-1.45-3.17-2.91-3.17a2.84 2.84 0 0 0-2.57 1.27V10h-2.07V17h2.34v-3.83A1.55 1.55 0 0 1 14.5 11.7c.97 0 1.16.84 1.16 1.51V17H18z"/></svg></a>
+        <a href="#" aria-label="X / Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zM17.083 19.77h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="#" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2C5.3 8.4 5 7.2 5.5 5.7c0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.5.3 2.7.1 3 .8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.5 6 .5.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   NEURAL PARTICLE FIELD — hero background
+   ========================================================= */
+(function(){
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  const COLORS = {
+    teal:  'rgba(31,169,180,',
+    green: 'rgba(55,218,113,',
+    white: 'rgba(247,247,247,',
+  };
+
+  let W, H, dpr, particles, mouse = {x: -9999, y: -9999};
+  const COUNT = window.innerWidth < 768 ? 60 : 110;
+  const EDGE_DIST = 130;          // max dist to draw an edge
+  const MOUSE_DIST = 180;         // mouse repulsion radius
+  const MOUSE_FORCE = 0.018;
+
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.offsetWidth;
+    H = canvas.offsetHeight;
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    ctx.scale(dpr, dpr);
+  }
+
+  function randColor(){
+    const r = Math.random();
+    if (r < .5)  return COLORS.teal;
+    if (r < .82) return COLORS.green;
+    return COLORS.white;
+  }
+
+  function makeParticle(){
+    const col = randColor();
+    return {
+      x:  Math.random() * W,
+      y:  Math.random() * H,
+      vx: (Math.random() - .5) * .38,
+      vy: (Math.random() - .5) * .38,
+      r:  1.4 + Math.random() * 2,
+      col,
+      pulse: Math.random() * Math.PI * 2,
+      pulseSpeed: 0.012 + Math.random() * 0.018,
+    };
+  }
+
+  function init(){
+    particles = Array.from({length: COUNT}, makeParticle);
+  }
+
+  function drawEdge(a, b, dist){
+    const alpha = (1 - dist / EDGE_DIST) * .45;
+    // pick the dimmer particle's colour for the line
+    const col = a.col;
+    const grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
+    grad.addColorStop(0,   col + alpha + ')');
+    grad.addColorStop(0.5, b.col + (alpha * 1.3) + ')');
+    grad.addColorStop(1,   b.col + alpha + ')');
+    ctx.beginPath();
+    ctx.moveTo(a.x, a.y);
+    ctx.lineTo(b.x, b.y);
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = .7 + (1 - dist / EDGE_DIST) * .8;
+    ctx.stroke();
+  }
+
+  function frame(){
+    ctx.clearRect(0, 0, W, H);
+
+    // update
+    for (const p of particles){
+      p.pulse += p.pulseSpeed;
+
+      // mouse soft repulsion
+      const dx = p.x - mouse.x;
+      const dy = p.y - mouse.y;
+      const d2 = dx * dx + dy * dy;
+      if (d2 < MOUSE_DIST * MOUSE_DIST && d2 > 0){
+        const d = Math.sqrt(d2);
+        const f = (1 - d / MOUSE_DIST) * MOUSE_FORCE;
+        p.vx += (dx / d) * f;
+        p.vy += (dy / d) * f;
+      }
+
+      // dampen velocity so it doesn't diverge
+      p.vx *= .994;
+      p.vy *= .994;
+
+      p.x += p.vx;
+      p.y += p.vy;
+
+      // wrap edges
+      if (p.x < -8)  p.x = W + 8;
+      if (p.x > W+8) p.x = -8;
+      if (p.y < -8)  p.y = H + 8;
+      if (p.y > H+8) p.y = -8;
+    }
+
+    // draw edges first (below nodes)
+    for (let i = 0; i < particles.length; i++){
+      for (let j = i + 1; j < particles.length; j++){
+        const a = particles[i], b = particles[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < EDGE_DIST) drawEdge(a, b, dist);
+      }
+    }
+
+    // draw nodes
+    for (const p of particles){
+      const glow = .55 + Math.sin(p.pulse) * .3;
+      const radius = p.r * (0.85 + Math.sin(p.pulse) * .18);
+
+      // outer glow
+      const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, radius * 6);
+      g.addColorStop(0,   p.col + (glow * .55) + ')');
+      g.addColorStop(0.4, p.col + (glow * .18) + ')');
+      g.addColorStop(1,   p.col + '0)');
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, radius * 6, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+
+      // core dot
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = p.col + glow + ')';
+      ctx.fill();
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  window.addEventListener('resize', () => { resize(); });
+  document.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  document.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+
+  resize();
+  init();
+  frame();
+})();
+
+/* =========================================================
+   HERO TYPEWRITER — "intelligence"
+   ========================================================= */
+(function(){
+  const target = document.getElementById('hero-typewriter');
+  if (!target) return;
+  const word = 'intelligence';
+
+  // First trigger the H1 line slides
+  const lines = document.querySelectorAll('#hero-h1 .line-inner');
+  lines[0] && setTimeout(() => {
+    lines[0].classList.add('line-in');
+    lines[0].style.animationDelay = '0s';
+  }, 300);
+  lines[2] && setTimeout(() => {
+    lines[2].classList.add('line-in');
+    lines[2].style.animationDelay = '0s';
+  }, 1300);
+
+  // Start typewriter for line 2 at 550ms
+  let i = 0;
+  const cursor = document.createElement('span');
+  cursor.className = 'tw-cursor';
+  target.parentElement && target.parentElement.classList.add('line-in');
+
+  setTimeout(() => {
+    target.style.opacity = '1';
+    target.style.transform = 'translateY(0)';
+    function type(){
+      if (i <= word.length){
+        target.textContent = word.slice(0, i);
+        target.appendChild(cursor);
+        i++;
+        setTimeout(type, i < 4 ? 65 : i < 10 ? 55 : 70);
+      } else {
+        // cursor stays briefly then fades
+        setTimeout(() => { cursor.style.animation = 'none'; cursor.style.opacity = '0'; cursor.style.transition = 'opacity .6s ease'; }, 2400);
+      }
+    }
+    type();
+  }, 560);
+})();
+
+/* =========================================================
+   HERO MOUSE PARALLAX — two-layer depth
+   ========================================================= */
+(function(){
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  const layerBack  = hero.querySelector('.hero-layer-back');
+  const layerFront = hero.querySelector('.hero-layer-front');
+  if (!layerBack || !layerFront) return;
+
+  let cx = 0, cy = 0, tx = 0, ty = 0;
+  let raf;
+
+  hero.addEventListener('mousemove', e => {
+    const r = hero.getBoundingClientRect();
+    tx = (e.clientX - r.left - r.width  / 2) / r.width;
+    ty = (e.clientY - r.top  - r.height / 2) / r.height;
+  });
+  hero.addEventListener('mouseleave', () => { tx = 0; ty = 0; });
+
+  function tick(){
+    cx += (tx - cx) * .06;
+    cy += (ty - cy) * .06;
+    const bx = cx * 22, by = cy * 14;
+    const fx = cx * -10, fy = cy * -8;
+    if (layerBack)  layerBack.style.transform  = `translate(${bx}px,${by}px)`;
+    if (layerFront) layerFront.style.transform = `translate(${fx}px,${fy}px)`;
+    raf = requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+/* =========================================================
+   DISCIPLINE ACCORDION
+   ========================================================= */
+(function(){
+  document.querySelectorAll('.hero-disc').forEach(disc => {
+    const header = disc.querySelector('.hero-disc-header');
+    if (!header) return;
+    header.addEventListener('click', () => {
+      const isOpen = disc.classList.contains('open');
+      document.querySelectorAll('.hero-disc').forEach(d => d.classList.remove('open'));
+      if (!isOpen) disc.classList.add('open');
+    });
+  });
+})();
+
+/* =========================================================
+   SCROLL REVEAL (unchanged)
+   ========================================================= */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+
+/* Tech stack tabs */
+const stackContent = {
+  aws: {
+    title: 'AWS Production Core',
+    meta:  'DEFAULT FOUNDATION · REGULATED WORKLOADS',
+    note:  'Default foundation for secure AI, data, and product workloads: landing zones, IAM, KMS, VPC design, observability, CI/CD, data lakes, model services, and cost controls. HIPAA-sensitive work is designed around BAA coverage, access policy, auditability, and PHI minimization — not just the eligible-services list.',
+    tools: [
+      ['Bedrock', 'Governed model access'], ['SageMaker', 'ML platform'], ['Lambda', 'Serverless compute'],
+      ['EKS', 'Container orchestration'], ['S3 + Athena', 'Data lake + query'], ['Glue', 'ETL & catalogue'],
+      ['Aurora', 'Managed relational DB'], ['Redshift', 'Analytical warehouse'], ['Kinesis', 'Streaming ingest'],
+      ['KMS + Macie', 'PHI protection'], ['GuardDuty + Security Hub', 'Security posture'], ['CloudWatch + OTEL', 'Observability']
+    ]
+  },
+  gcp: {
+    title: 'GCP When It Fits',
+    meta:  'SELECTIVE · WORKLOAD-DRIVEN',
+    note:  'Used when the workload benefits from BigQuery, Vertex AI, Healthcare API, or an existing GCP estate. We keep the same standards for identity, data governance, observability, and regulated-data handling — the platform changes, the engineering discipline does not.',
+    tools: [
+      ['Vertex AI', 'ML & Gen-AI platform'], ['BigQuery', 'Serverless warehouse'], ['Cloud Run', 'Serverless containers'],
+      ['GKE', 'Kubernetes'], ['Healthcare API', 'FHIR / HL7 native'], ['Dataflow', 'Batch + streaming'],
+      ['Pub/Sub', 'Async messaging'], ['Cloud SQL', 'Managed Postgres'], ['Looker', 'BI & semantic layer']
+    ]
+  },
+  azure: {
+    title: 'Azure Enterprise Integration',
+    meta:  'SELECTIVE · ENTERPRISE BACKBONE',
+    note:  'Used where Microsoft is already the enterprise backbone: identity through Entra ID, AI through Azure OpenAI, analytics through Synapse or Fabric, governance through Purview. We integrate cleanly with Microsoft-heavy organisations without requiring a cloud migration first.',
+    tools: [
+      ['Azure OpenAI', 'Enterprise LLM'], ['Azure ML', 'ML platform'], ['Synapse / Fabric', 'Analytics'],
+      ['AKS', 'Kubernetes'], ['Functions', 'Serverless'], ['Cosmos DB', 'NoSQL at scale'],
+      ['Event Hubs', 'Streaming ingest'], ['Purview', 'Data governance'], ['Entra ID', 'Enterprise identity']
+    ]
+  },
+  data: {
+    title: 'Data & AI Operating Layer',
+    meta:  'CORE · CLOUD-PORTABLE',
+    note:  'The durable layer beneath analytics and AI: ingestion, orchestration, transformation, quality checks, semantic models, vector search, experiment tracking, evaluation, and monitoring. These tools travel across clouds — the stack does not change when the client environment does.',
+    tools: [
+      ['Snowflake', 'Cloud data warehouse'], ['Databricks', 'Lakehouse platform'], ['dbt', 'Transformation layer'],
+      ['Airflow / Dagster', 'Orchestration'], ['LangGraph', 'Agent frameworks'], ['pgvector / Pinecone', 'Vector search'],
+      ['MLflow', 'Experiment tracking'], ['Weights & Biases', 'Model evaluation'], ['Great Expectations', 'Data quality'],
+      ['Monte Carlo', 'Data observability'], ['OpenTelemetry', 'AI observability'], ['Anthropic / OpenAI', 'Model providers']
+    ]
+  },
+  app: {
+    title: 'Product Runtime',
+    meta:  'CORE · APPLICATION LAYER',
+    note:  'The application layer users actually touch: React/Next.js frontends, Python or Node APIs, identity and access management, job queues, Postgres, external integrations, release pipelines, and the operating documentation that keeps it supportable after we hand it over. In healthcare contexts, FHIR and HL7 are first-class citizens from day one.',
+    tools: [
+      ['React + Next.js', 'Web frontend'], ['React Native', 'Mobile'], ['TypeScript', 'Type-safe full-stack'],
+      ['Python (FastAPI)', 'API services'], ['Node.js', 'API services'], ['Postgres + pgvector', 'Primary datastore'],
+      ['Redis', 'Cache and queues'], ['Kafka', 'Event streaming'], ['Terraform', 'Infrastructure as code'],
+      ['GitHub Actions', 'CI/CD pipelines'], ['Datadog', 'Application observability'], ['FHIR / HL7', 'Healthcare standards']
+    ]
+  }
+};
+
+const grid = document.getElementById('panel-grid');
+const titleEl = document.getElementById('panel-title');
+const metaEl  = document.getElementById('panel-meta');
+const noteEl  = document.getElementById('panel-note');
+
+function renderStack(key){
+  const data = stackContent[key];
+  if (!data) return;
+  titleEl.textContent = data.title;
+  metaEl.textContent = data.meta;
+  noteEl.textContent = data.note;
+  grid.innerHTML = data.tools.map(([nm, sb]) => `
+    <div class="tool">
+      <div class="ic">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div>
+        <div class="nm">${nm}</div>
+        <div class="sb">${sb}</div>
+      </div>
+    </div>`).join('');
+}
+renderStack('aws');
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+    renderStack(tab.dataset.tab);
+  });
+});
+
+/* Form submit (demo) */
+function handleFormSubmit(e){
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type=submit]');
+  const original = btn.innerHTML;
+  btn.innerHTML = 'Sent — we\'ll be in touch ✓';
+  btn.style.background = 'var(--green)';
+  btn.style.color = 'var(--ink-dark)';
+  setTimeout(() => { btn.innerHTML = original; btn.style.background = ''; btn.style.color = ''; e.target.reset(); }, 3200);
+}
+</script>
+</body>
+</html>
