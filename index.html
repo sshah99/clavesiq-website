@@ -394,6 +394,30 @@ h1 .line:nth-child(3) > span{ animation-delay:.18s; }
 .pattern h3{ font-weight: 600; font-size: clamp(20px,1.8vw,26px); letter-spacing:-.02em; color: var(--navy); margin: 14px 0 10px; }
 .pattern p{ font-size: 15.5px; color: var(--ink-80); line-height: 1.6; max-width: 58ch; }
 .pattern.wide{ grid-column: span 2; }
+.pattern .q{
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+  font-size: clamp(20px, 1.9vw, 27px); letter-spacing: -.01em;
+  color: var(--navy); line-height: 1.3; margin: 14px 0 12px; max-width: 24ch;
+}
+.pattern .sit{
+  font-family: var(--serif); font-style: italic;
+  font-size: 16px; color: var(--teal-deep); line-height: 1.45;
+  margin-top: 12px;
+}
+.pattern .arc{
+  margin-top: 16px; border-top: 1px dashed var(--hair); padding-top: 12px;
+  display: grid; gap: 7px;
+}
+.pattern .arc span{
+  display: grid; grid-template-columns: 70px minmax(0,1fr); gap: 12px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .05em;
+  line-height: 1.5; color: var(--ink-60);
+}
+.pattern .arc b{ color: var(--teal-deep); font-weight: 400; }
+.row .pain{
+  font-family: var(--serif); font-style: italic;
+  font-size: 18px; color: var(--teal-deep); line-height: 1.4;
+}
 @media (max-width: 800px){ .patterns{ grid-template-columns: 1fr; } .pattern.wide{ grid-column: span 1; } }
 
 /* ---------- why ---------- */
@@ -798,7 +822,8 @@ footer.site ul a:hover{ color: var(--d-text); }
         <span class="num">/ 01</span>
         <span class="name">AI systems that reach production</span>
         <span class="body">
-          <span class="desc">Most AI projects die between the demo and go-live. We merge LLM engineering, agentic automation, and production AI into one discipline — covering agents, copilots, RAG, evals, guardrails, and the observability layer that keeps it honest after launch.</span>
+          <span class="pain">The demo impressed everyone. Production never came.</span>
+          <span class="desc">We merge LLM engineering, agentic automation, and production AI into one discipline — agents, copilots, RAG, evals, guardrails, and the observability layer that keeps it honest after launch.</span>
           <span class="tags">Agents · RAG · Evals · Bedrock · LangGraph</span>
         </span>
       </div>
@@ -806,7 +831,8 @@ footer.site ul a:hover{ color: var(--d-text); }
         <span class="num">/ 02</span>
         <span class="name">Trusted data infrastructure</span>
         <span class="body">
-          <span class="desc">When the data is wrong, everything downstream is wrong. We build pipelines, warehouses, and semantic layers that analysts trust, operators rely on, and AI systems can actually learn from — with quality checks and observability built in, not bolted on.</span>
+          <span class="pain">Nobody trusts the numbers — so every meeting relitigates them.</span>
+          <span class="desc">We build pipelines, warehouses, and semantic layers that analysts trust, operators rely on, and AI systems can actually learn from — quality checks and observability built in, not bolted on.</span>
           <span class="tags">Snowflake · Databricks · dbt · Airflow</span>
         </span>
       </div>
@@ -814,7 +840,8 @@ footer.site ul a:hover{ color: var(--d-text); }
         <span class="num">/ 03</span>
         <span class="name">Production-grade cloud foundations</span>
         <span class="body">
-          <span class="desc">Cloud infrastructure done wrong becomes the ceiling on everything else. We build AWS-first environments that are secure by design — HIPAA landing zones, tenant-level encryption, IaC, cost controls — so you're not retrofitting compliance the week before an audit.</span>
+          <span class="pain">Cloud done wrong becomes the ceiling on everything else.</span>
+          <span class="desc">We build AWS-first environments that are secure by design — HIPAA landing zones, tenant-level encryption, IaC, cost controls — so you're not retrofitting compliance the week before an audit.</span>
           <span class="tags">AWS-first · Terraform · HIPAA LZ · FinOps</span>
         </span>
       </div>
@@ -822,7 +849,8 @@ footer.site ul a:hover{ color: var(--d-text); }
         <span class="num">/ 04</span>
         <span class="name">Healthcare data, handled correctly</span>
         <span class="body">
-          <span class="desc">Claims, EHR, pharmacy, prior auth, payer analytics — we've worked at every layer of it. We know that FHIR and HL7 don't speak the same dialect twice, that clinical notes need NLP before they're useful, and that HIPAA-aware architecture starts at the first design decision, not the last.</span>
+          <span class="pain">Health data breaks long before it reaches your model.</span>
+          <span class="desc">Claims, EHR, pharmacy, prior auth, payer analytics, market access feeds — we've worked at every layer. FHIR and HL7 don't speak the same dialect twice, clinical notes need NLP before they're useful, and HIPAA-aware architecture starts at the first design decision, not the last.</span>
           <span class="tags">EHR · FHIR · Claims · HIPAA · NLP</span>
         </span>
       </div>
@@ -830,7 +858,8 @@ footer.site ul a:hover{ color: var(--d-text); }
         <span class="num">/ 05</span>
         <span class="name">Products built to launch and last</span>
         <span class="body">
-          <span class="desc">A prototype that doesn't ship is an expensive experiment. We deliver full-stack web and mobile products — frontend, APIs, data models, identity, integrations — and stay involved past launch so what we build doesn't become someone else's maintenance problem six months later.</span>
+          <span class="pain">A prototype that doesn’t ship is an expensive experiment.</span>
+          <span class="desc">We deliver full-stack web and mobile products — frontend, APIs, data models, identity, integrations — and stay involved past launch so what we build doesn't become someone else's maintenance problem six months later.</span>
           <span class="tags">React · TypeScript · Node · Python</span>
         </span>
       </div>
@@ -838,7 +867,8 @@ footer.site ul a:hover{ color: var(--d-text); }
         <span class="num">/ 06</span>
         <span class="name">Technical leadership, on demand</span>
         <span class="body">
-          <span class="desc">Sometimes what you need isn't a delivery team — it's an experienced technical voice in the room. We work with CIOs, founders, and delivery leaders on architecture reviews, AI strategy, vendor selection, and team augmentation. Engagement without a long retainer or a bloated SOW.</span>
+          <span class="pain">You don’t need a delivery team. You need a voice in the room.</span>
+          <span class="desc">We work with CIOs, founders, and delivery leaders on architecture reviews, AI strategy, vendor selection, and team augmentation. Engagement without a long retainer or a bloated SOW.</span>
           <span class="tags">Architecture Review · AI Strategy · Team Augmentation</span>
         </span>
       </div>
@@ -973,37 +1003,78 @@ footer.site ul a:hover{ color: var(--d-text); }
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
-        <h2>The problems we are <i>built to solve.</i></h2>
-        <p class="lede">ClavesIQ is a new company, but the team is built around patterns we know how to deliver: production AI workflows, trusted data foundations, secure cloud platforms, healthcare data systems, and full-stack product delivery.</p>
+        <h2>Sound familiar? <i>Here’s what we build.</i></h2>
+        <p class="lede">Six situations we get called into — and what you get when we leave. Healthcare is where we run deepest; the pattern travels to any regulated, data-heavy business.</p>
       </div>
-      <span class="tag">SEC. 05 — SOLUTION PATTERNS</span>
+      <span class="tag">SEC. 05 — PROBLEMS → SOLUTIONS</span>
     </div>
 
     <div class="patterns reveal-stagger">
       <div class="pattern">
-        <span class="pn">Pattern — 01</span>
-        <h3>Document-heavy AI workflows</h3>
-        <p>For teams processing clinical notes, claims, contracts, support tickets, policies, or intake queues. We design retrieval, extraction, review, evaluation, and audit paths around the real workflow — not a generic LLM wrapper.</p>
+        <span class="pn">Common in — Product &amp; AI teams, any industry</span>
+        <div class="sit">The demo impressed everyone. Production never came.</div>
+        <h3>We take AI the last mile — into production.</h3>
+        <p>You get a working system, not a pilot: retrieval, evals, guardrails, human-review paths, and the observability to run it — live with real users in weeks.</p>
+        <div class="arc">
+          <span><b>WK 1–2</b>FRAME — the workflow, the risk, the metric that decides success.</span>
+          <span><b>WK 3–8</b>PROVE &amp; SHIP — a thin slice in production, evals and guardrails wired in.</span>
+          <span><b>AFTER</b>OPERATE — watch quality and cost; expand only what earns it.</span>
+        </div>
       </div>
       <div class="pattern">
-        <span class="pn">Pattern — 02</span>
-        <h3>Trusted data foundations</h3>
-        <p>For teams whose reporting, AI, and operations depend on consistent data definitions, quality checks, semantic layers, and observable pipelines. We build the layer that makes data usable — across clouds, sources, and teams.</p>
+        <span class="pn">Common in — Payer &amp; provider operations</span>
+        <div class="sit">Prior auth measured in days — sometimes weeks.</div>
+        <h3>We automate the document review. Humans keep the judgment calls.</h3>
+        <p>You get extraction with confidence routing, an auditable decision trail, and a review queue that drains in hours instead of days.</p>
+        <div class="arc">
+          <span><b>WK 1–2</b>FRAME — sit with intake; map where cases actually stall.</span>
+          <span><b>WK 3–8</b>SHIP — extraction with confidence routing, review paths built in.</span>
+          <span><b>AFTER</b>OPERATE — a queue measured in hours, every decision auditable.</span>
+        </div>
       </div>
       <div class="pattern">
-        <span class="pn">Pattern — 03</span>
-        <h3>Regulated cloud platforms</h3>
-        <p>For teams that need secure AWS environments, PHI/PII controls, deployment paths, observability, and cost discipline from the start — not retrofitted before an audit. We wire compliance into the architecture, not the checklist.</p>
+        <span class="pn">Common in — Pharma commercial &amp; access teams</span>
+        <div class="sit">Every vendor feed has a different ID. None match the MDM.</div>
+        <h3>We build one data spine across your vendor stack.</h3>
+        <p>You get identity resolution, a semantic layer in your own warehouse, and same-day triggers — access, medical, and commercial finally on one truth.</p>
+        <div class="arc">
+          <span><b>WK 1–3</b>FRAME — inventory the feeds, the IDs, the refresh cycles, the gaps.</span>
+          <span><b>WK 4–10</b>SHIP — identity resolution and a semantic layer, in your warehouse.</span>
+          <span><b>AFTER</b>OPERATE — formulary change → field alert, same day.</span>
+        </div>
       </div>
       <div class="pattern">
-        <span class="pn">Pattern — 04</span>
-        <h3>Healthcare data systems</h3>
-        <p>For claims, EHR, FHIR/HL7, prior auth, payer workflows — and the pharma commercial stack: market access feeds, claims &amp; Rx data, launch analytics. We understand where health data breaks before it reaches your model, and how to make your data subscriptions actually pay off.</p>
+        <span class="pn">Common in — Data &amp; analytics teams, any industry</span>
+        <div class="sit">Five dashboards. Zero numbers anyone trusts.</div>
+        <h3>We make the numbers trustworthy — and keep them that way.</h3>
+        <p>You get a semantic layer with definitions enforced in code, quality tests inside the pipeline itself, and lineage from source to metric.</p>
+        <div class="arc">
+          <span><b>WK 1–2</b>FRAME — find the three numbers the business actually runs on.</span>
+          <span><b>WK 3–8</b>SHIP — semantic layer, tests in the pipeline, lineage end to end.</span>
+          <span><b>AFTER</b>OPERATE — one definition per metric; alerts fire before the CFO notices.</span>
+        </div>
       </div>
-      <div class="pattern wide">
-        <span class="pn">Pattern — 05</span>
-        <h3>Product platforms around intelligence</h3>
-        <p>For founders and teams that need usable software around the intelligence layer: UX, APIs, identity, data models, integrations, and the release operations that keep it running after launch. The AI is only as good as the product surface around it.</p>
+      <div class="pattern">
+        <span class="pn">Common in — Regulated cloud estates, any industry</span>
+        <div class="sit">The audit is in 90 days. Nobody owns the cloud account.</div>
+        <h3>We turn compliance into architecture.</h3>
+        <p>You get a landing zone with IAM, encryption, and audit-ready logging — HIPAA, SOC 2, or both — all of it as reviewable infrastructure-as-code.</p>
+        <div class="arc">
+          <span><b>WK 1</b>FRAME — access, logging, and ownership gaps, mapped honestly.</span>
+          <span><b>WK 2–8</b>SHIP — landing zone, IAM, audit trails — delivered as code.</span>
+          <span><b>AFTER</b>OPERATE — the audit becomes a walkthrough, not a scramble.</span>
+        </div>
+      </div>
+      <div class="pattern">
+        <span class="pn">Common in — Boardrooms, any industry</span>
+        <div class="sit">An eighty-slide AI strategy. None of it live.</div>
+        <h3>We turn the deck into the first shipped system.</h3>
+        <p>You get a build / buy / kill decision list — and the first production system that proves the strategy, built with the team who’ll own it.</p>
+        <div class="arc">
+          <span><b>WK 1–2</b>FRAME — the kill list first: build, buy, and stop.</span>
+          <span><b>WK 3–10</b>SHIP — the first system that proves the strategy on real users.</span>
+          <span><b>AFTER</b>OPERATE — the deck gets shorter as the systems ship.</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1407,7 +1478,7 @@ footer.site ul a:hover{ color: var(--d-text); }
     <div>
       <h2 class="foot-h">Company</h2>
       <ul>
-        <li><a href="#work">Solution Patterns</a></li>
+        <li><a href="#work">Sound familiar?</a></li>
         <li><a href="#approach">Approach</a></li>
         <li><a href="#stack">Tech Stack</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -1420,7 +1491,7 @@ footer.site ul a:hover{ color: var(--d-text); }
     <div class="socials">
       <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14M8.34 17V10H6V17h2.34M7.16 9a1.36 1.36 0 0 0 0-2.72 1.36 1.36 0 0 0 0 2.72M18 17v-3.83c0-2.27-1.45-3.17-2.91-3.17a2.84 2.84 0 0 0-2.57 1.27V10h-2.07V17h2.34v-3.83A1.55 1.55 0 0 1 14.5 11.7c.97 0 1.16.84 1.16 1.51V17H18z"/></svg></a>
     </div>
-    <span>THIS SITE LAST SHIPPED — <span id="ship-date">2026-07-13</span> · FIELD MANUAL / TECHNICAL EDITORIAL</span>
+    <span>THIS SITE LAST SHIPPED — <span id="ship-date">2026-07-14</span> · FIELD MANUAL / TECHNICAL EDITORIAL</span>
   </div>
 </footer>
 
