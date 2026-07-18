@@ -4,10 +4,10 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <meta name="theme-color" content="#EFF7F7"/>
-<title>ClavesIQ — AI, Data &amp; Cloud Engineering. Toronto.</title>
-<meta name="description" content="ClavesIQ is a Toronto-based AI, data, and cloud engineering firm building production intelligence systems across industries, with deep expertise in US healthcare. AWS-first. Outcome obsessed."/>
-<meta property="og:title" content="ClavesIQ — Keys to intelligence that ships."/>
-<meta property="og:description" content="AI, data &amp; cloud engineering for regulated, data-heavy businesses. Deep US healthcare expertise. Built in Toronto."/>
+<title>ClavesIQ — Production AI, Data &amp; Cloud Systems. Toronto.</title>
+<meta name="description" content="ClavesIQ builds production AI, data, and cloud systems for the US healthcare ecosystem and selected regulated or data-intensive businesses in the US and Canada."/>
+<meta property="og:title" content="ClavesIQ — Keys to Intelligence"/>
+<meta property="og:description" content="Production AI, data, and cloud systems for the US healthcare ecosystem and selected regulated or data-intensive businesses. Practitioner-led from Toronto."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://clavesiq.com/"/>
 <meta name="twitter:card" content="summary"/>
@@ -15,10 +15,7 @@
 <link rel="icon" href="/files/clavesiq-icon-multicolor.svg" type="image/svg+xml"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin/>
-<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
 /* =========================================================
    ClavesIQ — Technical Editorial
@@ -48,7 +45,7 @@
   --d-hair:    rgba(239,247,247,.16);
   --d-hair-2:  rgba(239,247,247,.08);
   --serif:  'Fraunces', Georgia, serif;
-  --sans:   'General Sans', system-ui, sans-serif;
+  --sans:   'Instrument Sans', system-ui, sans-serif;
   --mono:   'IBM Plex Mono', ui-monospace, monospace;
   --gutter: clamp(24px, 5vw, 88px);
 }
@@ -102,7 +99,16 @@ header.top{
   display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
   padding: 0 var(--gutter); height: 84px; gap: 24px;
 }
-.lockup{ display:block; height: 62px; width: auto; }
+.lockup{ display:block; height: 56px; width: auto; }
+.brand-stack{ display:flex; flex-direction:column; align-items:flex-start; text-decoration:none; }
+.brand-tag{
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--ink-60); margin: -4px 0 0 4px; white-space: nowrap;
+}
+.brand-tag-dark{
+  font-family: var(--mono); font-size: 10px; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--d-text-50); margin: 8px 0 0 4px; white-space: nowrap;
+}
 nav.primary{ display: flex; gap: 32px; }
 nav.primary a{
   font-family: var(--mono); font-size: 13.5px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
@@ -112,12 +118,12 @@ nav.primary a:hover{ color: var(--ink); }
 nav.primary a::after{ content:""; position:absolute; left:0; bottom:0; height:1px; width:100%; background: var(--teal); transform: scaleX(0); transform-origin:left; transition: transform .3s cubic-bezier(.7,0,.2,1); }
 nav.primary a:hover::after{ transform: scaleX(1); }
 .bar-cta{ justify-self: end; display:flex; align-items:center; gap: 18px; }
-.status{ font-family: var(--mono); font-size: 12px; letter-spacing:.1em; color: var(--ink-60); display:flex; align-items:center; gap:8px; text-transform: uppercase;}
+.status{ white-space: nowrap; font-family: var(--mono); font-size: 12px; letter-spacing:.1em; color: var(--ink-60); display:flex; align-items:center; gap:8px; text-transform: uppercase;}
 .status::before{ content:""; width:7px; height:7px; border-radius:50%; background: var(--green); animation: pulse 2.2s ease-in-out infinite; }
 @keyframes pulse{ 50%{ opacity:.4; } }
 
 .btn{
-  display:inline-flex; align-items:center; gap:10px;
+  display:inline-flex; align-items:center; gap:10px; white-space: nowrap;
   font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
   color: #fff; background: var(--navy);
   padding: 15px 24px; text-decoration: none; border: 0; cursor: pointer;
@@ -194,15 +200,16 @@ section{ position: relative; }
 .hero-meta{ display:flex; justify-content:space-between; align-items:baseline; padding-bottom: 28px; color: var(--ink-60); gap: 16px; flex-wrap: wrap;}
 .hero-grid{ display:grid; grid-template-columns: minmax(0,7fr) minmax(0,5fr); gap: clamp(32px,4vw,72px); align-items:end; }
 h1{
-  font-family: var(--sans); font-weight: 600;
-  font-size: clamp(44px, 8.2vw, 118px);
-  line-height: 1.08; letter-spacing: -.025em; color: var(--navy);
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(40px, 7.2vw, 90px);
+  line-height: 1.06; letter-spacing: -.015em; color: var(--navy);
 }
 h1 .serif{ font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -.02em; color: var(--teal); }
 h1 .line{ display:block; overflow:hidden; padding: .04em .1em .16em .1em; margin: -.04em -.1em -.16em -.1em; }
 h1 .line > span{ display:block; transform: translateY(130%); animation: rise 1s cubic-bezier(.22,1,.24,1) forwards; }
 h1 .line:nth-child(2) > span{ animation-delay:.09s; }
 h1 .line:nth-child(3) > span{ animation-delay:.18s; }
+h1 .line:nth-child(4) > span{ animation-delay:.27s; }
 @keyframes rise{ to{ transform: none; } }
 .hero-right p{
   font-size: clamp(18px, 1.45vw, 22px); line-height: 1.6; color: var(--ink-80); max-width: 44ch;
@@ -330,6 +337,13 @@ h1 .line:nth-child(3) > span{ animation-delay:.18s; }
 .spec:hover{ background: var(--navy-2); }
 .spec .big{ font-family: var(--serif); font-weight: 500; font-size: clamp(36px,3.6vw,54px); line-height: 1; color: var(--d-text); }
 .spec .sub{ font-family: var(--mono); font-size: 11.5px; letter-spacing:.14em; text-transform:uppercase; color: var(--d-text-50); margin-top: 12px; line-height: 1.7; }
+.spec-grid.three{ grid-template-columns: repeat(3,1fr); }
+.spec-grid.three .spec{ border-bottom: 0; }
+.spec-grid.three .spec:nth-child(2n){ border-right: 1px solid var(--d-hair); }
+.spec-grid.three .spec:last-child{ border-right: 0; }
+@media (max-width: 900px){ .spec-grid.three{ grid-template-columns: minmax(0,1fr); } .spec-grid.three .spec{ border-right: 0 !important; border-bottom: 1px solid var(--d-hair); } .spec-grid.three .spec:last-child{ border-bottom: 0; } }
+.hc-name{ font-weight: 600; font-size: clamp(19px,1.7vw,24px); letter-spacing:-.01em; color: var(--d-text); margin-bottom: 10px; }
+.hc-desc{ font-size: 15px; line-height: 1.6; color: var(--d-text-70); }
 .spec .idx{ font-family: var(--mono); font-size: 11px; color: var(--teal-edge); margin-bottom: 16px; display:block; }
 @media (max-width: 960px){ .hc-grid{ grid-template-columns: minmax(0,1fr); } }
 
@@ -394,6 +408,8 @@ h1 .line:nth-child(3) > span{ animation-delay:.18s; }
 .pattern h3{ font-weight: 600; font-size: clamp(20px,1.8vw,26px); letter-spacing:-.02em; color: var(--navy); margin: 14px 0 10px; }
 .pattern p{ font-size: 15.5px; color: var(--ink-80); line-height: 1.6; max-width: 58ch; }
 .pattern.wide{ grid-column: span 2; }
+.patterns.three{ grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 960px){ .patterns.three{ grid-template-columns: minmax(0,1fr); } }
 .pattern .q{
   font-family: var(--serif); font-style: italic; font-weight: 500;
   font-size: clamp(20px, 1.9vw, 27px); letter-spacing: -.01em;
@@ -438,6 +454,30 @@ h1 .line:nth-child(3) > span{ animation-delay:.18s; }
 .creed p{ font-size: 14px; color: var(--ink-80); margin-top: 12px; line-height: 1.55; }
 @media (max-width: 960px){ .why-grid{ grid-template-columns: minmax(0,1fr); } }
 @media (max-width: 480px){ .creed{ grid-template-columns: 1fr; } .creed > div{ border-right: 0; border-bottom: 1px solid var(--hair-2); } .creed > div:last-child{ border-bottom: 0; } }
+
+/* ---------- delivery model ---------- */
+.delivery-grid{
+  display:grid; grid-template-columns:repeat(6,minmax(0,1fr));
+  column-gap:clamp(22px,3vw,48px); border-top:0;
+}
+.delivery-grid li{
+  grid-column:span 2; grid-template-columns:52px minmax(0,1fr); gap:16px;
+  min-height:150px; padding:24px 0; border-top:1px solid var(--hair);
+}
+.delivery-grid li:nth-child(4){ grid-column:2 / span 2; }
+.delivery-grid li:nth-child(5){ grid-column:4 / span 2; }
+@media (max-width: 1100px){
+  .delivery-grid{ grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .delivery-grid li{ grid-column:span 2; }
+  .delivery-grid li:nth-child(4){ grid-column:span 2; }
+  .delivery-grid li:nth-child(5){ grid-column:2 / span 2; }
+}
+@media (max-width: 700px){
+  .delivery-grid{ grid-template-columns:minmax(0,1fr); }
+  .delivery-grid li,
+  .delivery-grid li:nth-child(4),
+  .delivery-grid li:nth-child(5){ grid-column:1; min-height:0; }
+}
 
 /* ---------- big cta ---------- */
 .cta-band{ background: var(--navy); color: var(--d-text); border-top: 1px solid var(--hair); }
@@ -507,9 +547,6 @@ footer.site ul a:hover{ color: var(--d-text); }
   border-top: 1px solid var(--d-hair); margin: 0 var(--gutter); padding: 22px 0 28px;
   font-family: var(--mono); font-size: 11.5px; letter-spacing:.1em; text-transform:uppercase; color: var(--d-text-50);
 }
-.socials{ display:flex; gap: 18px; }
-.socials a{ color: var(--d-text-50); transition: color .2s; }
-.socials a:hover{ color: var(--d-text); }
 @media (max-width: 860px){ .foot-grid{ grid-template-columns: 1fr 1fr; } .foot-brand{ grid-column: span 2; } }
 
 /* ---------- seat switch (FIG. 03) ---------- */
@@ -612,6 +649,47 @@ footer.site ul a:hover{ color: var(--d-text); }
 .claim-notes .dim{ color: rgba(239,247,247,.45); text-shadow: none; }
 .claim-notes span{ display:block; }
 
+/* ---------- work-order card (assessment / procurement) ---------- */
+.audit-grid{
+  display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr);
+  gap:clamp(36px,5vw,80px); align-items:start;
+}
+.workorder{ background: var(--bone); border: 1px solid var(--hair); box-shadow: 0 16px 40px -18px rgba(13,8,38,.18); }
+.wo-head{
+  display:flex; justify-content:space-between; gap: 12px; flex-wrap: wrap;
+  padding: 16px 24px; border-bottom: 1px solid var(--hair);
+  font-family: var(--mono); font-size: 11.5px; letter-spacing:.12em; color: var(--teal-deep); text-transform: uppercase;
+}
+.wo-row{
+  display:grid; grid-template-columns: 170px minmax(0,1fr); gap: 16px;
+  padding: 12px 24px; border-bottom: 1px dashed var(--hair-2); align-items: baseline;
+}
+.wo-row:last-of-type{ border-bottom: 0; }
+.wo-row .k{ font-family: var(--mono); font-size: 11px; letter-spacing:.12em; text-transform:uppercase; color: var(--ink-60); }
+.wo-row .v{ font-size: 14.5px; font-weight: 500; color: var(--navy); }
+.wo-foot{ padding: 18px 24px 22px; border-top: 1px solid var(--hair); display:flex; align-items:center; justify-content:space-between; gap: 12px; flex-wrap: wrap; }
+.wo-foot .micro{ font-family: var(--mono); font-size: 10.5px; letter-spacing:.06em; color: var(--ink-60); }
+@media (max-width: 560px){ .wo-row{ grid-template-columns: minmax(0,1fr); gap: 3px; } }
+@media (max-width: 960px){ .audit-grid{ grid-template-columns:minmax(0,1fr); } }
+.pending-chip{
+  display:inline-block; font-family: var(--mono); font-size: 10px; letter-spacing:.14em;
+  border: 1px dashed var(--teal-deep); color: var(--teal-deep); padding: 5px 10px; margin-left: 10px; vertical-align: middle;
+}
+.photo-slot{
+  border: 1px dashed var(--hair); background: var(--paper-2);
+  aspect-ratio: 4/5; max-width: 320px; display:flex; align-items:center; justify-content:center;
+  font-family: var(--mono); font-size: 11px; letter-spacing:.1em; color: var(--ink-60); text-align:center; padding: 20px;
+}
+
+/* ---------- field log strip ---------- */
+.fieldlog{
+  display:flex; justify-content:space-between; align-items:baseline; gap: 14px; flex-wrap: wrap;
+  padding: 18px var(--gutter); background: var(--card); border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair);
+  font-family: var(--mono); font-size: 12px; letter-spacing:.1em; text-transform: uppercase; color: var(--ink-60);
+}
+.fieldlog .lead{ color: var(--teal-deep); display:flex; align-items:center; gap: 9px; }
+.fieldlog .lead::before{ content:""; width:7px; height:7px; border-radius:50%; background: var(--green); animation: pulse 2.2s ease-in-out infinite; }
+
 /* ---------- a11y / motion ---------- */
 :focus-visible{ outline: 2px solid var(--teal); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce){
@@ -629,19 +707,19 @@ footer.site ul a:hover{ color: var(--d-text); }
 <!-- ================== HEADER ================== -->
 <header class="top">
   <div class="bar">
-    <a href="#top" aria-label="ClavesIQ home">
+    <a class="brand-stack" href="#top" aria-label="ClavesIQ — Keys to Intelligence — home">
       <svg class="lockup" xmlns="http://www.w3.org/2000/svg" viewBox="200 80 512 222" role="img" aria-label="ClavesIQ"><g><path fill="#37da71" d="M447.39,178.2a40.23,40.23,0,0,1,0-80.46,40.48,40.48,0,0,1,38.54,28.66l-3,.9a37.32,37.32,0,0,0-35.53-26.43,37.1,37.1,0,1,0,0,74.19,37.33,37.33,0,0,0,35.54-26.42l3,.9A40.49,40.49,0,0,1,447.39,178.2Z"/><path fill="#1fa9b4" d="M406.65,178.2l-1.06,0a40.23,40.23,0,1,1,38.89-54,1.59,1.59,0,0,0,1.48,1.06H556v25.38H446a1.59,1.59,0,0,0-1.49,1.07h0A40.2,40.2,0,0,1,406.65,178.2Zm0-77.32a37.08,37.08,0,0,0-37.08,37.64,37.09,37.09,0,0,0,71.95,12.13,4.74,4.74,0,0,1,4.43-3.13H552.84V128.41H446a4.73,4.73,0,0,1-4.43-3.12A37.21,37.21,0,0,0,406.66,100.88Z"/><path fill="#1fa9b4" d="M541.28,128.41h-16v-7.34H510.61V97.74h17.82v5.51h9.72V97.74H556v23.33H541.28Zm-12.85-3.13h9.72v-7.35h14.69V100.87H541.28v5.51h-16v-5.51H513.74v17.06h14.69Z"/><path fill="#0D0826" d="M280.19,282.78H228.8a16.26,16.26,0,0,1-8.58-2.34,17.81,17.81,0,0,1-6.21-6.2,16.4,16.4,0,0,1-2.33-8.58v-30a16.44,16.44,0,0,1,2.33-8.62,17.76,17.76,0,0,1,6.21-6.21,16.35,16.35,0,0,1,8.58-2.33h51.39a16.5,16.5,0,0,1,8.61,2.33,17.56,17.56,0,0,1,6.2,6.21,16.51,16.51,0,0,1,2.31,8.62h-8.56a8.42,8.42,0,0,0-8.56-8.56H228.8a8.47,8.47,0,0,0-8.56,8.56v30a8.5,8.5,0,0,0,8.56,8.56h51.39a8.45,8.45,0,0,0,8.56-8.56h8.56a16.47,16.47,0,0,1-2.31,8.58,17.62,17.62,0,0,1-6.2,6.2A16.42,16.42,0,0,1,280.19,282.78Z"/><path fill="#0D0826" d="M312.57,282.78H304V218.52h8.56Z"/><path fill="#0D0826" d="M387.57,282.78H334.06a15,15,0,0,1,0-30H379v-4.3a8.45,8.45,0,0,0-8.56-8.56h-47.1v-8.56h47.1a16.55,16.55,0,0,1,8.6,2.31,17.4,17.4,0,0,1,6.21,6.2,16.58,16.58,0,0,1,2.31,8.61ZM379,274.22V261.36H334.06a6.29,6.29,0,0,0-4.59,1.83,6.18,6.18,0,0,0-1.86,4.57,6.35,6.35,0,0,0,6.45,6.46Z"/><path fill="#0D0826" d="M428.05,282.78h-9.63L389,231.38h9.68l24.6,43,24.55-43h9.68Z"/><path fill="#0D0826" d="M521.15,282.78H475a16.29,16.29,0,0,1-8.58-2.34,18,18,0,0,1-6.21-6.2,16.4,16.4,0,0,1-2.33-8.58V246.39a13,13,0,0,1,2.42-7.77,16.64,16.64,0,0,1,6.37-5.31,19,19,0,0,1,8.47-1.93H507a18.85,18.85,0,0,1,8.45,1.93,16.69,16.69,0,0,1,6.34,5.31,13,13,0,0,1,2.42,7.77v15H466.39v4.3a8.5,8.5,0,0,0,8.56,8.56h46.2Zm-5.51-30v-6.41a5.18,5.18,0,0,0-1.06-3.09,7.65,7.65,0,0,0-3-2.42,10.42,10.42,0,0,0-4.59-.94h-31.9a10.43,10.43,0,0,0-4.6.94,7.86,7.86,0,0,0-3,2.42,5.14,5.14,0,0,0-1.08,3.09v6.41Z"/><path fill="#0D0826" d="M579.88,282.78h-51.4v-8.56h51.4a10.27,10.27,0,0,0,4.52-.94,7.54,7.54,0,0,0,3-2.45,5.29,5.29,0,0,0,1-3.07,5.18,5.18,0,0,0-1-3,7.56,7.56,0,0,0-3-2.42,10.14,10.14,0,0,0-4.52-.94H545.6a18.66,18.66,0,0,1-8.41-1.95,16.69,16.69,0,0,1-6.31-5.33,13.58,13.58,0,0,1,0-15.42,16.69,16.69,0,0,1,6.31-5.33,18.66,18.66,0,0,1,8.41-2H597v8.56H545.6a10.15,10.15,0,0,0-4.53.94,7.72,7.72,0,0,0-3,2.42,5,5,0,0,0,0,6.14,7.81,7.81,0,0,0,3,2.42,10.29,10.29,0,0,0,4.53.94h34.28a18.58,18.58,0,0,1,8.42,1.95,16.74,16.74,0,0,1,6.29,5.31,13.6,13.6,0,0,1,0,15.43,16.64,16.64,0,0,1-6.29,5.34A18.58,18.58,0,0,1,579.88,282.78Z"/><path fill="#0D0826" d="M612.08,282.78h-8.56V218.52h8.56Z"/><path fill="#0D0826" d="M682.59,291.33H674l-2.28-8.55H637.91a16.31,16.31,0,0,1-8.58-2.34,17.87,17.87,0,0,1-6.2-6.2,16.31,16.31,0,0,1-2.33-8.58v-30a16.35,16.35,0,0,1,2.33-8.62,17.81,17.81,0,0,1,6.2-6.21,16.4,16.4,0,0,1,8.58-2.33h55.7a16.47,16.47,0,0,1,8.6,2.33,17.59,17.59,0,0,1,6.21,6.21,16.51,16.51,0,0,1,2.31,8.62v30a16.47,16.47,0,0,1-2.31,8.58,17.65,17.65,0,0,1-6.21,6.2,16.38,16.38,0,0,1-8.6,2.34H680.26Zm11-17.11a8.5,8.5,0,0,0,8.56-8.56v-30a8.49,8.49,0,0,0-8.56-8.6h-55.7a8.49,8.49,0,0,0-8.56,8.6v30a8.5,8.5,0,0,0,8.56,8.56h31.5l-2.28-8.56h8.56l2.28,8.56Z"/></g></svg>
-    </a>
+    <span class="brand-tag">Keys to Intelligence</span></a>
     <nav class="primary" aria-label="Primary">
-      <a href="#services">Services</a>
+      <a href="#solutions">Solutions</a>
       <a href="#healthcare">Healthcare</a>
-      <a href="#stack">Stack</a>
+      <a href="#evidence">Standards</a>
       <a href="#approach">Approach</a>
-      <a href="#work">Patterns</a>
+      <a href="#trust">Trust</a>
     </nav>
     <div class="bar-cta">
-      <span class="status">Taking projects — Q3</span>
-      <a class="btn" href="#contact">Book a call</a>
+      <span class="status">Taking projects</span>
+      <a class="btn" href="#contact">Discuss a project</a>
       <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
         <span style="display:flex;flex-direction:column;">
           <span class="b"></span><span class="b"></span><span class="b"></span>
@@ -654,15 +732,15 @@ footer.site ul a:hover{ color: var(--d-text); }
 <!-- ================== MOBILE DRAWER ================== -->
 <div class="drawer" id="drawer" aria-hidden="true" inert>
   <nav aria-label="Mobile">
-    <a href="#services">Services <span class="mono">01</span></a>
+    <a href="#solutions">Solutions <span class="mono">01</span></a>
     <a href="#healthcare">Healthcare <span class="mono">02</span></a>
-    <a href="#stack">Stack <span class="mono">03</span></a>
+    <a href="#evidence">Standards <span class="mono">03</span></a>
     <a href="#approach">Approach <span class="mono">04</span></a>
-    <a href="#work">Patterns <span class="mono">05</span></a>
+    <a href="#trust">Trust <span class="mono">05</span></a>
     <a href="#contact">Contact <span class="mono">06</span></a>
   </nav>
   <div class="drawer-foot">
-    <a href="#contact" class="btn">Book a call →</a>
+    <a href="#contact" class="btn">Discuss a project →</a>
     <div class="drawer-contact">
       <a href="tel:+16177857244">617-785-7244</a> · <a href="mailto:tech@clavesiq.com">tech@clavesiq.com</a>
     </div>
@@ -679,21 +757,24 @@ footer.site ul a:hover{ color: var(--d-text); }
   </div>
   <div class="hero-grid">
     <h1>
-      <span class="line"><span>Keys to</span></span>
-      <span class="line"><span class="serif">intelligence</span></span>
-      <span class="line"><span>that ships.</span></span>
+      <span class="line"><span>AI, data, and</span></span>
+      <span class="line"><span>cloud systems</span></span>
+      <span class="line"><span>built for</span></span>
+      <span class="line"><span class="serif">production.</span></span>
     </h1>
     <div class="hero-right">
-      <p>We architect AI systems, data platforms, and cloud-native products for teams that need decisions to move faster. Deep US&nbsp;healthcare expertise, engineered for any industry. No demos. No decks. Working systems.</p>
+      <p>We help healthcare and other regulated or data-intensive businesses move AI into real workflows, make fragmented data usable, and build secure cloud foundations.</p>
+      <p style="margin-top:14px; font-size:15.5px; color:var(--ink-60);">Deepest in healthcare. AWS-first by default. Flexible where the work demands it.</p>
       <div class="hero-ctas">
-        <a class="btn" href="#contact">Book a discovery call →</a>
-        <a class="btn ghost" href="#work">Explore solution patterns</a>
+        <a class="btn" href="#contact">Discuss a project →</a>
+        <a class="btn ghost" href="#approach">See how we work</a>
       </div>
+      <div class="mono" style="margin-top:22px; font-size:11px; letter-spacing:.12em; color:var(--ink-60); opacity:0; animation: fade .9s ease .9s forwards;">PRODUCTION AI · HEALTHCARE DATA · CLOUD ENGINEERING · PRACTITIONER-LED DELIVERY</div>
     </div>
   </div>
 
   <div class="schematic fig">
-    <span class="cap mono">FIG. 01 — EVERY METRIC IS A KEY</span>
+    <span class="cap mono">FIG. 1 — EVERY METRIC IS A KEY · ILLUSTRATIVE</span>
     <span class="cap cap-r mono">SCALE 1:1 / DRAWN IN TORONTO</span>
     <svg viewBox="0 0 1280 300" fill="none" aria-hidden="true">
       <g stroke="rgba(13,8,38,.08)" stroke-width="1">
@@ -742,171 +823,114 @@ footer.site ul a:hover{ color: var(--d-text); }
 <!-- ================== LEDGER + CAPABILITIES ================== -->
 <div class="ledger">
   <div><span class="k">Disciplines</span><span class="v">AI · Data · Cloud</span></div>
-  <div><span class="k">Depth</span><span class="v">US Healthcare</span></div>
-  <div><span class="k">Default stack</span><span class="v">AWS-first</span></div>
-  <div><span class="k">Standard</span><span class="v">Production, or nothing</span></div>
-</div>
-<div class="caps-line">
-  Applied AI <b>/</b> Data Platforms <b>/</b> Cloud Architecture <b>/</b> Product Engineering <b>/</b> US Healthcare <b>/</b> Analytics Products <b>/</b> Automation <b>/</b> Compliance Engineering
+  <div><span class="k">Deepest in</span><span class="v">Healthcare</span></div>
+  <div><span class="k">Platform</span><span class="v">AWS by default, portable by design</span></div>
+  <div><span class="k">Standard</span><span class="v">Built for production</span></div>
 </div>
 
-<!-- ================== DISCIPLINES (expandable index) ================== -->
-<section class="disciplines" aria-label="What ClavesIQ builds">
-  <div class="disc">
-    <button class="disc-head" type="button" aria-expanded="false" aria-controls="disc-body-1">
-      <span class="disc-num">/ 01</span>
-      <span>
-        <span class="disc-name">Agentic AI &amp; LLM Engineering</span>
-        <span class="disc-tags" style="display:block;">Autonomous Agents · RAG · Evals · Bedrock</span>
-      </span>
-      <span class="disc-x" aria-hidden="true">+</span>
-    </button>
-    <div class="disc-body" hidden id="disc-body-1"><div class="disc-body-inner"><span></span>
-      <p>Most AI projects fail between the demo and production. We don't build demos. We architect systems where the model is one component in a larger, observable, testable pipeline — with retrieval that stays current, tools that don't drift, evals that catch regressions before users do, and guardrails that hold in edge cases. Whether you need a copilot inside your product, an autonomous agent processing your operations queue, or a decision-support layer on top of clinical or financial data — our team has built these systems and knows what tends to break after launch.</p>
-    </div></div>
-  </div>
-  <div class="disc">
-    <button class="disc-head" type="button" aria-expanded="false" aria-controls="disc-body-2">
-      <span class="disc-num">/ 02</span>
-      <span>
-        <span class="disc-name">Data Engineering &amp; Analytics</span>
-        <span class="disc-tags" style="display:block;">Snowflake · dbt · Databricks · Airflow</span>
-      </span>
-      <span class="disc-x" aria-hidden="true">+</span>
-    </button>
-    <div class="disc-body" hidden id="disc-body-2"><div class="disc-body-inner"><span></span>
-      <p>Decisions move at the speed of your data infrastructure. We design and build modern data stacks — lakehouses, warehouses, ELT pipelines, semantic layers, and analytics products — that teams actually use. Our work spans Snowflake, Databricks, dbt, Airflow, and Dagster. We embed data quality checks and observability from day one, not as an afterthought.</p>
-    </div></div>
-  </div>
-  <div class="disc">
-    <button class="disc-head" type="button" aria-expanded="false" aria-controls="disc-body-3">
-      <span class="disc-num">/ 03</span>
-      <span>
-        <span class="disc-name">Cloud &amp; Platform Architecture</span>
-        <span class="disc-tags" style="display:block;">AWS-first · Terraform · HIPAA LZ · FinOps</span>
-      </span>
-      <span class="disc-x" aria-hidden="true">+</span>
-    </button>
-    <div class="disc-body" hidden id="disc-body-3"><div class="disc-body-inner"><span></span>
-      <p>Cloud infrastructure done wrong becomes the ceiling on everything else — your AI can't scale, your data can't move fast enough, and your compliance posture becomes a liability. We build AWS-first foundations that are secure by design, not by retrofit: HIPAA-eligible landing zones, network isolation, encryption at the tenant level, and infrastructure-as-code from day one. Every environment we deliver ships with observability, cost controls, and a CI/CD pipeline the engineering team actually owns. GCP and Azure where the workload or the contract requires it.</p>
-    </div></div>
-  </div>
-  <div class="disc">
-    <button class="disc-head" type="button" aria-expanded="false" aria-controls="disc-body-4">
-      <span class="disc-num">/ 04</span>
-      <span>
-        <span class="disc-name">US Healthcare &amp; Regulated Data</span>
-        <span class="disc-tags" style="display:block;">EHR · FHIR · Claims · HIPAA</span>
-      </span>
-      <span class="disc-x" aria-hidden="true">+</span>
-    </button>
-    <div class="disc-body" hidden id="disc-body-4"><div class="disc-body-inner"><span></span>
-      <p>Healthcare data is not just sensitive — it's structurally complex. Claims travel through five systems before they mean anything. Clinical notes require NLP before they're queryable. FHIR and HL7 don't speak the same dialect twice. We've worked at the intersection of all of it: payer analytics, prior auth automation, EHR integrations, pharmacy data pipelines, and real-world evidence platforms. We design HIPAA-aware systems from the first architecture decision — not patched in at audit time.</p>
-    </div></div>
-  </div>
-</section>
-
-<!-- ================== SERVICES ================== -->
-<section id="services">
+<!-- ================== OUTCOMES ================== -->
+<section id="solutions">
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
-        <h2>Six ways we engage. <i>One standard: production or nothing.</i></h2>
-        <p class="lede">We don't split AI, automation, and LLM work into three separate line items. We organise around what clients actually buy — and what they actually need to get unstuck.</p>
+        <h2>What we help clients <i>accomplish.</i></h2>
+        <p class="lede">Three focused service areas, one standard: systems designed for real operations. Product engineering, architecture, and advisory support these outcomes where needed.</p>
       </div>
-      <span class="tag">SEC. 01 — SERVICES</span>
+      <span class="tag">SEC. 01 — SOLUTIONS</span>
     </div>
-
-    <div class="index reveal-stagger">
-      <div class="row">
-        <span class="num">/ 01</span>
-        <span class="name">AI systems that reach production</span>
-        <span class="body">
-          <span class="pain">The demo impressed everyone. Production never came.</span>
-          <span class="desc">We merge LLM engineering, agentic automation, and production AI into one discipline — agents, copilots, RAG, evals, guardrails, and the observability layer that keeps it honest after launch.</span>
-          <span class="tags">Agents · RAG · Evals · Bedrock · LangGraph</span>
-        </span>
+    <div class="patterns three reveal-stagger">
+      <div class="pattern">
+        <span class="pn">01 — Production AI</span>
+        <h3>Move AI into production</h3>
+        <p>Copilots, document-processing workflows, retrieval systems, and controlled automation — with measurable evaluations, human-review paths, operational controls, and production monitoring.</p>
       </div>
-      <div class="row">
-        <span class="num">/ 02</span>
-        <span class="name">Trusted data infrastructure</span>
-        <span class="body">
-          <span class="pain">Nobody trusts the numbers — so every meeting relitigates them.</span>
-          <span class="desc">We build pipelines, warehouses, and semantic layers that analysts trust, operators rely on, and AI systems can actually learn from — quality checks and observability built in, not bolted on.</span>
-          <span class="tags">Snowflake · Databricks · dbt · Airflow</span>
-        </span>
+      <div class="pattern">
+        <span class="pn">02 — Data platforms &amp; healthcare data</span>
+        <h3>Make fragmented data usable</h3>
+        <p>Governed data platforms for complex operational environments — identity resolution, traceable transformations, and business-ready semantic models — with particularly deep experience across healthcare claims, clinical, pharmacy, commercial, and vendor data.</p>
       </div>
-      <div class="row">
-        <span class="num">/ 03</span>
-        <span class="name">Production-grade cloud foundations</span>
-        <span class="body">
-          <span class="pain">Cloud done wrong becomes the ceiling on everything else.</span>
-          <span class="desc">We build AWS-first environments that are secure by design — HIPAA landing zones, tenant-level encryption, IaC, cost controls — so you're not retrofitting compliance the week before an audit.</span>
-          <span class="tags">AWS-first · Terraform · HIPAA LZ · FinOps</span>
-        </span>
-      </div>
-      <div class="row">
-        <span class="num">/ 04</span>
-        <span class="name">Healthcare data, handled correctly</span>
-        <span class="body">
-          <span class="pain">Health data breaks long before it reaches your model.</span>
-          <span class="desc">Claims, EHR, pharmacy, prior auth, payer analytics, market access feeds — we've worked at every layer. FHIR and HL7 don't speak the same dialect twice, clinical notes need NLP before they're useful, and HIPAA-aware architecture starts at the first design decision, not the last.</span>
-          <span class="tags">EHR · FHIR · Claims · HIPAA · NLP</span>
-        </span>
-      </div>
-      <div class="row">
-        <span class="num">/ 05</span>
-        <span class="name">Products built to launch and last</span>
-        <span class="body">
-          <span class="pain">A prototype that doesn’t ship is an expensive experiment.</span>
-          <span class="desc">We deliver full-stack web and mobile products — frontend, APIs, data models, identity, integrations — and stay involved past launch so what we build doesn't become someone else's maintenance problem six months later.</span>
-          <span class="tags">React · TypeScript · Node · Python</span>
-        </span>
-      </div>
-      <div class="row">
-        <span class="num">/ 06</span>
-        <span class="name">Technical leadership, on demand</span>
-        <span class="body">
-          <span class="pain">You don’t need a delivery team. You need a voice in the room.</span>
-          <span class="desc">We work with CIOs, founders, and delivery leaders on architecture reviews, AI strategy, vendor selection, and team augmentation. Engagement without a long retainer or a bloated SOW.</span>
-          <span class="tags">Architecture Review · AI Strategy · Team Augmentation</span>
-        </span>
+      <div class="pattern">
+        <span class="pn">03 — AWS &amp; cloud foundations</span>
+        <h3>Build secure cloud foundations</h3>
+        <p>Primarily on AWS: infrastructure-as-code, identity controls, encryption, CI/CD, observability, environment separation, and cost management — designed around your actual operating environment and integration landscape.</p>
+        <div class="arc">
+          <span><b>NOTE</b>Portability is an architectural decision, not a marketing claim — containers, open formats, and client-owned code where it earns its cost.</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ================== SOLUTION PATTERNS ================== -->
+<section id="evidence" style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <h2>What you can <i>expect.</i></h2>
+        <p class="lede">The commitments every engagement is held to — defined before we build, so there is a shared definition of done from day one.</p>
+      </div>
+      <span class="tag">SEC. 02 — ENGAGEMENT</span>
+    </div>
+
+    <div class="patterns three reveal-stagger">
+      <div class="pattern">
+        <span class="pn">Clear scope — Defined before we build</span>
+        <h3>Clear scope</h3>
+        <p>We document the problem, constraints, success criteria, responsibilities, and decision points so the engagement begins with a shared definition of done.</p>
+      </div>
+      <div class="pattern">
+        <span class="pn">Controlled delivery — Prove before scaling</span>
+        <h3>Controlled delivery</h3>
+        <p>We test the riskiest assumptions early, evaluate results against agreed measures, and account for security, human review, and operational requirements from the start.</p>
+      </div>
+      <div class="pattern">
+        <span class="pn">Client ownership — Built to hand over</span>
+        <h3>Client ownership</h3>
+        <p>Code, infrastructure, documentation, and decision records are delivered into client-controlled environments wherever practical, with ownership and support expectations agreed upfront.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== ENGAGEMENT LEDGER ================== -->
+<div class="fieldlog" aria-label="Engagement commitments">
+  <span class="lead">EVERY ENGAGEMENT</span>
+  <span>CLEAR SCOPE · MEASURABLE ACCEPTANCE CRITERIA · CLIENT-OWNED DELIVERY · DOCUMENTED HANDOFF</span>
+</div>
 
 <!-- ================== HEALTHCARE (DARK) ================== -->
 <section id="healthcare" class="dark">
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
-        <h2>Healthcare data is not just data. <i>It is messy, regulated, coded, delayed, and consequential.</i></h2>
-        <p class="lede">We understand the operational reality behind claims, EHR, clinical notes, pharmacy data, eligibility, FHIR/HL7 feeds, payer workflows, and PHI controls. That domain context lets us build AI, data, and cloud systems that survive production scrutiny — not just sandbox demos.</p>
+        <h2>Where we work <i>deepest.</i></h2>
+        <p class="lede">Deepest across the US healthcare ecosystem. Selective beyond it. We also take on selected engagements in other regulated or data-intensive industries when the problem matches our experience and delivery model.</p>
       </div>
-      <span class="tag">SEC. 02 — REGULATED DATA</span>
+      <span class="tag">SEC. 03 — HEALTHCARE</span>
     </div>
 
-    <div class="hc-grid reveal">
-      <ul class="hc-bullets">
-        <li><span class="bn">H.01</span><span><b>Claims &amp; payer operations</b>Medical and pharmacy claims, risk adjustment, prior auth, utilization management, member journeys, payment integrity, revenue cycle AI, and data mastering across fragmented member and provider records.</span></li>
-        <li><span class="bn">H.02</span><span><b>EHR &amp; clinical text</b>Structured records, clinical notes, NLP extraction, summarization, coding support, chart review, care gap identification, HEDIS/STARS measures, and clinical workflow context for providers and health plans.</span></li>
-        <li><span class="bn">H.03</span><span><b>Interoperability &amp; standards</b>FHIR, HL7, eligibility feeds, provider directories, data mapping, identity matching, and the source-system inconsistency that makes every integration harder than the spec suggests.</span></li>
-        <li><span class="bn">H.04</span><span><b>Life sciences &amp; market access</b>Our team has worked inside the commercial data stack — formulary and coverage feeds, claims and Rx data, clinical and regulatory intelligence, forecasts. The giants sell the data; we build the client-side engineering that turns it into an operating advantage: one identity spine, formulary-change triggers, launch analytics, HEOR-ready evidence pipelines, and governed copilots over vendor and internal data.</span></li>
-        <li><span class="bn">H.05</span><span><b>Regulated delivery</b>PHI minimization, role-based access controls, audit-ready logging, model evaluation regimes, human review workflows, and HIPAA-aware architecture from the first design decision — not patched in before the audit.</span></li>
-      </ul>
-      <div class="spec-grid">
-        <div class="spec"><span class="idx">SPEC. A</span><div class="big">Claims</div><div class="sub">Payer, PBM, pharmacy<br/>and risk workflows</div></div>
-        <div class="spec"><span class="idx">SPEC. B</span><div class="big">EHR</div><div class="sub">Clinical records,<br/>notes and NLP</div></div>
-        <div class="spec"><span class="idx">SPEC. C</span><div class="big">FHIR</div><div class="sub">Interoperability<br/>and regulated exchange</div></div>
-        <div class="spec"><span class="idx">SPEC. D</span><div class="big">PHI</div><div class="sub">Privacy, audit<br/>and access controls</div></div>
+    <div class="spec-grid three reveal-stagger">
+      <div class="spec">
+        <span class="idx">H.01</span>
+        <div class="hc-name">Claims &amp; payer operations</div>
+        <p class="hc-desc">Clean-claim validation, prior-authorization support, denial triage, document processing, and 835-to-837 reconciliation.</p>
+      </div>
+      <div class="spec">
+        <span class="idx">H.02</span>
+        <div class="hc-name">Life sciences &amp; market access</div>
+        <p class="hc-desc">Vendor-data integration, HCP and HCO identity resolution, formulary-change activation, launch analytics, and governed access to licensed and internal data.</p>
+      </div>
+      <div class="spec">
+        <span class="idx">H.03</span>
+        <div class="hc-name">EHR, clinical &amp; provider data</div>
+        <p class="hc-desc">EHR and clinical-data integration using HL7 v2 and FHIR, clinical-note processing, provider and facility identity, terminology alignment, data-quality controls, and traceable exchange.</p>
       </div>
     </div>
 
     <div class="ehrfig reveal">
       <div class="caps">
-        <span class="mono">FIG. 02 — READING THE CHART</span>
-        <span class="mono">SYNTHETIC NOTE — NO REAL PHI, REAL PATTERN</span>
+        <span class="mono">FIG. 2 — READING THE CHART · DEMONSTRATION, SYNTHETIC DATA</span>
+        <span class="mono">SYNTHETIC NOTE — NO REAL PHI · ILLUSTRATIVE WORKFLOW</span>
       </div>
       <div class="chart">
         <div class="chart-head">
@@ -927,164 +951,52 @@ footer.site ul a:hover{ color: var(--d-text); }
   </div>
 </section>
 
-<!-- ================== STACK ================== -->
-<section id="stack">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div>
-        <h2><i>AWS-first</i> by default. Portable where the work demands it.</h2>
-        <p class="lede">We choose boring, supportable infrastructure for systems that need to survive production: secure data movement, observable services, governed AI, and clear ownership. AWS is our default — GCP, Azure, and cross-cloud tooling come in when the client environment or workload makes them the right choice.</p>
-      </div>
-      <span class="tag">SEC. 03 — PLATFORM CHOICES</span>
-    </div>
-
-    <div class="stack-grid reveal">
-      <div class="tabs" role="tablist" aria-label="Platform">
-        <button class="tab active" data-tab="aws" id="tab-aws" role="tab" aria-selected="true" aria-controls="stack-panel" tabindex="0">AWS Production Core <span class="badge">DEFAULT</span></button>
-        <button class="tab" data-tab="gcp" id="tab-gcp" role="tab" aria-selected="false" aria-controls="stack-panel" tabindex="-1">GCP When It Fits <span class="badge">SELECTIVE</span></button>
-        <button class="tab" data-tab="azure" id="tab-azure" role="tab" aria-selected="false" aria-controls="stack-panel" tabindex="-1">Azure Enterprise Integration <span class="badge">SELECTIVE</span></button>
-        <button class="tab" data-tab="data" id="tab-data" role="tab" aria-selected="false" aria-controls="stack-panel" tabindex="-1">Data &amp; AI Operating Layer <span class="badge">CORE</span></button>
-        <button class="tab" data-tab="app" id="tab-app" role="tab" aria-selected="false" aria-controls="stack-panel" tabindex="-1">Product Runtime <span class="badge">CORE</span></button>
-      </div>
-      <div class="panel" id="stack-panel" role="tabpanel" aria-labelledby="tab-aws" tabindex="0">
-        <div class="panel-title-row">
-          <h3 id="panel-title">AWS Production Core</h3>
-          <span class="meta" id="panel-meta">DEFAULT FOUNDATION · REGULATED WORKLOADS</span>
-        </div>
-        <div class="tools" id="panel-tools"></div>
-        <div class="panel-note" id="panel-note"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ================== APPROACH ================== -->
 <section id="approach">
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
-        <h2>A practical path from idea to <i>production.</i></h2>
-        <p class="lede">We do not start with a giant discovery deck. We start with the decision, workflow, data, risk, and success metric — then build the smallest production-shaped system that can prove value with real users. For AI and regulated data, disciplined matters more than rapid.</p>
+        <h2>From problem to <i>production.</i></h2>
+        <p class="lede">Four steps, each with agreed deliverables and decision points. Responsibilities, acceptance criteria, and handoff expectations are documented before work begins.</p>
       </div>
-      <span class="tag">SEC. 04 — HOW WE WORK</span>
+      <span class="tag">SEC. 04 — APPROACH</span>
     </div>
 
     <div class="steps reveal-stagger">
       <div class="step">
         <span class="sn">STEP</span>
         <div class="k">01</div>
-        <h3>Frame the Decision</h3>
-        <p>We identify the workflow, user, data sources, risk level, and business metric. We also map where AI or automation should not be used — that boundary matters as much as the solution.</p>
+        <h3>Frame</h3>
+        <p>Define the workflow, users, data, risks, constraints, and the measurable business result.</p>
       </div>
       <div class="step">
         <span class="sn">STEP</span>
         <div class="k">02</div>
-        <h3>Prove the System</h3>
-        <p>We prototype against real data, define evaluation criteria, test edge cases, and decide what must be automated, reviewed by a human, or rejected outright before anything gets built for production.</p>
+        <h3>Prove</h3>
+        <p>Test the approach against representative data with explicit evaluation criteria.</p>
       </div>
       <div class="step">
         <span class="sn">STEP</span>
         <div class="k">03</div>
-        <h3>Ship the Workflow</h3>
-        <p>We build the product surface, APIs, data pipelines, cloud infrastructure, observability, security controls, and release path. Real users early — not after months of isolated build time.</p>
+        <h3>Ship</h3>
+        <p>Deliver the application, pipelines, infrastructure, documentation, and controls into your environment.</p>
       </div>
       <div class="step">
         <span class="sn">STEP</span>
         <div class="k">04</div>
-        <h3>Operate and Improve</h3>
-        <p>We monitor quality, cost, drift, adoption, exceptions, and business outcomes — then tune the system with the teams who own it. We stay around long enough to defend the metrics we promised.</p>
+        <h3>Operate</h3>
+        <p>Monitor quality, cost, adoption, and exceptions — then expand only what produces measurable value.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================== SOLUTION PATTERNS ================== -->
-<section id="work" style="background: var(--paper-2);">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div>
-        <h2>Sound familiar? <i>Here’s what we build.</i></h2>
-        <p class="lede">Six situations we get called into — and what you get when we leave. Healthcare is where we run deepest; the pattern travels to any regulated, data-heavy business. (Week counts sketch a tightly scoped first slice — real timelines hinge on data access and security review.)</p>
-      </div>
-      <span class="tag">SEC. 05 — PROBLEMS → SOLUTIONS</span>
-    </div>
-
-    <div class="patterns reveal-stagger">
-      <div class="pattern">
-        <span class="pn">Common in — Product &amp; AI teams, any industry</span>
-        <div class="sit">The demo impressed everyone. Production never came.</div>
-        <h3>We take AI the last mile — into production.</h3>
-        <p>You get a working system, not a pilot: retrieval, evals, guardrails, human-review paths, and the observability to run it — live with real users in a controlled first release.</p>
-        <div class="arc">
-          <span><b>WK 1–2</b>FRAME — the workflow, the risk, the metric that decides success.</span>
-          <span><b>WK 3–8</b>PROVE &amp; SHIP — a thin slice in production, evals and guardrails wired in.</span>
-          <span><b>AFTER</b>OPERATE — watch quality and cost; expand only what earns it.</span>
-        </div>
-      </div>
-      <div class="pattern">
-        <span class="pn">Common in — Payer &amp; provider operations</span>
-        <div class="sit">Prior auth measured in days — sometimes weeks.</div>
-        <h3>We automate the document review. Humans keep the judgment calls.</h3>
-        <p>You get extraction with confidence routing, an auditable decision trail, and a review queue where routine cases clear fast and humans see only the exceptions.</p>
-        <div class="arc">
-          <span><b>WK 1–2</b>FRAME — sit with intake; map where cases actually stall.</span>
-          <span><b>WK 3–8</b>SHIP — extraction with confidence routing, review paths built in.</span>
-          <span><b>AFTER</b>OPERATE — monitor turnaround by case type; keep every decision traceable.</span>
-        </div>
-      </div>
-      <div class="pattern">
-        <span class="pn">Common in — Pharma commercial &amp; access teams</span>
-        <div class="sit">Every vendor feed has a different ID. None match the MDM.</div>
-        <h3>We build one data spine across your vendor stack.</h3>
-        <p>You get identity resolution, a semantic layer in your own warehouse, and event-driven triggers — access, medical, and commercial finally working from one truth.</p>
-        <div class="arc">
-          <span><b>WK 1–3</b>FRAME — inventory the feeds, the IDs, the refresh cycles, the gaps.</span>
-          <span><b>WK 4–10</b>SHIP — identity resolution and a semantic layer, in your warehouse.</span>
-          <span><b>AFTER</b>OPERATE — formulary change → field alert as soon as the source lands.</span>
-        </div>
-      </div>
-      <div class="pattern">
-        <span class="pn">Common in — Data &amp; analytics teams, any industry</span>
-        <div class="sit">Five dashboards. Zero numbers anyone trusts.</div>
-        <h3>We make the numbers trustworthy — and keep them that way.</h3>
-        <p>You get a semantic layer with definitions enforced in code, quality tests inside the pipeline itself, and lineage from source to metric.</p>
-        <div class="arc">
-          <span><b>WK 1–2</b>FRAME — find the three numbers the business actually runs on.</span>
-          <span><b>WK 3–8</b>SHIP — semantic layer, tests in the pipeline, lineage end to end.</span>
-          <span><b>AFTER</b>OPERATE — one definition per metric; alerts fire before the CFO notices.</span>
-        </div>
-      </div>
-      <div class="pattern">
-        <span class="pn">Common in — Regulated cloud estates, any industry</span>
-        <div class="sit">The audit is in 90 days. Nobody owns the cloud account.</div>
-        <h3>We turn compliance into architecture.</h3>
-        <p>You get a landing zone with IAM, encryption, and audit-ready logging — engineered to support HIPAA obligations and SOC 2 controls — all of it as reviewable infrastructure-as-code.</p>
-        <div class="arc">
-          <span><b>WK 1</b>FRAME — access, logging, and ownership gaps, mapped honestly.</span>
-          <span><b>WK 2–8</b>SHIP — landing zone, IAM, audit trails — delivered as code.</span>
-          <span><b>AFTER</b>OPERATE — the audit becomes a walkthrough, not a scramble.</span>
-        </div>
-      </div>
-      <div class="pattern">
-        <span class="pn">Common in — Boardrooms, any industry</span>
-        <div class="sit">An eighty-slide AI strategy. None of it live.</div>
-        <h3>We turn the deck into the first shipped system.</h3>
-        <p>You get a build / buy / kill decision list — and the first production system that proves the strategy, built with the team who’ll own it.</p>
-        <div class="arc">
-          <span><b>WK 1–2</b>FRAME — the kill list first: build, buy, and stop.</span>
-          <span><b>WK 3–10</b>SHIP — the first system that proves the strategy on real users.</span>
-          <span><b>AFTER</b>OPERATE — the deck gets shorter as the systems ship.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ================== FIG. 03 — THE MESS, MAPPED (PHARMA / PAYER TOGGLE) ================== -->
-<section class="claimfig" aria-label="The mess, mapped — pharma vendor stack and payer claims, and the keys we cut for both">
+<section class="claimfig" aria-label="The mess, mapped — illustrative pharma vendor-data and payer-claims system maps">
   <div class="caps">
-    <span class="mono">FIG. 03 — THE MESS, MAPPED</span>
-    <span class="mono">THE GIANTS SELL THE DATA. WE MAKE IT WORK.</span>
+    <span class="mono">FIG. 3 &amp; 4 — ILLUSTRATIVE SYSTEM MAPS</span>
+    <span class="mono">LICENSED DATA BECOMES MORE VALUABLE WHEN RECONCILED, GOVERNED, AND CONNECTED.</span>
   </div>
 
   <div class="seat-switch" role="group" aria-label="Pick your seat">
@@ -1095,9 +1007,9 @@ footer.site ul a:hover{ color: var(--d-text); }
 
   <!-- ============ 03A — PHARMA: THE VENDOR STACK ============ -->
   <div class="seat-panel" id="seat-pharma">
-    <div class="seat-sub">03A — THE VENDOR STACK, MADE TO WORK</div>
+    <div class="seat-sub">FIG. 3 — FROM FRAGMENTED VENDOR DATA TO GOVERNED ACTIVATION · ILLUSTRATIVE</div>
     <div class="claim-scroll fig">
-      <svg viewBox="0 0 1280 470" fill="none" aria-hidden="true">
+      <svg viewBox="0 0 1280 470" fill="none" role="img" aria-label="Illustrative diagram: market access, claims, clinical intelligence, and forecast data feeds flow into a client warehouse; a governed solution layer beneath provides identity resolution, validated update triggers, a governed copilot, and analytics-ready outputs with documented provenance.">
         <line x1="30" y1="10" x2="30" y2="455" stroke="rgba(239,247,247,.1)" stroke-width="1" stroke-dasharray="2 6"/>
         <line x1="1258" y1="10" x2="1258" y2="455" stroke="rgba(239,247,247,.1)" stroke-width="1" stroke-dasharray="2 6"/>
 
@@ -1136,8 +1048,9 @@ footer.site ul a:hover{ color: var(--d-text); }
         <!-- pain annotations -->
         <g font-size="10.5" fill="#E0604F">
           <text x="205"  y="130">CSV TODAY, API TOMORROW</text>
-          <text x="515"  y="130">REFRESH: DAILY? WEEKLY? WHO KNOWS.</text>
-          <text x="825"  y="130">NPI ≠ ONEKEY ≠ YOUR MDM</text>
+          <text x="515"  y="130">REFRESH + LATENCY VARY</text>
+          <text x="515"  y="145">BY SOURCE + CONTRACT</text>
+          <text x="825"  y="130">NPI ≠ COMMERCIAL ≠ MDM ID</text>
           <text x="900"  y="192">✗ INSIGHT TRAPPED IN PORTALS</text>
         </g>
 
@@ -1149,7 +1062,7 @@ footer.site ul a:hover{ color: var(--d-text); }
         <!-- intelligence rail + keys -->
         <line class="draw d4" pathLength="1" x1="65" y1="330" x2="1245" y2="330" stroke="rgba(55,218,113,.45)" stroke-width="1.5"/>
         <line x1="640" y1="270" x2="640" y2="330" stroke="rgba(55,218,113,.5)" stroke-width="1.2"/>
-        <text x="1245" y="322" font-size="10.5" fill="rgba(55,218,113,.75)" text-anchor="end" letter-spacing="2">CLAVESIQ INTELLIGENCE LAYER</text>
+        <text x="1245" y="322" font-size="10.5" fill="rgba(55,218,113,.75)" text-anchor="end" letter-spacing="2">ILLUSTRATIVE SOLUTION LAYER</text>
         <g fill="rgba(55,218,113,.04)" stroke="rgba(55,218,113,.55)" stroke-width="1.2">
           <rect class="draw d4" pathLength="1" x="65"  y="370" width="250" height="66"/>
           <rect class="draw d4" pathLength="1" x="375" y="370" width="250" height="66"/>
@@ -1168,11 +1081,13 @@ footer.site ul a:hover{ color: var(--d-text); }
           <text x="810"  y="396">KEY 03 — LAUNCH COPILOT</text>
           <text x="1120" y="396">KEY 04 — EVIDENCE ENGINE</text>
         </g>
-        <g font-size="9.5" fill="rgba(55,218,113,.7)" text-anchor="middle">
+        <g font-size="9" fill="rgba(55,218,113,.7)" text-anchor="middle">
           <text x="190"  y="418">INGEST · IDENTITY · SEMANTIC LAYER</text>
-          <text x="500"  y="418">FORMULARY CHANGE → FIELD, ON ARRIVAL</text>
+          <text x="500"  y="414">VALIDATED UPDATES</text>
+          <text x="500"  y="428">→ DOWNSTREAM WORKFLOWS</text>
           <text x="810"  y="418">GOVERNED RAG, VENDOR + INTERNAL</text>
-          <text x="1120" y="418">RWD COHORTS · HEOR-READY OUTPUT</text>
+          <text x="1120" y="414">ANALYTICS-READY</text>
+          <text x="1120" y="428">DOCUMENTED PROVENANCE</text>
         </g>
 
         <!-- packets -->
@@ -1188,156 +1103,151 @@ footer.site ul a:hover{ color: var(--d-text); }
       </svg>
     </div>
     <div class="claim-notes">
-      <span class="dim">$ make vendor-stack --pay-off</span>
-      <span>&gt; THE GIANTS SELL YOU THE DATA. WE MAKE IT WORK — IN YOUR CLOUD, UNDER YOUR GOVERNANCE.</span>
-      <span>&gt; ONE SPINE ACROSS THE FEEDS, SO ACCESS, MEDICAL, AND COMMERCIAL FINALLY SEE ONE TRUTH.</span>
-      <span>&gt; SHIPS WITH EVALS AND HUMAN REVIEW — YOUR EDGE SHOULDN'T LIVE IN A VENDOR'S BLACK BOX.</span>
+      <span class="dim">$ make vendor-stack --operational</span>
+      <span>&gt; NPI, COMMERCIAL, AND INTERNAL MDM IDENTIFIERS SERVE DIFFERENT PURPOSES — RECONCILIATION MUST BE GOVERNED.</span>
+      <span>&gt; GOVERNED, TRACEABLE RECORDS: SOURCE PRECEDENCE, EFFECTIVE DATES, LINEAGE, CONFIDENCE INDICATORS.</span>
+      <span>&gt; ACTIVATION RESPECTS LICENSING, LATENCY, AND INTEGRATION RIGHTS — IN YOUR CLOUD, UNDER YOUR GOVERNANCE.</span>
+      <span>&gt; EVERY OUTPUT CARRIES A DECISION RECORD — MODEL, EVALS, REVIEWER, RETENTION. AUDITORS WELCOME.</span>
     </div>
   </div>
 
   <!-- ============ 03B — PAYER: LIFE OF A CLAIM ============ -->
   <div class="seat-panel" id="seat-payer" hidden>
-    <div class="seat-sub">03B — LIFE OF A CLAIM</div>
+    <div class="seat-sub">FIG. 4 — LIFECYCLE OF A HEALTHCARE CLAIM · ILLUSTRATIVE WORKFLOW</div>
     <div class="claim-scroll fig">
-    <svg viewBox="0 0 1280 470" fill="none" aria-hidden="true">
+      <svg viewBox="0 0 1280 520" fill="none" role="img" aria-label="Illustrative lifecycle of a healthcare claim: eligibility verification, prior authorization when required, service delivery, 837 claim submission, clearinghouse validation, payer adjudication, 835 remittance, and reconciliation with correction, resubmission, or appeal. A ClavesIQ intelligence layer beneath provides clean-claim scrubbing, prior-auth document support, denials triage, and 835-to-837 reconciliation. Retail-pharmacy claims generally use NCPDP transaction standards rather than this X12 workflow.">
       <!-- guides -->
-      <line x1="30" y1="10" x2="30" y2="455" stroke="rgba(239,247,247,.1)" stroke-width="1" stroke-dasharray="2 6"/>
-      <line x1="1258" y1="10" x2="1258" y2="455" stroke="rgba(239,247,247,.1)" stroke-width="1" stroke-dasharray="2 6"/>
+      <line x1="30" y1="10" x2="30" y2="505" stroke="rgba(239,247,247,.1)" stroke-width="1" stroke-dasharray="2 6"/>
+      <line x1="1258" y1="10" x2="1258" y2="505" stroke="rgba(239,247,247,.1)" stroke-width="1" stroke-dasharray="2 6"/>
 
-      <!-- ===== THE MESS (top) ===== -->
-      <!-- main row -->
-      <rect class="node draw"    pathLength="1" x="65"  y="140" width="175" height="56"/>
-      <rect class="node draw d2" pathLength="1" x="330" y="140" width="210" height="56"/>
-      <rect class="node draw d3" pathLength="1" x="640" y="140" width="160" height="56"/>
-      <rect class="node draw d4" pathLength="1" x="920" y="140" width="170" height="56"/>
-      <!-- prior auth -->
-      <rect class="node aux draw d3" pathLength="1" x="560" y="20" width="170" height="56"/>
-
-      <!-- forward wires -->
+      <!-- ===== PRE-SERVICE ROW ===== -->
+      <rect class="node aux draw"    pathLength="1" x="65"  y="30" width="210" height="52"/>
+      <rect class="node aux draw d2" pathLength="1" x="345" y="30" width="250" height="52"/>
+      <rect class="node aux draw d3" pathLength="1" x="665" y="30" width="210" height="52"/>
       <g stroke="rgba(56,197,208,.5)" stroke-width="1.2">
-        <line class="draw d2" pathLength="1" x1="240" y1="168" x2="330" y2="168"/>
-        <line class="draw d3" pathLength="1" x1="540" y1="168" x2="640" y2="168"/>
-        <line class="draw d4" pathLength="1" x1="800" y1="168" x2="920" y2="168"/>
+        <line class="draw d2" pathLength="1" x1="275" y1="56" x2="345" y2="56"/>
+        <line class="draw d3" pathLength="1" x1="595" y1="56" x2="665" y2="56"/>
       </g>
-      <!-- prior-auth detour: claims pend at the payer awaiting auth on file -->
-      <line x1="680" y1="140" x2="680" y2="76" stroke="rgba(56,197,208,.4)" stroke-width="1.2" stroke-dasharray="4 4"/>
-      <!-- rejection loop (red) -->
-      <path d="M435 196 V250 H155 V196" stroke="rgba(224,96,79,.55)" stroke-width="1.2" stroke-dasharray="5 4"/>
-      <!-- denial drop from decision: red until it hits the rail zone, green after -->
-      <line x1="1005" y1="196" x2="1005" y2="264" stroke="rgba(224,96,79,.55)" stroke-width="1.2" stroke-dasharray="5 4"/>
-      <line x1="1005" y1="264" x2="1005" y2="330" stroke="rgba(55,218,113,.5)" stroke-width="1.2"/>
-      <!-- remit return -->
-      <path d="M1060 196 V300 H160 V196" stroke="rgba(56,197,208,.35)" stroke-width="1.2"/>
+      <g font-size="12.5" fill="#EFF7F7" text-anchor="middle">
+        <text x="170" y="55">ELIGIBILITY</text>
+        <text x="470" y="55">PRIOR AUTH</text>
+        <text x="770" y="55">SERVICE DELIVERED</text>
+      </g>
+      <g font-size="9" fill="rgba(239,247,247,.45)" text-anchor="middle">
+        <text x="170" y="72">VERIFIED FIRST</text>
+        <text x="470" y="72">WHEN REQUIRED — PRE-SERVICE</text>
+        <text x="770" y="72">CARE HAPPENS HERE</text>
+      </g>
+      <!-- drop from service to claim row -->
+      <path class="draw d3" pathLength="1" d="M770 82 V120 H160 V158" stroke="rgba(56,197,208,.4)" stroke-width="1.2"/>
+      <!-- auth reference carried into adjudication -->
+      <path d="M470 82 V132 H700 V158" stroke="rgba(56,197,208,.35)" stroke-width="1.2" stroke-dasharray="4 4"/>
+      <g font-size="10" fill="rgba(239,247,247,.45)" text-anchor="end">
+        <text x="1245" y="108">AUTH REFERENCE MUST MATCH</text>
+        <text x="1245" y="123">MISSING OR EXPIRED AUTH MAY PEND OR DENY</text>
+      </g>
 
-      <!-- ===== THE KEYS (bottom) ===== -->
-      <!-- intelligence rail -->
-      <line class="draw d4" pathLength="1" x1="65" y1="330" x2="1245" y2="330" stroke="rgba(55,218,113,.45)" stroke-width="1.5"/>
-      <!-- taps from rail up into the mess -->
+      <!-- ===== CLAIM ROW ===== -->
+      <rect class="node draw d2" pathLength="1" x="65"  y="158" width="190" height="56"/>
+      <rect class="node draw d3" pathLength="1" x="325" y="158" width="200" height="56"/>
+      <rect class="node draw d4" pathLength="1" x="595" y="158" width="230" height="56"/>
+      <rect class="node draw d4" pathLength="1" x="895" y="158" width="150" height="56"/>
+      <rect class="node draw d4" pathLength="1" x="1105" y="158" width="150" height="56"/>
+      <g stroke="rgba(56,197,208,.5)" stroke-width="1.2">
+        <line class="draw d3" pathLength="1" x1="255" y1="186" x2="325" y2="186"/>
+        <line class="draw d4" pathLength="1" x1="525" y1="186" x2="595" y2="186"/>
+        <line class="draw d4" pathLength="1" x1="825" y1="186" x2="895" y2="186"/>
+        <line class="draw d4" pathLength="1" x1="1045" y1="186" x2="1105" y2="186"/>
+      </g>
+      <g font-size="12.5" fill="#EFF7F7" text-anchor="middle">
+        <text x="160"  y="185">837 CLAIM</text>
+        <text x="425"  y="185">CLEARINGHOUSE</text>
+        <text x="710"  y="185">PAYER ADJUDICATION</text>
+        <text x="970"  y="185">835 REMIT</text>
+        <text x="1180" y="185">RECONCILE</text>
+      </g>
+      <g font-size="9" fill="rgba(239,247,247,.45)" text-anchor="middle">
+        <text x="160"  y="202">GENERATED + SUBMITTED</text>
+        <text x="425"  y="202">VALIDATION &amp; EDITS</text>
+        <text x="710"  y="202">RULES · PRICING · POLICY</text>
+        <text x="970"  y="202">PAYMENT DATA</text>
+        <text x="1180" y="202">CORRECT · APPEAL</text>
+      </g>
+
+      <!-- rejection loop (clearinghouse edits) -->
+      <path d="M425 214 V262 H160 V214" stroke="rgba(224,96,79,.55)" stroke-width="1.2" stroke-dasharray="5 4"/>
+      <text x="180" y="248" font-size="10.5" fill="#E0604F">✗ REJECTED — EDITS · RESUBMIT</text>
+      <!-- resubmission / appeal loop from reconcile -->
+      <path d="M1180 214 V292 H160 V214" stroke="rgba(224,96,79,.4)" stroke-width="1.2" stroke-dasharray="5 4"/>
+      <text x="730" y="278" font-size="10.5" fill="rgba(224,96,79,.85)">DENIED / SHORT-PAID → CORRECT · RESUBMIT · APPEAL</text>
+      <!-- denial drop from adjudication into the rail -->
+      <line x1="710" y1="214" x2="710" y2="305" stroke="rgba(224,96,79,.55)" stroke-width="1.2" stroke-dasharray="5 4"/>
+      <line x1="710" y1="305" x2="710" y2="360" stroke="rgba(55,218,113,.5)" stroke-width="1.2"/>
+      <!-- side notes -->
+      <g font-size="10" fill="rgba(239,247,247,.45)">
+        <text x="240" y="322">RETAIL PHARMACY USES NCPDP, NOT X12 837.</text>
+      </g>
+      <g font-size="10" fill="rgba(239,247,247,.45)" text-anchor="end">
+        <text x="1245" y="42">TIMING VARIES BY TRANSACTION TYPE,</text>
+        <text x="1245" y="58">PAYER RULES, URGENCY, AND DATA QUALITY</text>
+      </g>
+
+      <!-- ===== INTELLIGENCE RAIL + KEYS ===== -->
+      <line class="draw d4" pathLength="1" x1="65" y1="360" x2="1245" y2="360" stroke="rgba(55,218,113,.45)" stroke-width="1.5"/>
+      <text x="1245" y="352" font-size="10.5" fill="rgba(55,218,113,.75)" text-anchor="end" letter-spacing="2">ILLUSTRATIVE SOLUTION LAYER</text>
       <g stroke="rgba(55,218,113,.4)" stroke-width="1.2" stroke-dasharray="4 4">
-        <line x1="190" y1="330" x2="190" y2="250"/>
-        <line x1="720" y1="330" x2="720" y2="196"/>
-        <line x1="610" y1="330" x2="610" y2="300"/>
+        <line x1="190" y1="360" x2="190" y2="262"/>
+        <line x1="575" y1="360" x2="575" y2="132"/>
+        <line x1="1060" y1="360" x2="1060" y2="214"/>
       </g>
-      <!-- key nodes -->
       <g fill="rgba(55,218,113,.04)" stroke="rgba(55,218,113,.55)" stroke-width="1.2">
-        <rect class="draw d4" pathLength="1" x="65"  y="370" width="250" height="66"/>
-        <rect class="draw d4" pathLength="1" x="375" y="370" width="250" height="66"/>
-        <rect class="draw d4" pathLength="1" x="685" y="370" width="250" height="66"/>
-        <rect class="draw d4" pathLength="1" x="995" y="370" width="250" height="66"/>
+        <rect class="draw d4" pathLength="1" x="65"  y="400" width="250" height="66"/>
+        <rect class="draw d4" pathLength="1" x="375" y="400" width="250" height="66"/>
+        <rect class="draw d4" pathLength="1" x="685" y="400" width="250" height="66"/>
+        <rect class="draw d4" pathLength="1" x="995" y="400" width="250" height="66"/>
       </g>
-      <!-- rail-to-key stubs -->
       <g stroke="rgba(55,218,113,.45)" stroke-width="1.2">
-        <line x1="190" y1="330" x2="190" y2="370"/>
-        <line x1="500" y1="330" x2="500" y2="370"/>
-        <line x1="810" y1="330" x2="810" y2="370"/>
-        <line x1="1120" y1="330" x2="1120" y2="370"/>
+        <line x1="190" y1="360" x2="190" y2="400"/>
+        <line x1="500" y1="360" x2="500" y2="400"/>
+        <line x1="810" y1="360" x2="810" y2="400"/>
+        <line x1="1120" y1="360" x2="1120" y2="400"/>
+      </g>
+      <g font-size="12" fill="#EFF7F7" text-anchor="middle">
+        <text x="190"  y="426">KEY 01 — CLEAN-CLAIM SCRUB</text>
+        <text x="500"  y="426">KEY 02 — PRIOR-AUTH COPILOT</text>
+        <text x="810"  y="426">KEY 03 — DENIALS TRIAGE</text>
+        <text x="1120" y="426">KEY 04 — 835↔837 RECON</text>
+      </g>
+      <g font-size="9.5" fill="rgba(55,218,113,.7)" text-anchor="middle">
+        <text x="190"  y="448">RULES + ML EDITS, PRE-SUBMISSION</text>
+        <text x="500"  y="448">EXTRACT · EVALS · HUMAN REVIEW</text>
+        <text x="810"  y="448">CLASSIFY → ROUTE → APPEAL PACKET</text>
+        <text x="1120" y="448">MATCH · TRACE · RECONCILE</text>
       </g>
 
       <!-- ===== packets ===== -->
-      <circle r="3.2" fill="#37DA71" class="pulse-dot">
-        <animateMotion dur="1.6s" repeatCount="indefinite" path="M240 168 L330 168"/>
-      </circle>
-      <circle r="3.2" fill="#37DA71" class="pulse-dot">
-        <animateMotion dur="1.6s" begin="0.53s" repeatCount="indefinite" path="M540 168 L640 168"/>
-      </circle>
-      <circle r="3.2" fill="#37DA71" class="pulse-dot">
-        <animateMotion dur="1.6s" begin="1.06s" repeatCount="indefinite" path="M800 168 L920 168"/>
-      </circle>
-      <!-- red rejected claim looping -->
-      <circle r="3" fill="#E0604F" class="pulse-dot-r">
-        <animateMotion dur="4.5s" repeatCount="indefinite" path="M435 196 V250 H155 V196"/>
-      </circle>
-      <!-- prior-auth bounce -->
-      <circle r="2.6" fill="#38C5D0" class="pulse-dot-t">
-        <animateMotion dur="3.2s" repeatCount="indefinite" path="M680 140 V76 V140"/>
-      </circle>
-      <!-- denial: red falls, green returns -->
-      <circle r="3" fill="#E0604F" class="pulse-dot-r">
-        <animateMotion dur="2.4s" repeatCount="indefinite" path="M1005 196 V264"/>
-      </circle>
-      <circle r="3" fill="#37DA71" class="pulse-dot">
-        <animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M1005 264 V330"/>
-      </circle>
-      <!-- rescue: caught at the rail, re-enters the pipe clean -->
-      <circle r="3" fill="#37DA71" class="pulse-dot">
-        <animateMotion dur="3.4s" repeatCount="indefinite" path="M190 330 V250"/>
-      </circle>
-      <!-- rail traffic -->
-      <circle r="2.6" fill="#37DA71" class="pulse-dot">
-        <animateMotion dur="5s" repeatCount="indefinite" path="M65 330 H1245"/>
-      </circle>
-      <circle r="2.6" fill="#37DA71" class="pulse-dot">
-        <animateMotion dur="5s" begin="2.5s" repeatCount="indefinite" path="M1245 330 H65"/>
-      </circle>
-      <!-- remit crawling home -->
-      <circle r="3" fill="#38C5D0" class="pulse-dot-t">
-        <animateMotion dur="7s" repeatCount="indefinite" path="M1060 196 V300 H160 V196"/>
-      </circle>
+      <circle r="2.8" fill="#38C5D0" class="pulse-dot-t"><animateMotion dur="1.8s" repeatCount="indefinite" path="M275 56 L345 56"/></circle>
+      <circle r="2.8" fill="#38C5D0" class="pulse-dot-t"><animateMotion dur="1.8s" begin="0.9s" repeatCount="indefinite" path="M595 56 L665 56"/></circle>
+      <circle r="3" fill="#37DA71" class="pulse-dot"><animateMotion dur="3s" repeatCount="indefinite" path="M770 82 V120 H160 V158"/></circle>
+      <circle r="3.2" fill="#37DA71" class="pulse-dot"><animateMotion dur="1.6s" repeatCount="indefinite" path="M255 186 L325 186"/></circle>
+      <circle r="3.2" fill="#37DA71" class="pulse-dot"><animateMotion dur="1.6s" begin="0.5s" repeatCount="indefinite" path="M525 186 L595 186"/></circle>
+      <circle r="3.2" fill="#37DA71" class="pulse-dot"><animateMotion dur="1.6s" begin="1s" repeatCount="indefinite" path="M825 186 L895 186"/></circle>
+      <circle r="3.2" fill="#37DA71" class="pulse-dot"><animateMotion dur="1.6s" begin="1.3s" repeatCount="indefinite" path="M1045 186 L1105 186"/></circle>
+      <circle r="3" fill="#E0604F" class="pulse-dot-r"><animateMotion dur="4.5s" repeatCount="indefinite" path="M425 214 V262 H160 V214"/></circle>
+      <circle r="3" fill="#E0604F" class="pulse-dot-r"><animateMotion dur="2.4s" repeatCount="indefinite" path="M710 214 V305"/></circle>
+      <circle r="3" fill="#37DA71" class="pulse-dot"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M710 305 V360"/></circle>
+      <circle r="2.6" fill="#37DA71" class="pulse-dot"><animateMotion dur="5s" repeatCount="indefinite" path="M65 360 H1245"/></circle>
+      <circle r="2.6" fill="#38C5D0" class="pulse-dot-t"><animateMotion dur="3.4s" repeatCount="indefinite" path="M470 82 V132 H700 V158"/></circle>
+      </svg>
+    </div>
 
-      <!-- ===== labels ===== -->
-      <g font-size="13.5" fill="#EFF7F7" text-anchor="middle">
-        <text x="152"  y="173">PROVIDER</text>
-        <text x="435"  y="173">CLEARINGHOUSE</text>
-        <text x="720"  y="173">PAYER</text>
-        <text x="1005" y="173">DECISION</text>
-        <text x="645"  y="53">PRIOR AUTH</text>
-      </g>
-      <!-- wire + failure annotations (collision-checked) -->
-      <g font-size="10.5" fill="rgba(239,247,247,.45)">
-        <text x="263" y="158">THE 837</text>
-        <text x="826" y="158">ADJUDICATE</text>
-        <text x="692" y="110">PENDED FOR AUTH — DAYS PASS</text>
-        <text x="815" y="246">RX? A DIFFERENT PIPE.</text>
-      </g>
-      <text x="450" y="290" font-size="10.5" fill="rgba(239,247,247,.45)" text-anchor="middle">835 — THE REMIT. MATCHING IT IS THE WORK.</text>
-      <g font-size="10.5" fill="#E0604F">
-        <text x="180"  y="242">✗ REJECTED — RESUBMIT LOOP</text>
-        <text x="1015" y="250">DENIED — APPEALS CLOCK TICKING</text>
-      </g>
-      <!-- rail label -->
-      <text x="1245" y="322" font-size="10.5" fill="rgba(55,218,113,.75)" text-anchor="end" letter-spacing="2">CLAVESIQ INTELLIGENCE LAYER</text>
-      <!-- key node labels -->
-      <g font-size="12" fill="#EFF7F7" text-anchor="middle">
-        <text x="190"  y="396">KEY 01 — CLEAN-CLAIM SCRUB</text>
-        <text x="500"  y="396">KEY 02 — PRIOR-AUTH COPILOT</text>
-        <text x="810"  y="396">KEY 03 — DENIALS TRIAGE</text>
-        <text x="1120" y="396">KEY 04 — 835↔837 RECON</text>
-      </g>
-      <g font-size="9.5" fill="rgba(55,218,113,.7)" text-anchor="middle">
-        <text x="190"  y="418">RULES + ML EDITS, PRE-SUBMISSION</text>
-        <text x="500"  y="418">EXTRACT · EVALS · HUMAN REVIEW</text>
-        <text x="810"  y="418">CLASSIFY → ROUTE → APPEAL PACKET</text>
-        <text x="1120" y="418">MATCH · MASTER · FIND THE LEAKAGE</text>
-      </g>
-    </svg>
-  </div>
-
-  <div class="claim-notes" id="claim-notes">
-    <span class="dim">$ trace claim --from provider --to paid</span>
-    <span>&gt; A CLAIM CROSSES ~5 SYSTEMS BEFORE IT MEANS ANYTHING. EVERY RED LOOP IS REVENUE AGING.</span>
-    <span>&gt; EVERY LOCK GETS A KEY — SCRUB EARLY, READ THE DOCS, TRIAGE THE DENIALS, RECONCILE THE REMIT.</span>
-    <span>&gt; HIGH ACCURACY IS NOT THE SAME AS SAFE AUTOMATION — EVALS AND HUMAN REVIEW SHIP WITH IT.</span>
-  </div>
+    <div class="claim-notes" id="claim-notes">
+      <span class="dim">$ trace claim --from eligibility --to reconciled</span>
+      <span>&gt; A CLAIM OFTEN MOVES ACROSS CLINICAL, BILLING, CLEARINGHOUSE, PAYER, AND FINANCIAL SYSTEMS BEFORE PAYMENT IS RECONCILED.</span>
+      <span>&gt; EVERY LOCK GETS A KEY — SCRUB EARLY, READ THE DOCS, TRIAGE DENIALS, RECONCILE THE REMIT.</span>
+      <span>&gt; HIGH ACCURACY IS NOT THE SAME AS SAFE AUTOMATION — EVALS AND HUMAN REVIEW SHIP WITH IT.</span>
+      <span class="dim"># refs: x12 837 / 835 · ncpdp telecommunication standard · cms-0057-f (prior-authorization api requirements)</span>
+    </div>
   </div>
 
 </section>
@@ -1347,44 +1257,94 @@ footer.site ul a:hover{ color: var(--d-text); }
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
-        <h2>Deep technical experience. <i>Built for systems that have to work.</i></h2>
-        <p class="lede">ClavesIQ is built for companies that need more than extra developers. We bring experienced architects, AI/data/cloud execution, healthcare-aware judgment, and production ownership into one small, accountable team.</p>
+        <h2>Why work with <i>ClavesIQ.</i></h2>
+        <p class="lede">A focused, accountable delivery model led by experienced practitioners.</p>
       </div>
-      <span class="tag">SEC. 06 — WHY CLAVESIQ</span>
+      <span class="tag">SEC. 05 — WHY CLAVESIQ</span>
     </div>
 
     <div class="why-grid reveal">
       <ul class="why-list">
-        <li><span class="wn">W.01</span><span><b>The people who design it, deliver it.</b>The people who shape the architecture stay close through build, launch, and iteration. No bait-and-switch to junior staff after kickoff.</span></li>
-        <li><span class="wn">W.02</span><span><b>Production-first AI.</b>We design for evaluation, observability, fallback paths, human review, and operating ownership from the start — not bolted on before go-live.</span></li>
-        <li><span class="wn">W.03</span><span><b>Healthcare and regulated-data judgment.</b>Claims, EHR, PHI, FHIR/HL7, payer workflows, and auditability are treated as first-order design constraints, not compliance checkboxes.</span></li>
-        <li><span class="wn">W.04</span><span><b>Outcome-tied delivery.</b>Every engagement is anchored to a business, workflow, product, or operating metric — not just a task list or a delivery date.</span></li>
-        <li><span class="wn">W.05</span><span><b>Toronto-based, US-aligned.</b>Remote-first delivery with working-hour overlap across US time zones. Onsite for kickoffs, architecture reviews, and the decisions that need a room.</span></li>
+        <li><span class="wn">W.01</span><span><b>Experienced practitioners design and deliver the work.</b>The people on the first call are the people responsible for architecture, delivery quality, and outcomes.</span></li>
+        <li><span class="wn">W.02</span><span><b>AI is one component of an observable production system.</b>Evaluations, human-review paths, monitoring, and rollback are part of the build, not afterthoughts.</span></li>
+        <li><span class="wn">W.03</span><span><b>Healthcare workflows and regulated data are first-order design constraints.</b>Claims, clinical, pharmacy, and licensed commercial data requirements are considered from the start.</span></li>
+        <li><span class="wn">W.04</span><span><b>Engagements are tied to measurable outcomes.</b>Every project is anchored to an operational or business metric agreed before work begins.</span></li>
       </ul>
       <div class="creed">
-        <div><div class="cw">Experienced</div><p>Architecture and delivery owned by the same people from scope to launch.</p></div>
-        <div><div class="cw">Honest</div><p>We tell you what will break, what AI should not do, and what it will actually cost.</p></div>
-        <div><div class="cw">Measured</div><p>Every engagement is tied to a business, product, or operating outcome.</p></div>
-        <div><div class="cw">Regulated</div><p>PHI controls, audit-ready logging, and HIPAA-aware architecture from day one.</p></div>
+        <div><div class="cw">Experienced</div><p>Architecture and delivery remain connected from scope through handoff.</p></div>
+        <div><div class="cw">Transparent</div><p>We surface assumptions, tradeoffs, failure modes, and cost implications early.</p></div>
+        <div><div class="cw">Measured</div><p>Success criteria and operational measures are agreed before implementation.</p></div>
+        <div><div class="cw">Regulated</div><p>Security, privacy, traceability, and human oversight are treated as design requirements.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================== BIG CTA ================== -->
-<section class="cta-band">
-  <div class="cta-inner reveal">
-    <h2>Have an intelligence problem that <i>needs to ship?</i></h2>
-    <p class="cta-sub">30-minute call. No pitch deck. We'll tell you whether we can help, who you should also talk to, and roughly what it should cost.</p>
-    <div class="ctas">
-      <a class="btn on-dark" href="#contact">Start the conversation →</a>
-      <a class="btn ghost-dark" href="mailto:tech@clavesiq.com">tech@clavesiq.com</a>
+<!-- ================== HOW WE DELIVER ================== -->
+<section id="team" style="background: var(--card); border-top: 1px solid var(--hair);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <h2>How we <i>deliver.</i></h2>
+        <p class="lede">ClavesIQ is a new company built on established practitioner experience. Technical leadership brings 15 years of experience at the intersection of AI, data, engineering, and the US healthcare ecosystem. Across the delivery team, practitioners average 10–12 years in their respective technical and healthcare domains. Named personnel and relevant experience are shared through proposals, statements of work, and procurement processes.</p>
+      </div>
+      <span class="tag">SEC. 06 — DELIVERY MODEL</span>
+    </div>
+    <ul class="why-list delivery-grid reveal">
+      <li><span class="wn">D.01</span><span><b>Experienced practitioners stay involved throughout.</b>From the first architecture decision to production readiness — no handoff to a separate delivery bench.</span></li>
+      <li><span class="wn">D.02</span><span><b>Teams are matched to the problem.</b>Composition reflects the skills, responsibilities, and workload the engagement requires.</span></li>
+      <li><span class="wn">D.03</span><span><b>Specialist partners are disclosed when used.</b>You know who is working on your engagement, and how subcontractors are governed.</span></li>
+      <li><span class="wn">D.04</span><span><b>You own the result.</b>Code, infrastructure, documentation, and operational knowledge are delivered into client-controlled repositories and cloud accounts.</span></li>
+      <li><span class="wn">D.05</span><span><b>Responsibilities are named before work begins.</b>Delivery milestones and acceptance criteria are agreed up front.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================== PRODUCTION AI ASSESSMENT ================== -->
+<section id="assessment" style="border-top: 1px solid var(--hair);">
+  <div class="wrap">
+    <div class="audit-grid reveal">
+      <div>
+        <span class="tag mono" style="color:var(--teal-deep);">A DEFINED STARTING POINT</span>
+        <h2 style="font-family:var(--serif); font-weight:400; font-size:clamp(30px,3.4vw,50px); letter-spacing:-.02em; line-height:1.12; color:var(--navy); margin-top:14px;">The Production AI <i style="color:var(--teal);">Assessment.</i></h2>
+        <p class="lede">Two weeks, fixed scope, defined deliverables. The goal is not to force an AI project — it is to determine whether the opportunity is technically feasible, operationally useful, appropriately controlled, and commercially justified. Useful even when the recommendation is not to build.</p>
+      </div>
+      <div class="workorder">
+        <div class="wo-head"><span>Production AI Assessment</span><span>Two weeks · Fixed scope</span></div>
+        <div class="wo-row"><span class="k">Workflow</span><span class="v">Opportunity, stakeholder, and user assessment</span></div>
+        <div class="wo-row"><span class="k">Data</span><span class="v">Data-readiness and data-quality risk review</span></div>
+        <div class="wo-row"><span class="k">Architecture</span><span class="v">Recommendation, with model and vendor considerations</span></div>
+        <div class="wo-row"><span class="k">Controls</span><span class="v">Evaluation plan, human-review and operational requirements</span></div>
+        <div class="wo-row"><span class="k">Constraints</span><span class="v">Security, privacy, and regulatory considerations</span></div>
+        <div class="wo-row"><span class="k">Decision</span><span class="v">Build / buy / partner / stop, with a prioritized roadmap</span></div>
+        <div class="wo-row"><span class="k">Readouts</span><span class="v">Executive readout and technical readout, with next-step options</span></div>
+        <div class="wo-foot">
+          <span class="micro">PRICING — PROVIDED AFTER A SHORT QUALIFICATION CALL.</span>
+          <a class="btn" href="#contact">Discuss a project →</a>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="cta-meta">
-    <span>RESPONSE — WITHIN ONE BUSINESS DAY</span>
-    <span>FORMAT — 30 MIN / NO DECK</span>
-    <span>HONESTY — IF WE'RE NOT THE FIT, WE'LL SAY SO</span>
+</section>
+
+<!-- ================== PROCUREMENT & TRUST ================== -->
+<section id="trust" style="background: var(--paper-2); border-top: 1px solid var(--hair);">
+  <div class="wrap">
+    <div class="audit-grid reveal">
+      <div>
+        <span class="tag mono" style="color:var(--teal-deep);">SEC. 08 — TRUST</span>
+        <h2 style="font-family:var(--serif); font-weight:400; font-size:clamp(30px,3.4vw,50px); letter-spacing:-.02em; line-height:1.12; color:var(--navy); margin-top:14px;">What procurement can <i style="color:var(--teal);">expect.</i></h2>
+        <p class="lede">Company, ownership, security, and contracting details are confirmed during a qualified procurement process. Engagement-specific terms are documented before work begins.</p>
+      </div>
+      <div class="workorder">
+        <div class="wo-head"><span>Procurement summary</span><span>Details confirmed by engagement</span></div>
+        <div class="wo-row"><span class="k">Company</span><span class="v">ClavesIQ · Toronto, ON, Canada — legal entity and contracting details provided privately during procurement.</span></div>
+        <div class="wo-row"><span class="k">Ownership</span><span class="v">Ownership and licensing terms are defined in the agreement. Our default is delivery into client-controlled repositories and cloud accounts.</span></div>
+        <div class="wo-row"><span class="k">Contracting</span><span class="v">Data-protection and healthcare-specific terms, including DPA or BAA requirements where applicable, are addressed during contracting and legal review.</span></div>
+        <div class="wo-row"><span class="k">Security</span><span class="v">Engagement-specific access and security controls are documented before access is granted, including least privilege, encryption, secrets management, logging, and secure offboarding where applicable.</span></div>
+        <div class="wo-row"><span class="k">Regulated work</span><span class="v">Architecture can support HIPAA-regulated workflows, but compliance depends on the complete technical, organizational, and contractual environment.</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1393,16 +1353,16 @@ footer.site ul a:hover{ color: var(--d-text); }
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
-        <h2>Tell us what you're trying to <i>unlock.</i></h2>
-        <p class="lede">Drop a short note. We'll get back within one business day — usually faster. If we're not the right fit, we'll say so, and point you at someone who is.</p>
+        <h2>Start with what you're trying to <i>unlock.</i></h2>
+        <p class="lede">Tell us about the workflow, data, delivery risk, or decision in front of you. We'll respond within one business day. If ClavesIQ is not the right fit, we'll say so.</p>
       </div>
-      <span class="tag">SEC. 07 — LET'S TALK</span>
+      <span class="tag">SEC. 09 — CONTACT</span>
     </div>
 
     <div class="contact-grid reveal">
       <div>
         <div class="where">
-          <div class="where-row"><span class="k">Address</span><span class="v">99 Broadway Ave, Suite LPH 11<br/>Toronto, ON M4P 0E3, Canada</span></div>
+          <div class="where-row"><span class="k">First call</span><span class="v">30 minutes · No deck</span></div>
           <div class="where-row"><span class="k">Phone</span><span class="v"><a href="tel:+16177857244">617-785-7244</a></span></div>
           <div class="where-row"><span class="k">Email</span><span class="v"><a href="mailto:tech@clavesiq.com">tech@clavesiq.com</a></span></div>
           <div class="where-row"><span class="k">Hours</span><span class="v">US time-zone overlap, ET-anchored</span></div>
@@ -1423,6 +1383,10 @@ footer.site ul a:hover{ color: var(--d-text); }
           <input id="company" name="company" type="text" placeholder="Acme Health Plan"/>
         </div>
         <div class="field">
+          <label for="role">Role</label>
+          <input id="role" name="role" type="text" placeholder="VP, Data &amp; Analytics"/>
+        </div>
+        <div class="field">
           <label for="focus">What are you trying to unlock?</label>
           <select id="focus" name="focus">
             <option>Applied AI / LLMs in production</option>
@@ -1439,8 +1403,8 @@ footer.site ul a:hover{ color: var(--d-text); }
           <textarea id="ctx" name="ctx" placeholder="A few sentences about the problem, your stack, and your timeline."></textarea>
         </div>
         <div class="form-foot">
-          <span class="micro">WE'LL ONLY USE YOUR DETAILS TO RESPOND TO YOUR MESSAGE.</span>
-          <button type="submit" class="btn">Send message →</button>
+          <span class="micro">WE'LL ONLY USE YOUR DETAILS TO RESPOND. DO NOT SUBMIT PHI, PATIENT DATA, PASSWORDS, CREDENTIALS, OR CONFIDENTIAL PRODUCTION DATA.</span>
+          <button type="submit" class="btn">Prepare email →</button>
         </div>
         <p class="visually-hidden" id="form-status" role="status" aria-live="polite"></p>
       </form>
@@ -1455,12 +1419,12 @@ footer.site ul a:hover{ color: var(--d-text); }
 <footer class="site">
   <div class="foot-grid">
     <div class="foot-brand">
-      <a href="#top" aria-label="ClavesIQ home">
+      <a class="brand-stack" href="#top" aria-label="ClavesIQ — Keys to Intelligence — home">
         <svg class="flock" xmlns="http://www.w3.org/2000/svg" viewBox="200 80 512 222" role="img" aria-label="ClavesIQ"><g><path fill="#37da71" d="M447.39,178.2a40.23,40.23,0,0,1,0-80.46,40.48,40.48,0,0,1,38.54,28.66l-3,.9a37.32,37.32,0,0,0-35.53-26.43,37.1,37.1,0,1,0,0,74.19,37.33,37.33,0,0,0,35.54-26.42l3,.9A40.49,40.49,0,0,1,447.39,178.2Z"/><path fill="#1fa9b4" d="M406.65,178.2l-1.06,0a40.23,40.23,0,1,1,38.89-54,1.59,1.59,0,0,0,1.48,1.06H556v25.38H446a1.59,1.59,0,0,0-1.49,1.07h0A40.2,40.2,0,0,1,406.65,178.2Zm0-77.32a37.08,37.08,0,0,0-37.08,37.64,37.09,37.09,0,0,0,71.95,12.13,4.74,4.74,0,0,1,4.43-3.13H552.84V128.41H446a4.73,4.73,0,0,1-4.43-3.12A37.21,37.21,0,0,0,406.66,100.88Z"/><path fill="#1fa9b4" d="M541.28,128.41h-16v-7.34H510.61V97.74h17.82v5.51h9.72V97.74H556v23.33H541.28Zm-12.85-3.13h9.72v-7.35h14.69V100.87H541.28v5.51h-16v-5.51H513.74v17.06h14.69Z"/><path fill="#F7F7F7" d="M280.19,282.78H228.8a16.26,16.26,0,0,1-8.58-2.34,17.81,17.81,0,0,1-6.21-6.2,16.4,16.4,0,0,1-2.33-8.58v-30a16.44,16.44,0,0,1,2.33-8.62,17.76,17.76,0,0,1,6.21-6.21,16.35,16.35,0,0,1,8.58-2.33h51.39a16.5,16.5,0,0,1,8.61,2.33,17.56,17.56,0,0,1,6.2,6.21,16.51,16.51,0,0,1,2.31,8.62h-8.56a8.42,8.42,0,0,0-8.56-8.56H228.8a8.47,8.47,0,0,0-8.56,8.56v30a8.5,8.5,0,0,0,8.56,8.56h51.39a8.45,8.45,0,0,0,8.56-8.56h8.56a16.47,16.47,0,0,1-2.31,8.58,17.62,17.62,0,0,1-6.2,6.2A16.42,16.42,0,0,1,280.19,282.78Z"/><path fill="#F7F7F7" d="M312.57,282.78H304V218.52h8.56Z"/><path fill="#F7F7F7" d="M387.57,282.78H334.06a15,15,0,0,1,0-30H379v-4.3a8.45,8.45,0,0,0-8.56-8.56h-47.1v-8.56h47.1a16.55,16.55,0,0,1,8.6,2.31,17.4,17.4,0,0,1,6.21,6.2,16.58,16.58,0,0,1,2.31,8.61ZM379,274.22V261.36H334.06a6.29,6.29,0,0,0-4.59,1.83,6.18,6.18,0,0,0-1.86,4.57,6.35,6.35,0,0,0,6.45,6.46Z"/><path fill="#F7F7F7" d="M428.05,282.78h-9.63L389,231.38h9.68l24.6,43,24.55-43h9.68Z"/><path fill="#F7F7F7" d="M521.15,282.78H475a16.29,16.29,0,0,1-8.58-2.34,18,18,0,0,1-6.21-6.2,16.4,16.4,0,0,1-2.33-8.58V246.39a13,13,0,0,1,2.42-7.77,16.64,16.64,0,0,1,6.37-5.31,19,19,0,0,1,8.47-1.93H507a18.85,18.85,0,0,1,8.45,1.93,16.69,16.69,0,0,1,6.34,5.31,13,13,0,0,1,2.42,7.77v15H466.39v4.3a8.5,8.5,0,0,0,8.56,8.56h46.2Zm-5.51-30v-6.41a5.18,5.18,0,0,0-1.06-3.09,7.65,7.65,0,0,0-3-2.42,10.42,10.42,0,0,0-4.59-.94h-31.9a10.43,10.43,0,0,0-4.6.94,7.86,7.86,0,0,0-3,2.42,5.14,5.14,0,0,0-1.08,3.09v6.41Z"/><path fill="#F7F7F7" d="M579.88,282.78h-51.4v-8.56h51.4a10.27,10.27,0,0,0,4.52-.94,7.54,7.54,0,0,0,3-2.45,5.29,5.29,0,0,0,1-3.07,5.18,5.18,0,0,0-1-3,7.56,7.56,0,0,0-3-2.42,10.14,10.14,0,0,0-4.52-.94H545.6a18.66,18.66,0,0,1-8.41-1.95,16.69,16.69,0,0,1-6.31-5.33,13.58,13.58,0,0,1,0-15.42,16.69,16.69,0,0,1,6.31-5.33,18.66,18.66,0,0,1,8.41-2H597v8.56H545.6a10.15,10.15,0,0,0-4.53.94,7.72,7.72,0,0,0-3,2.42,5,5,0,0,0,0,6.14,7.81,7.81,0,0,0,3,2.42,10.29,10.29,0,0,0,4.53.94h34.28a18.58,18.58,0,0,1,8.42,1.95,16.74,16.74,0,0,1,6.29,5.31,13.6,13.6,0,0,1,0,15.43,16.64,16.64,0,0,1-6.29,5.34A18.58,18.58,0,0,1,579.88,282.78Z"/><path fill="#F7F7F7" d="M612.08,282.78h-8.56V218.52h8.56Z"/><path fill="#F7F7F7" d="M682.59,291.33H674l-2.28-8.55H637.91a16.31,16.31,0,0,1-8.58-2.34,17.87,17.87,0,0,1-6.2-6.2,16.31,16.31,0,0,1-2.33-8.58v-30a16.35,16.35,0,0,1,2.33-8.62,17.81,17.81,0,0,1,6.2-6.21,16.4,16.4,0,0,1,8.58-2.33h55.7a16.47,16.47,0,0,1,8.6,2.33,17.59,17.59,0,0,1,6.21,6.21,16.51,16.51,0,0,1,2.31,8.62v30a16.47,16.47,0,0,1-2.31,8.58,17.65,17.65,0,0,1-6.21,6.2,16.38,16.38,0,0,1-8.6,2.34H680.26Zm11-17.11a8.5,8.5,0,0,0,8.56-8.56v-30a8.49,8.49,0,0,0-8.56-8.6h-55.7a8.49,8.49,0,0,0-8.56,8.6v30a8.5,8.5,0,0,0,8.56,8.56h31.5l-2.28-8.56h8.56l2.28,8.56Z"/></g></svg>
-      </a>
-      <p>AI, data &amp; cloud engineering. Deep US healthcare expertise, built in Toronto.</p>
+      <span class="brand-tag-dark">Keys to Intelligence</span></a>
+      <p>Production AI, data, and cloud systems for healthcare and other regulated or data-intensive businesses. Built in Toronto, serving the US and Canada.</p>
       <div class="foot-contact">
-        <span>99 BROADWAY AVE, SUITE LPH 11 — TORONTO, ON M4P 0E3</span>
+        <span>99 BROADWAY AVE — TORONTO, ON M4P 0E3</span>
         <a href="tel:+16177857244">617-785-7244</a>
         <a href="mailto:tech@clavesiq.com">TECH@CLAVESIQ.COM</a>
       </div>
@@ -1468,31 +1432,26 @@ footer.site ul a:hover{ color: var(--d-text); }
     <div>
       <h2 class="foot-h">What we do</h2>
       <ul>
-        <li><a href="#services">AI systems that reach production</a></li>
-        <li><a href="#services">Trusted data infrastructure</a></li>
-        <li><a href="#services">Production-grade cloud</a></li>
-        <li><a href="#services">Healthcare data</a></li>
-        <li><a href="#services">Products built to last</a></li>
-        <li><a href="#services">Technical leadership, on demand</a></li>
+        <li><a href="#solutions">Production AI</a></li>
+        <li><a href="#solutions">Healthcare data</a></li>
+        <li><a href="#solutions">AWS foundations</a></li>
+        <li><a href="#assessment">Production AI Assessment</a></li>
       </ul>
     </div>
     <div>
       <h2 class="foot-h">Company</h2>
       <ul>
-        <li><a href="#work">Sound familiar?</a></li>
+        <li><a href="#evidence">Standards</a></li>
         <li><a href="#approach">Approach</a></li>
-        <li><a href="#stack">Tech Stack</a></li>
+        <li><a href="#team">Practitioners</a></li>
+        <li><a href="#trust">Security &amp; Trust</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#contact">Careers</a></li>
       </ul>
     </div>
   </div>
   <div class="foot-bot">
-    <span>© 2026 ClavesIQ Inc. · Toronto, ON, Canada</span>
-    <div class="socials">
-      <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14M8.34 17V10H6V17h2.34M7.16 9a1.36 1.36 0 0 0 0-2.72 1.36 1.36 0 0 0 0 2.72M18 17v-3.83c0-2.27-1.45-3.17-2.91-3.17a2.84 2.84 0 0 0-2.57 1.27V10h-2.07V17h2.34v-3.83A1.55 1.55 0 0 1 14.5 11.7c.97 0 1.16.84 1.16 1.51V17H18z"/></svg></a>
-    </div>
-    <span>THIS SITE LAST SHIPPED — <span id="ship-date">2026-07-14</span> · FIELD MANUAL / TECHNICAL EDITORIAL</span>
+    <span>© 2026 ClavesIQ · Toronto, ON, Canada</span>
+    <span>FIELD MANUAL / TECHNICAL EDITORIAL</span>
   </div>
 </footer>
 
@@ -1533,19 +1492,28 @@ console.log('%cYou read consoles. We like you already.\nOne HTML file. No framew
     ['ok',  '> POSSIBLE CARE GAP ..... A1C 8.2 — APPLY PATIENT-SPECIFIC RULES'],
     ['ok',  '> DIRECT IDS MASKED ..... 2 FIELDS — DE-ID REVIEW REQUIRED'],
     ['ok',  '> LOW CONFIDENCE ........ 1 SPAN \u2192 HUMAN REVIEW, BY DESIGN'],
-    ['dim', '# synthetic patient. real pattern. this is the boring part we love.'],
+    ['dim', '# synthetic patient. illustrative workflow. this is the boring part we love.'],
+  ];
+  const EVIDENCE = [
+    ['dim', '$ emit decision-record --for chart-review'],
+    ['ok',  '> INPUTS ............... NOTE HASH + SOURCE FEED, LOGGED'],
+    ['ok',  '> MODEL + PROMPT ....... PINNED VERSIONS, EVERY RUN'],
+    ['ok',  '> EVAL SUITE ........... PASSING BEFORE DEPLOY, WATCHED AFTER'],
+    ['ok',  '> REVIEW TRAIL ......... WHO SAW IT, WHAT CHANGED, WHEN'],
+    ['ok',  '> RETENTION ............ AUDIT-READY, ROLE-SCOPED ACCESS'],
+    ['dim', '# every ai decision ships with its receipt. auditors welcome.'],
   ];
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let started = false;
 
-  function typeReport(done){
+  function typeReport(lines, done){
     let li = 0, ci = 0, span = null;
     const cur = document.createElement('span');
     cur.className = 'chart-cursor';
     outEl.appendChild(cur);
     (function type(){
-      if (li >= REPORT.length){ if (done) done(); return; }
-      const [cls, text] = REPORT[li];
+      if (li >= lines.length){ cur.remove(); if (done) done(); return; }
+      const [cls, text] = lines[li];
       if (!span){
         span = document.createElement('span');
         if (cls === 'dim') span.className = 'dim';
@@ -1578,7 +1546,12 @@ console.log('%cYou read consoles. We like you already.\nOne HTML file. No framew
     }, afterHighlights);
     setTimeout(() => {
       stage.textContent = 'ROUTED \u2713';
-      typeReport();
+      typeReport(REPORT, () => {
+        stage.textContent = 'EVIDENCING\u2026';
+        setTimeout(() => {
+          typeReport(EVIDENCE, () => { stage.textContent = 'EVIDENCED \u2713 — ADMISSIBLE'; });
+        }, 600);
+      });
     }, afterHighlights + 1000);
   }
 
@@ -1590,8 +1563,8 @@ console.log('%cYou read consoles. We like you already.\nOne HTML file. No framew
       body.querySelectorAll('em').forEach(em => em.classList.add('on'));
       body.querySelectorAll('em.phi').forEach(em => { em.classList.add('masked'); em.textContent = em.dataset.mask; });
       legend.classList.add('on');
-      stage.textContent = 'ROUTED \u2713';
-      REPORT.forEach(([cls, text]) => {
+      stage.textContent = 'EVIDENCED \u2713 — ADMISSIBLE';
+      REPORT.concat(EVIDENCE).forEach(([cls, text]) => {
         const sp = document.createElement('span');
         if (cls === 'dim') sp.className = 'dim';
         sp.textContent = text + '\n';
@@ -1648,30 +1621,6 @@ if ('IntersectionObserver' in window){
   revealTargets.forEach(el => el.classList.add('in'));
 }
 
-/* ---------- disciplines accordion ---------- */
-document.querySelectorAll('.disc').forEach(disc => {
-  const head = disc.querySelector('.disc-head');
-  const body = disc.querySelector('.disc-body');
-  head.addEventListener('click', () => {
-    const isOpen = disc.classList.contains('open');
-    document.querySelectorAll('.disc').forEach(d => {
-      if (!d.classList.contains('open')) return;
-      const b = d.querySelector('.disc-body');
-      d.classList.remove('open');
-      d.querySelector('.disc-head').setAttribute('aria-expanded', 'false');
-      clearTimeout(b._hideTimer);
-      b._hideTimer = setTimeout(() => { if (!d.classList.contains('open')) b.hidden = true; }, 500);
-    });
-    if (!isOpen){
-      clearTimeout(body._hideTimer);
-      body.hidden = false;
-      void body.offsetHeight;
-      disc.classList.add('open');
-      head.setAttribute('aria-expanded', 'true');
-    }
-  });
-});
-
 /* ---------- mobile drawer ---------- */
 (function(){
   const btn = document.getElementById('menu-btn');
@@ -1712,105 +1661,7 @@ document.querySelectorAll('.disc').forEach(disc => {
   window.matchMedia('(max-width: 1120px)').addEventListener('change', ev => { if (!ev.matches) close(false); });
 })();
 
-/* ---------- stack tabs ---------- */
-const stackContent = {
-  aws: {
-    title: 'AWS Production Core',
-    meta:  'DEFAULT FOUNDATION · REGULATED WORKLOADS',
-    note:  'Default foundation for secure AI, data, and product workloads: landing zones, IAM, KMS, VPC design, observability, CI/CD, data lakes, model services, and cost controls. HIPAA-sensitive work is designed around BAA coverage, access policy, auditability, and PHI minimization — not just the eligible-services list.',
-    tools: [
-      ['Bedrock','Governed model access'],['SageMaker','ML platform'],['Lambda','Serverless compute'],
-      ['EKS','Container orchestration'],['S3 + Athena','Data lake + query'],['Glue','ETL & catalogue'],
-      ['Aurora','Managed relational DB'],['Redshift','Analytical warehouse'],['Kinesis','Streaming ingest'],
-      ['KMS + Macie','PHI protection'],['GuardDuty + Security Hub','Security posture'],['CloudWatch + OTEL','Observability']
-    ]
-  },
-  gcp: {
-    title: 'GCP When It Fits',
-    meta:  'SELECTIVE · WORKLOAD-DRIVEN',
-    note:  'Used when the workload benefits from BigQuery, Vertex AI, Healthcare API, or an existing GCP estate. We keep the same standards for identity, data governance, observability, and regulated-data handling — the platform changes, the engineering discipline does not.',
-    tools: [
-      ['Vertex AI','ML & Gen-AI platform'],['BigQuery','Serverless warehouse'],['Cloud Run','Serverless containers'],
-      ['GKE','Kubernetes'],['Healthcare API','FHIR / HL7 native'],['Dataflow','Batch + streaming'],
-      ['Pub/Sub','Async messaging'],['Cloud SQL','Managed Postgres'],['Looker','BI & semantic layer']
-    ]
-  },
-  azure: {
-    title: 'Azure Enterprise Integration',
-    meta:  'SELECTIVE · ENTERPRISE BACKBONE',
-    note:  'Used where Microsoft is already the enterprise backbone: identity through Entra ID, AI through Azure OpenAI, analytics through Synapse or Fabric, governance through Purview. We integrate cleanly with Microsoft-heavy organisations without requiring a cloud migration first.',
-    tools: [
-      ['Azure OpenAI','Enterprise LLM'],['Azure ML','ML platform'],['Synapse / Fabric','Analytics'],
-      ['AKS','Kubernetes'],['Functions','Serverless'],['Cosmos DB','NoSQL at scale'],
-      ['Event Hubs','Streaming ingest'],['Purview','Data governance'],['Entra ID','Enterprise identity']
-    ]
-  },
-  data: {
-    title: 'Data & AI Operating Layer',
-    meta:  'CORE · CLOUD-PORTABLE',
-    note:  'The durable layer beneath analytics and AI: ingestion, orchestration, transformation, quality checks, semantic models, vector search, experiment tracking, evaluation, and monitoring. These tools travel across clouds — the stack does not change when the client environment does.',
-    tools: [
-      ['Snowflake','Cloud data warehouse'],['Databricks','Lakehouse platform'],['dbt','Transformation layer'],
-      ['Airflow / Dagster','Orchestration'],['LangGraph','Agent frameworks'],['pgvector / Pinecone','Vector search'],
-      ['MLflow','Experiment tracking'],['Weights & Biases','Model evaluation'],['Great Expectations','Data quality'],
-      ['Monte Carlo','Data observability'],['OpenTelemetry','AI observability'],['Anthropic / OpenAI','Model providers']
-    ]
-  },
-  app: {
-    title: 'Product Runtime',
-    meta:  'CORE · APPLICATION LAYER',
-    note:  'The application layer users actually touch: React/Next.js frontends, Python or Node APIs, identity and access management, job queues, Postgres, external integrations, release pipelines, and the operating documentation that keeps it supportable after we hand it over. In healthcare contexts, FHIR and HL7 are first-class citizens from day one.',
-    tools: [
-      ['React + Next.js','Web frontend'],['React Native','Mobile'],['TypeScript','Type-safe full-stack'],
-      ['Python (FastAPI)','API services'],['Node.js','API services'],['Postgres + pgvector','Primary datastore'],
-      ['Redis','Cache and queues'],['Kafka','Event streaming'],['Terraform','Infrastructure as code'],
-      ['GitHub Actions','CI/CD pipelines'],['Datadog','Application observability'],['FHIR / HL7','Healthcare standards']
-    ]
-  }
-};
-const toolsEl = document.getElementById('panel-tools');
-const titleEl = document.getElementById('panel-title');
-const metaEl  = document.getElementById('panel-meta');
-const noteEl  = document.getElementById('panel-note');
-function renderStack(key){
-  const d = stackContent[key];
-  if (!d) return;
-  titleEl.textContent = d.title;
-  metaEl.textContent = d.meta;
-  noteEl.textContent = d.note;
-  toolsEl.innerHTML = d.tools.map(([nm, sb]) =>
-    `<div class="tool-row"><span class="tn">${nm}</span><span class="ts">${sb}</span></div>`).join('');
-}
-renderStack('aws');
-const tabButtons = Array.from(document.querySelectorAll('.tab'));
-const panelEl = document.querySelector('.panel');
-function activateTab(tab, moveFocus){
-  tabButtons.forEach(t => {
-    const active = t === tab;
-    t.classList.toggle('active', active);
-    t.setAttribute('aria-selected', active ? 'true' : 'false');
-    t.setAttribute('tabindex', active ? '0' : '-1');
-  });
-  panelEl.setAttribute('aria-labelledby', tab.id);
-  renderStack(tab.dataset.tab);
-  panelEl.classList.remove('swap');
-  void panelEl.offsetWidth;
-  panelEl.classList.add('swap');
-  if (moveFocus) tab.focus();
-}
-tabButtons.forEach(tab => tab.addEventListener('click', () => activateTab(tab)));
-document.querySelector('.tabs').addEventListener('keydown', e => {
-  const i = tabButtons.indexOf(document.activeElement);
-  if (i === -1) return;
-  let next = null;
-  if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = (i + 1) % tabButtons.length;
-  else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = (i - 1 + tabButtons.length) % tabButtons.length;
-  else if (e.key === 'Home') next = 0;
-  else if (e.key === 'End') next = tabButtons.length - 1;
-  if (next !== null){ e.preventDefault(); activateTab(tabButtons[next], true); }
-});
-
-/* ---------- form submit (demo) ---------- */
+/* ---------- form submit (email handoff until the AWS form endpoint is connected) ---------- */
 let formResetTimer = null;
 function handleFormSubmit(e){
   e.preventDefault();
@@ -1818,20 +1669,30 @@ function handleFormSubmit(e){
   const btn = form.querySelector('button[type=submit]');
   if (btn.disabled) return;
   const original = btn.innerHTML;
+  const data = new FormData(form);
+  const value = name => String(data.get(name) || '').trim();
+  const subjectDetail = value('company') || value('focus') || 'Website inquiry';
+  const subject = `ClavesIQ project inquiry — ${subjectDetail}`;
+  const body = [
+    `Name: ${value('name')}`,
+    `Work email: ${value('email')}`,
+    `Company: ${value('company') || 'Not provided'}`,
+    `Role: ${value('role') || 'Not provided'}`,
+    `Focus: ${value('focus')}`,
+    '',
+    'Context:',
+    value('ctx') || 'Not provided'
+  ].join('\r\n');
   btn.disabled = true;
-  btn.innerHTML = 'SENT — WE\'LL BE IN TOUCH ✓';
-  btn.style.background = 'var(--green)';
-  btn.style.color = 'var(--navy)';
+  btn.innerHTML = 'OPENING EMAIL APP…';
   const status = document.getElementById('form-status');
-  if (status) status.textContent = 'Message sent. We will be in touch within one business day.';
-  form.reset();
+  if (status) status.textContent = 'Your email application should open with a prepared message. Review and send it there.';
+  window.location.href = `mailto:tech@clavesiq.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   clearTimeout(formResetTimer);
   formResetTimer = setTimeout(() => {
     btn.innerHTML = original;
-    btn.style.background = '';
-    btn.style.color = '';
     btn.disabled = false;
-  }, 3200);
+  }, 1600);
 }
 </script>
 </body>
