@@ -992,27 +992,27 @@ footer.site ul a:hover{ color: var(--d-text); }
 
 
 <!-- ================== FIG. 03: THE MESS, MAPPED (PHARMA / PAYER TOGGLE) ================== -->
-<section class="claimfig" aria-label="The mess, mapped: illustrative pharma vendor-data and payer-claims system maps">
+<section class="claimfig" aria-label="Illustrative life sciences market-access and medical-claims system maps">
   <div class="caps">
     <span class="mono">FIG. 3 &amp; 4 · ILLUSTRATIVE SYSTEM MAPS</span>
-    <span class="mono">LICENSED DATA BECOMES MORE VALUABLE WHEN RECONCILED, GOVERNED, AND CONNECTED.</span>
+    <span class="mono">DATA ENGINEERING FIRST · AI WHERE IT ADDS CONTROLLED VALUE</span>
   </div>
 
   <div class="seat-switch" role="group" aria-label="Pick your seat">
     <span class="lbl">PICK YOUR SEAT</span>
-    <button class="seat on" data-seat="pharma" aria-pressed="true">PHARMA / LAUNCH &amp; ACCESS</button>
-    <button class="seat" data-seat="payer" aria-pressed="false">PAYER / CLAIMS OPS</button>
+    <button class="seat on" data-seat="pharma" aria-pressed="true">LIFE SCIENCES / MARKET ACCESS</button>
+    <button class="seat" data-seat="payer" aria-pressed="false">CLAIMS / PAYMENT OPS</button>
   </div>
 
   <!-- ============ 03A: PHARMA VENDOR STACK ============ -->
   <div class="seat-panel" id="seat-pharma">
-    <div class="seat-sub">FIG. 3 · FROM FRAGMENTED VENDOR DATA TO GOVERNED ACTIVATION · ILLUSTRATIVE</div>
+    <div class="seat-sub">FIG. 3 · FROM FRAGMENTED ACCESS DATA TO GOVERNED DECISIONS · ILLUSTRATIVE</div>
     <div class="claim-scroll fig">
-      <svg viewBox="0 0 1280 470" fill="none" role="img" aria-label="Illustrative diagram: market access, claims, clinical intelligence, and forecast data feeds flow into a client warehouse; a governed solution layer beneath provides identity resolution, validated update triggers, a governed copilot, and analytics-ready outputs with documented provenance.">
+      <svg viewBox="0 0 1280 470" fill="none" role="img" aria-label="Illustrative market-access data architecture: payer and policy, claims and patient services, provider and account, and commercial and contract sources flow into a client data platform. A governed engineering and intelligence layer provides data quality, identity resolution, AI-assisted change intelligence, activation, monitoring, and audit controls.">
         <line x1="30" y1="10" x2="30" y2="455" stroke="rgba(239,247,247,.1)" stroke-width="1" stroke-dasharray="2 6"/>
         <line x1="1258" y1="10" x2="1258" y2="455" stroke="rgba(239,247,247,.1)" stroke-width="1" stroke-dasharray="2 6"/>
 
-        <text x="640" y="24" font-size="10.5" fill="rgba(239,247,247,.45)" text-anchor="middle" letter-spacing="1">YOUR SUBSCRIPTIONS · MARKET ACCESS · CLAIMS · INTEL · FORECASTS · THEIRS, NOT OURS</text>
+        <text x="640" y="24" font-size="10.5" fill="rgba(239,247,247,.45)" text-anchor="middle" letter-spacing="1">LICENSED · PARTNER · PUBLIC · CLIENT-OWNED SOURCES</text>
 
         <!-- vendor feed nodes -->
         <g class="node aux">
@@ -1022,16 +1022,16 @@ footer.site ul a:hover{ color: var(--d-text); }
           <rect class="draw d4" pathLength="1" x="995" y="40" width="250" height="56" fill="rgba(239,247,247,.02)" stroke="rgba(56,197,208,.45)" stroke-width="1.2"/>
         </g>
         <g font-size="12" fill="#EFF7F7" text-anchor="middle">
-          <text x="190"  y="63">MARKET ACCESS DATA</text>
-          <text x="500"  y="63">CLAIMS &amp; RX DATA</text>
-          <text x="810"  y="63">CLINICAL &amp; REG INTEL</text>
-          <text x="1120" y="63">FORECASTS &amp; CRM</text>
+          <text x="190"  y="63">PAYER, PLAN &amp; POLICY</text>
+          <text x="500"  y="63">CLAIMS &amp; PATIENT SERVICES</text>
+          <text x="810"  y="63">PROVIDER &amp; ACCOUNT</text>
+          <text x="1120" y="63">COMMERCIAL &amp; CONTRACT</text>
         </g>
         <g font-size="9.5" fill="rgba(56,197,208,.7)" text-anchor="middle">
-          <text x="190"  y="83">FORMULARY · POLICY · PA</text>
-          <text x="500"  y="83">MEDICAL + PHARMACY</text>
-          <text x="810"  y="83">TRIALS · LABELS · HTA</text>
-          <text x="1120" y="83">DECKS · PORTALS · EXPORTS</text>
+          <text x="190"  y="83">FORMULARY · COVERAGE · RESTRICTIONS</text>
+          <text x="500"  y="83">MEDICAL · RX · HUB · SP</text>
+          <text x="810"  y="83">NPI · HCP · HCO · AFFILIATIONS</text>
+          <text x="1120" y="83">CRM · FIELD · REBATES · FORECASTS</text>
         </g>
 
         <!-- drops to collector bus -->
@@ -1045,23 +1045,26 @@ footer.site ul a:hover{ color: var(--d-text); }
         </g>
 
         <!-- pain annotations -->
+        <g font-size="10.5" fill="#E0604F" text-anchor="middle">
+          <text x="345"  y="130">FILES · APIS · PORTALS · MIXED CADENCE</text>
+          <text x="655"  y="130">GRAIN + LATENCY VARY</text>
+          <text x="655"  y="145">BY SOURCE + CONTRACT</text>
+          <text x="965"  y="130">PAYER · PLAN · HCP · HCO</text>
+          <text x="965"  y="145">IDS DO NOT ALIGN</text>
+        </g>
         <g font-size="10.5" fill="#E0604F">
-          <text x="205"  y="130">CSV TODAY, API TOMORROW</text>
-          <text x="515"  y="130">REFRESH + LATENCY VARY</text>
-          <text x="515"  y="145">BY SOURCE + CONTRACT</text>
-          <text x="825"  y="130">NPI ≠ COMMERCIAL ≠ MDM ID</text>
-          <text x="900"  y="192">✗ INSIGHT TRAPPED IN PORTALS</text>
+          <text x="900"  y="192">✗ RAW FEEDS ARE NOT DECISION-READY</text>
         </g>
 
         <!-- warehouse -->
         <rect class="node draw d3" pathLength="1" x="440" y="210" width="400" height="60"/>
-        <text x="640" y="238" font-size="13.5" fill="#EFF7F7" text-anchor="middle">YOUR WAREHOUSE</text>
-        <text x="640" y="257" font-size="9.5" fill="rgba(239,247,247,.45)" text-anchor="middle">WHERE IT ALL LANDS, AND STALLS</text>
+        <text x="640" y="238" font-size="13.5" fill="#EFF7F7" text-anchor="middle">CLIENT DATA PLATFORM</text>
+        <text x="640" y="257" font-size="9.5" fill="rgba(239,247,247,.45)" text-anchor="middle">INGESTED · LINKED · GOVERNED</text>
 
         <!-- intelligence rail + keys -->
         <line class="draw d4" pathLength="1" x1="65" y1="330" x2="1245" y2="330" stroke="rgba(55,218,113,.45)" stroke-width="1.5"/>
         <line x1="640" y1="270" x2="640" y2="330" stroke="rgba(55,218,113,.5)" stroke-width="1.2"/>
-        <text x="1245" y="322" font-size="10.5" fill="rgba(55,218,113,.75)" text-anchor="end" letter-spacing="2">ILLUSTRATIVE SOLUTION LAYER</text>
+        <text x="1245" y="322" font-size="10.5" fill="rgba(55,218,113,.75)" text-anchor="end" letter-spacing="2">ILLUSTRATIVE ENGINEERING + AI LAYER</text>
         <g fill="rgba(55,218,113,.04)" stroke="rgba(55,218,113,.55)" stroke-width="1.2">
           <rect class="draw d4" pathLength="1" x="65"  y="370" width="250" height="66"/>
           <rect class="draw d4" pathLength="1" x="375" y="370" width="250" height="66"/>
@@ -1075,18 +1078,20 @@ footer.site ul a:hover{ color: var(--d-text); }
           <line x1="1120" y1="330" x2="1120" y2="370"/>
         </g>
         <g font-size="12" fill="#EFF7F7" text-anchor="middle">
-          <text x="190"  y="396">KEY 01 · ONE DATA SPINE</text>
-          <text x="500"  y="396">KEY 02 · ACCESS TRIGGERS</text>
-          <text x="810"  y="396">KEY 03 · LAUNCH COPILOT</text>
-          <text x="1120" y="396">KEY 04 · EVIDENCE ENGINE</text>
+          <text x="190"  y="396">KEY 01 · DATA FOUNDATION</text>
+          <text x="500"  y="396">KEY 02 · IDENTITY RESOLUTION</text>
+          <text x="810"  y="396">KEY 03 · CHANGE INTELLIGENCE</text>
+          <text x="1120" y="396">KEY 04 · ACTIVATION &amp; CONTROLS</text>
         </g>
         <g font-size="9" fill="rgba(55,218,113,.7)" text-anchor="middle">
-          <text x="190"  y="418">INGEST · IDENTITY · SEMANTIC LAYER</text>
-          <text x="500"  y="414">VALIDATED UPDATES</text>
-          <text x="500"  y="428">→ DOWNSTREAM WORKFLOWS</text>
-          <text x="810"  y="418">GOVERNED RAG, VENDOR + INTERNAL</text>
-          <text x="1120" y="414">ANALYTICS-READY</text>
-          <text x="1120" y="428">DOCUMENTED PROVENANCE</text>
+          <text x="190"  y="414">INGEST · NORMALIZE · QUALITY</text>
+          <text x="190"  y="428">LINEAGE · ACCESS CONTROLS</text>
+          <text x="500"  y="414">PAYER · PLAN · HCP · HCO</text>
+          <text x="500"  y="428">CROSSWALKS · CONFIDENCE</text>
+          <text x="810"  y="414">AI-ASSISTED · EXTRACT · COMPARE</text>
+          <text x="810"  y="428">CONFIDENCE · HUMAN REVIEW</text>
+          <text x="1120" y="414">SEMANTICS · APIS · ALERTS</text>
+          <text x="1120" y="428">MONITOR · AUDIT</text>
         </g>
 
         <!-- packets -->
@@ -1102,19 +1107,19 @@ footer.site ul a:hover{ color: var(--d-text); }
       </svg>
     </div>
     <div class="claim-notes">
-      <span class="dim">$ make vendor-stack --operational</span>
-      <span>&gt; NPI, COMMERCIAL, AND INTERNAL MDM IDENTIFIERS SERVE DIFFERENT PURPOSES; RECONCILIATION MUST BE GOVERNED.</span>
-      <span>&gt; GOVERNED, TRACEABLE RECORDS: SOURCE PRECEDENCE, EFFECTIVE DATES, LINEAGE, CONFIDENCE INDICATORS.</span>
-      <span>&gt; ACTIVATION RESPECTS LICENSING, LATENCY, AND INTEGRATION RIGHTS, IN YOUR CLOUD, UNDER YOUR GOVERNANCE.</span>
-      <span>&gt; EVERY OUTPUT CARRIES A DECISION RECORD: MODEL, EVALS, REVIEWER, RETENTION. AUDITORS WELCOME.</span>
+      <span class="dim">$ make access-data --decision-ready</span>
+      <span>&gt; ENGINEERING FIRST: INGESTION, NORMALIZATION, QUALITY, LINEAGE, AND ACCESS CONTROLS.</span>
+      <span>&gt; IDENTITY RESOLUTION LINKS PAYER, PLAN, HCP, HCO, AND CLIENT MASTER DATA.</span>
+      <span>&gt; AI ASSISTS WITH DOCUMENT EXTRACTION, CHANGE DETECTION, MATCHING, AND ROUTING; CONFIDENCE AND HUMAN REVIEW ARE EXPLICIT.</span>
+      <span>&gt; ACTIVATION RESPECTS LICENSING, LATENCY, AND INTEGRATION RIGHTS IN THE CLIENT'S CLOUD.</span>
     </div>
   </div>
 
   <!-- ============ 03B: PAYER LIFE OF A CLAIM ============ -->
   <div class="seat-panel" id="seat-payer" hidden>
-    <div class="seat-sub">FIG. 4 · LIFECYCLE OF A HEALTHCARE CLAIM · ILLUSTRATIVE WORKFLOW</div>
+    <div class="seat-sub">FIG. 4 · LIFECYCLE OF A MEDICAL CLAIM · ILLUSTRATIVE WORKFLOW</div>
     <div class="claim-scroll fig">
-      <svg viewBox="0 0 1280 520" fill="none" role="img" aria-label="Illustrative lifecycle of a healthcare claim: eligibility verification, prior authorization when required, service delivery, 837 claim submission, clearinghouse validation, payer adjudication, 835 remittance, and reconciliation with correction, resubmission, or appeal. A ClavesIQ intelligence layer beneath provides clean-claim scrubbing, prior-auth document support, denials triage, and 835-to-837 reconciliation. Retail-pharmacy claims generally use NCPDP transaction standards rather than this X12 workflow.">
+      <svg viewBox="0 0 1280 520" fill="none" role="img" aria-label="Illustrative lifecycle of a professional or institutional medical claim: 270 and 271 eligibility, prior authorization when required, care delivery, documentation and charge capture, 837 claim submission, clearinghouse validation and acknowledgements, payer adjudication, 835 electronic remittance advice, payment posting, and reconciliation. Engineering and AI intervention points include claim validation, authorization document review, denial and exception triage, and claim-to-remit reconciliation. Retail-pharmacy claims generally use NCPDP transaction standards rather than this X12 workflow.">
       <!-- guides -->
       <line x1="30" y1="10" x2="30" y2="505" stroke="rgba(239,247,247,.1)" stroke-width="1" stroke-dasharray="2 6"/>
       <line x1="1258" y1="10" x2="1258" y2="505" stroke="rgba(239,247,247,.1)" stroke-width="1" stroke-dasharray="2 6"/>
@@ -1128,72 +1133,79 @@ footer.site ul a:hover{ color: var(--d-text); }
         <line class="draw d3" pathLength="1" x1="595" y1="56" x2="665" y2="56"/>
       </g>
       <g font-size="12.5" fill="#EFF7F7" text-anchor="middle">
-        <text x="170" y="55">ELIGIBILITY</text>
-        <text x="470" y="55">PRIOR AUTH</text>
-        <text x="770" y="55">SERVICE DELIVERED</text>
+        <text x="170" y="55">270 / 271 ELIGIBILITY</text>
+        <text x="470" y="55">PRIOR AUTH, WHEN REQUIRED</text>
+        <text x="770" y="55">CARE + DOCUMENTATION</text>
       </g>
       <g font-size="9" fill="rgba(239,247,247,.45)" text-anchor="middle">
-        <text x="170" y="72">VERIFIED FIRST</text>
-        <text x="470" y="72">WHEN REQUIRED · PRE-SERVICE</text>
-        <text x="770" y="72">CARE HAPPENS HERE</text>
+        <text x="170" y="72">COVERAGE + BENEFITS</text>
+        <text x="470" y="72">278 · PORTAL · FHIR</text>
+        <text x="770" y="72">CODING · CHARGE CAPTURE</text>
       </g>
       <!-- drop from service to claim row -->
       <path class="draw d3" pathLength="1" d="M770 82 V120 H160 V158" stroke="rgba(56,197,208,.4)" stroke-width="1.2"/>
       <!-- auth reference carried into adjudication -->
       <path d="M470 82 V132 H700 V158" stroke="rgba(56,197,208,.35)" stroke-width="1.2" stroke-dasharray="4 4"/>
       <g font-size="10" fill="rgba(239,247,247,.45)" text-anchor="end">
-        <text x="1245" y="108">AUTH REFERENCE MUST MATCH</text>
-        <text x="1245" y="123">MISSING OR EXPIRED AUTH MAY PEND OR DENY</text>
+        <text x="1245" y="108">AUTH REFERENCE + REQUIRED DOCUMENTS</text>
+        <text x="1245" y="123">MISSING / EXPIRED / MISMATCHED MAY PEND OR DENY</text>
       </g>
 
       <!-- ===== CLAIM ROW ===== -->
       <rect class="node draw d2" pathLength="1" x="65"  y="158" width="190" height="56"/>
       <rect class="node draw d3" pathLength="1" x="325" y="158" width="200" height="56"/>
       <rect class="node draw d4" pathLength="1" x="595" y="158" width="230" height="56"/>
-      <rect class="node draw d4" pathLength="1" x="895" y="158" width="150" height="56"/>
+      <rect class="node draw d4" pathLength="1" x="875" y="158" width="190" height="56"/>
       <rect class="node draw d4" pathLength="1" x="1105" y="158" width="150" height="56"/>
       <g stroke="rgba(56,197,208,.5)" stroke-width="1.2">
         <line class="draw d3" pathLength="1" x1="255" y1="186" x2="325" y2="186"/>
         <line class="draw d4" pathLength="1" x1="525" y1="186" x2="595" y2="186"/>
-        <line class="draw d4" pathLength="1" x1="825" y1="186" x2="895" y2="186"/>
-        <line class="draw d4" pathLength="1" x1="1045" y1="186" x2="1105" y2="186"/>
+        <line class="draw d4" pathLength="1" x1="825" y1="186" x2="875" y2="186"/>
+        <line class="draw d4" pathLength="1" x1="1065" y1="186" x2="1105" y2="186"/>
       </g>
       <g font-size="12.5" fill="#EFF7F7" text-anchor="middle">
         <text x="160"  y="185">837 CLAIM</text>
         <text x="425"  y="185">CLEARINGHOUSE</text>
         <text x="710"  y="185">PAYER ADJUDICATION</text>
-        <text x="970"  y="185">835 REMIT</text>
-        <text x="1180" y="185">RECONCILE</text>
+        <text x="970"  y="185">835 ERA</text>
+        <text x="1180" y="185">POST + RECONCILE</text>
       </g>
       <g font-size="9" fill="rgba(239,247,247,.45)" text-anchor="middle">
-        <text x="160"  y="202">GENERATED + SUBMITTED</text>
-        <text x="425"  y="202">VALIDATION &amp; EDITS</text>
-        <text x="710"  y="202">RULES · PRICING · POLICY</text>
-        <text x="970"  y="202">PAYMENT DATA</text>
-        <text x="1180" y="202">CORRECT · APPEAL</text>
+        <text x="160"  y="202">PROFESSIONAL · INSTITUTIONAL</text>
+        <text x="425"  y="202">VALIDATE · 999 / 277CA</text>
+        <text x="710"  y="202">BENEFITS · EDITS · PRICING</text>
+        <text x="970"  y="202">ADJUSTMENTS · PAYMENT DETAIL</text>
+        <text x="1180" y="202">ERA · EFT · A/R</text>
       </g>
 
       <!-- rejection loop (clearinghouse edits) -->
       <path d="M425 214 V262 H160 V214" stroke="rgba(224,96,79,.55)" stroke-width="1.2" stroke-dasharray="5 4"/>
-      <text x="180" y="248" font-size="10.5" fill="#E0604F">✗ REJECTED · EDITS · RESUBMIT</text>
+      <g font-size="10.5" fill="#E0604F">
+        <text x="180" y="238">✗ CLEARINGHOUSE REJECT</text>
+        <text x="180" y="252">CORRECT · RESUBMIT</text>
+      </g>
       <!-- resubmission / appeal loop from reconcile -->
       <path d="M1180 214 V292 H160 V214" stroke="rgba(224,96,79,.4)" stroke-width="1.2" stroke-dasharray="5 4"/>
-      <text x="730" y="278" font-size="10.5" fill="rgba(224,96,79,.85)">DENIED / SHORT-PAID → CORRECT · RESUBMIT · APPEAL</text>
+      <g font-size="10.5" fill="rgba(224,96,79,.85)">
+        <text x="730" y="266">DENIED / UNDERPAID</text>
+        <text x="730" y="280">CORRECT · RESUBMIT · APPEAL</text>
+      </g>
       <!-- denial drop from adjudication into the rail -->
       <line x1="710" y1="214" x2="710" y2="305" stroke="rgba(224,96,79,.55)" stroke-width="1.2" stroke-dasharray="5 4"/>
       <line x1="710" y1="305" x2="710" y2="360" stroke="rgba(55,218,113,.5)" stroke-width="1.2"/>
       <!-- side notes -->
-      <g font-size="10" fill="rgba(239,247,247,.45)">
-        <text x="240" y="322">RETAIL PHARMACY USES NCPDP, NOT X12 837.</text>
+      <g font-size="10" fill="rgba(239,247,247,.45)" text-anchor="end">
+        <text x="550" y="322">RETAIL PHARMACY CLAIMS USE NCPDP, NOT X12 837.</text>
       </g>
       <g font-size="10" fill="rgba(239,247,247,.45)" text-anchor="end">
         <text x="1245" y="42">TIMING VARIES BY TRANSACTION TYPE,</text>
         <text x="1245" y="58">PAYER RULES, URGENCY, AND DATA QUALITY</text>
+        <text x="1035" y="322">835 ERA LINKS TO EFT USING TRACE DATA</text>
       </g>
 
       <!-- ===== INTELLIGENCE RAIL + KEYS ===== -->
       <line class="draw d4" pathLength="1" x1="65" y1="360" x2="1245" y2="360" stroke="rgba(55,218,113,.45)" stroke-width="1.5"/>
-      <text x="1245" y="352" font-size="10.5" fill="rgba(55,218,113,.75)" text-anchor="end" letter-spacing="2">ILLUSTRATIVE SOLUTION LAYER</text>
+      <text x="1035" y="352" font-size="10.5" fill="rgba(55,218,113,.75)" text-anchor="end" letter-spacing="2">ILLUSTRATIVE ENGINEERING + AI LAYER</text>
       <g stroke="rgba(55,218,113,.4)" stroke-width="1.2" stroke-dasharray="4 4">
         <line x1="190" y1="360" x2="190" y2="262"/>
         <line x1="575" y1="360" x2="575" y2="132"/>
@@ -1212,16 +1224,16 @@ footer.site ul a:hover{ color: var(--d-text); }
         <line x1="1120" y1="360" x2="1120" y2="400"/>
       </g>
       <g font-size="12" fill="#EFF7F7" text-anchor="middle">
-        <text x="190"  y="426">KEY 01 · CLEAN-CLAIM SCRUB</text>
-        <text x="500"  y="426">KEY 02 · PRIOR-AUTH COPILOT</text>
-        <text x="810"  y="426">KEY 03 · DENIALS TRIAGE</text>
-        <text x="1120" y="426">KEY 04 · 835↔837 RECON</text>
+        <text x="190"  y="426">KEY 01 · CLAIM VALIDATION</text>
+        <text x="500"  y="426">KEY 02 · AUTH DOCUMENT REVIEW</text>
+        <text x="810"  y="426">KEY 03 · DENIAL / EXCEPTION</text>
+        <text x="1120" y="426">KEY 04 · CLAIM ↔ REMIT RECON</text>
       </g>
       <g font-size="9.5" fill="rgba(55,218,113,.7)" text-anchor="middle">
-        <text x="190"  y="448">RULES + ML EDITS, PRE-SUBMISSION</text>
-        <text x="500"  y="448">EXTRACT · EVALS · HUMAN REVIEW</text>
-        <text x="810"  y="448">CLASSIFY → ROUTE → APPEAL PACKET</text>
-        <text x="1120" y="448">MATCH · TRACE · RECONCILE</text>
+        <text x="190"  y="448">RULES · CODING · DATA QUALITY</text>
+        <text x="500"  y="448">EXTRACT · CHECK · HUMAN REVIEW</text>
+        <text x="810"  y="448">CLASSIFY · ROOT CAUSE · ROUTE</text>
+        <text x="1120" y="448">MATCH · ADJUSTMENTS · VARIANCE</text>
       </g>
 
       <!-- ===== packets ===== -->
@@ -1241,11 +1253,12 @@ footer.site ul a:hover{ color: var(--d-text); }
     </div>
 
     <div class="claim-notes" id="claim-notes">
-      <span class="dim">$ trace claim --from eligibility --to reconciled</span>
-      <span>&gt; A CLAIM OFTEN MOVES ACROSS CLINICAL, BILLING, CLEARINGHOUSE, PAYER, AND FINANCIAL SYSTEMS BEFORE PAYMENT IS RECONCILED.</span>
-      <span>&gt; EVERY LOCK GETS A KEY: SCRUB EARLY, READ THE DOCS, TRIAGE DENIALS, RECONCILE THE REMIT.</span>
-      <span>&gt; HIGH ACCURACY IS NOT THE SAME AS SAFE AUTOMATION; EVALS AND HUMAN REVIEW SHIP WITH IT.</span>
-      <span class="dim"># refs: x12 837 / 835 · ncpdp telecommunication standard · cms-0057-f (prior-authorization api requirements)</span>
+      <span class="dim">$ trace medical-claim --from eligibility --to posted</span>
+      <span>&gt; RULES HANDLE FORMAT, CODING, AND POLICY CHECKS; AI TARGETS DOCUMENTS AND COMPLEX EXCEPTIONS.</span>
+      <span>&gt; AUTH SUPPORT EXTRACTS REQUIREMENTS AND ORGANIZES EVIDENCE; CLINICAL DECISIONS REMAIN HUMAN-GOVERNED.</span>
+      <span>&gt; DENIAL TRIAGE CLASSIFIES ROOT CAUSE AND DRAFTS SUPPORT; REVIEWERS APPROVE ACTIONS.</span>
+      <span>&gt; RECONCILIATION MATCHES 837, 835 ERA, AND EFT TRACE DATA WITH END-TO-END LINEAGE.</span>
+      <span class="dim"># refs: x12 270/271 · 278/fhir (cms-0057-f) · 837 · 999/277ca · 276/277 · 835/eft · ncpdp</span>
     </div>
   </div>
 
