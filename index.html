@@ -1692,38 +1692,103 @@ if ('IntersectionObserver' in window){
   window.matchMedia('(max-width: 1180px)').addEventListener('change', ev => { if (!ev.matches) close(false); });
 })();
 
-/* ---------- form submit (email handoff until the AWS form endpoint is connected) ---------- */
-let formResetTimer = null;
-function handleFormSubmit(e){
-  e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector('button[type=submit]');
-  if (btn.disabled) return;
-  const original = btn.innerHTML;
-  const data = new FormData(form);
-  const value = name => String(data.get(name) || '').trim();
-  const subjectDetail = value('company') || value('focus') || 'Website inquiry';
-  const subject = `ClavesIQ project inquiry: ${subjectDetail}`;
-  const body = [
-    `Name: ${value('name')}`,
-    `Work email: ${value('email')}`,
-    `Company: ${value('company') || 'Not provided'}`,
-    `Role: ${value('role') || 'Not provided'}`,
-    `Focus: ${value('focus')}`,
-    '',
-    'Context:',
-    value('ctx') || 'Not provided'
-  ].join('\r\n');
-  btn.disabled = true;
-  btn.innerHTML = 'OPENING EMAIL APP…';
-  const status = document.getElementById('form-status');
-  if (status) status.textContent = 'Your email application should open with a prepared message. Review and send it there.';
-  window.location.href = `mailto:tech@clavesiq.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  clearTimeout(formResetTimer);
-  formResetTimer = setTimeout(() => {
-    btn.innerHTML = original;
-    btn.disabled = false;
-  }, 1600);
+const CONTACT_API_URL =
+  "https://k8o7bmavel.execute-api.us-east-1.amazonaws.com/contact";
+
+async function handleFormSubmit(event) {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+  const button = form.querySelector('button[type="submit"]');
+  const status = document.getElementById("form-status");
+
+  if (!button || button.disabled) {
+    return;
+  }
+
+  const originalButtonText = button.innerHTML;
+  const formData = new FormData(form);
+
+  const value = (name) =>
+    String(formData.get(name) || "").trim();
+
+  const payload = {
+    name: value("name"),
+    email: value("email"),
+    company: value("company"),
+    role: value("role"),
+    focus: value("focus"),
+    ctx: value("ctx"),
+    website: value("website")
+  };
+
+  button.disabled = true;
+  button.innerHTML = "SENDING…";
+
+  if (status) {
+    status.textContent = "Sending your message…";
+  }
+
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(
+    () => controller.abort(),
+    12000
+  );
+
+  try {
+    const response = await fetch(CONTACT_API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload),
+      signal: controller.signal
+    });
+
+    let result = {};
+
+    try {
+      result = await response.json();
+    } catch {
+      // Handle an unexpected non-JSON API response below.
+    }
+
+    if (!response.ok || result.ok !== true) {
+      throw new Error(
+        result.message ||
+        "We could not send your message. Please try again."
+      );
+    }
+
+    form.reset();
+    button.innerHTML = "MESSAGE SENT ✓";
+
+    if (status) {
+      status.textContent =
+        result.message ||
+        "Thank you. Your message has been sent.";
+    }
+
+    window.setTimeout(() => {
+      button.innerHTML = originalButtonText;
+      button.disabled = false;
+    }, 2500);
+  } catch (error) {
+    console.error("Contact-form submission failed.", error);
+
+    button.innerHTML = originalButtonText;
+    button.disabled = false;
+
+    if (status) {
+      status.textContent =
+        error?.name === "AbortError"
+          ? "The request timed out. Please try again."
+          : error?.message ||
+            "We could not send your message. Please try again.";
+    }
+  } finally {
+    window.clearTimeout(timeoutId);
+  }
 }
 </script>
 </body>
