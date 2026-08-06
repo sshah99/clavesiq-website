@@ -1393,6 +1393,16 @@ footer.site ul a:hover{ color: var(--d-text); }
       </div>
 
       <form class="form" onsubmit="handleFormSubmit(event)">
+        <div class="visually-hidden" aria-hidden="true">
+          <label for="website">Website</label>
+          <input
+            id="website"
+            name="website"
+            type="text"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
         <div class="field">
           <label for="name">Full Name</label>
           <input id="name" name="name" type="text" placeholder="John Smith" required/>
@@ -1426,9 +1436,9 @@ footer.site ul a:hover{ color: var(--d-text); }
         </div>
         <div class="form-foot">
           <span class="micro">WE'LL ONLY USE YOUR DETAILS TO RESPOND. DO NOT SUBMIT PHI, PATIENT DATA, PASSWORDS, CREDENTIALS, OR CONFIDENTIAL PRODUCTION DATA.</span>
-          <button type="submit" class="btn">Prepare email →</button>
+          <button type="submit" class="btn">Send message →</button>
         </div>
-        <p class="visually-hidden" id="form-status" role="status" aria-live="polite"></p>
+        <p id="form-status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </div>
