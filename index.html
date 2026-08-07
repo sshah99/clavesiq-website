@@ -648,6 +648,48 @@ footer.site ul a:hover{ color: var(--d-text); }
   animation: pulse 1s steps(2) infinite;
 }
 
+/* ---------- FIG. 02: view toggle + architecture flow ---------- */
+.fig2-toggle{ display: flex; gap: 8px; margin-bottom: 14px; }
+.fig2-tab{
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em;
+  padding: 8px 14px; border: 1px solid var(--d-hair); background: transparent;
+  color: var(--d-text-50); cursor: pointer; transition: color .2s ease, border-color .2s ease, background .2s ease;
+}
+.fig2-tab:hover{ color: var(--d-text); border-color: var(--d-hair-2); }
+.fig2-tab.on{ color: var(--navy); background: var(--teal-edge); border-color: var(--teal-edge); }
+.archflow-wrap{ padding: 22px 14px 20px; overflow-x: auto; }
+.archflow-wrap svg{ display: block; min-width: 860px; width: 100%; height: auto; }
+.archflow-wrap .an{ fill: rgba(239,247,247,.02); stroke: rgba(239,247,247,.4); stroke-width: 1.2; rx: 3;
+  transition: fill .35s ease, stroke .35s ease, stroke-width .2s ease; transform-box: fill-box; transform-origin: center; }
+.archflow-wrap .an.teal{ stroke: rgba(56,197,208,.5); }
+.archflow-wrap .an.red{ stroke: rgba(224,96,79,.55); }
+.archflow-wrap .an.green{ stroke: rgba(55,218,113,.55); }
+.archflow-wrap .an.amber{ stroke: rgba(229,179,72,.6); }
+.archflow-wrap .an-group{ cursor: default; }
+.archflow-wrap .an-group:hover .an{ fill: rgba(239,247,247,.06); stroke-width: 1.8; }
+.archflow-wrap .an-group:hover .an.teal{ stroke: #38C5D0; }
+.archflow-wrap .an-group:hover .an.red{ stroke: #E0604F; }
+.archflow-wrap .an-group:hover .an.green{ stroke: #37DA71; }
+.archflow-wrap .an-group:hover .an.amber{ stroke: #e5b348; }
+.archflow-wrap svg:has(.an-group:hover) .an-group:not(:hover){ opacity: .55; }
+.archflow-wrap .an-group{ transition: opacity .25s ease; }
+.archflow-wrap .beam-line{ fill: none; stroke: rgba(239,247,247,.14); stroke-width: 1.2; }
+.archflow-wrap .beam-glow{ fill: none; stroke-width: 3; stroke-linecap: round; filter: blur(1.5px); }
+.archflow-wrap .beam-glow-infra{ stroke-width: 4; filter: blur(2px); }
+.archflow-wrap .archnote{ font-family: var(--mono); font-size: 10px; fill: rgba(239,247,247,.42); letter-spacing: .04em; }
+@keyframes archdraw{ from{ stroke-dashoffset: var(--len, 400); } to{ stroke-dashoffset: 0; } }
+.archflow-wrap .an{ stroke-dasharray: var(--len, 400); stroke-dashoffset: var(--len, 400); }
+.archflow-wrap.on .an{ animation: archdraw .9s cubic-bezier(.3,0,.2,1) forwards; }
+.archflow-wrap.on .an-group:nth-child(2) .an{ animation-delay: .08s; }
+.archflow-wrap.on .an-group:nth-child(3) .an{ animation-delay: .16s; }
+.archflow-wrap.on .an-group:nth-child(4) .an{ animation-delay: .24s; }
+.archflow-wrap.on .an-group:nth-child(5) .an{ animation-delay: .32s; }
+.archflow-wrap.on .an-group:nth-child(6) .an{ animation-delay: .4s; }
+.archflow-wrap.on .an-group:nth-child(7) .an{ animation-delay: .48s; }
+@media (prefers-reduced-motion: reduce){
+  .archflow-wrap .an{ animation: none !important; stroke-dashoffset: 0 !important; }
+}
+
 /* ---------- FIG. 02: life of a claim ---------- */
 .claimfig{
   background: var(--navy);
@@ -1076,6 +1118,207 @@ footer.site ul a:hover{ color: var(--d-text); }
           <span><span class="swatch" style="background:transparent;outline:1px dashed #e5b348"></span><b>LOW CONFIDENCE → HUMAN REVIEW</b></span>
         </div>
         <div class="chart-out" id="chart-out"></div>
+      </div>
+
+      <div class="fig2-toggle" role="group" aria-label="View as">
+        <button class="fig2-tab on" data-view="terminal" aria-pressed="true">TERMINAL LOG</button>
+        <button class="fig2-tab" data-view="arch" aria-pressed="false">ARCHITECTURE FLOW</button>
+      </div>
+      <div class="chart" id="fig2-arch-panel" hidden>
+        <div class="chart-head">
+          <span>EHR PROCESSING · ARCHITECTURE FLOW</span>
+          <span>ILLUSTRATIVE</span>
+        </div>
+        <div class="archflow-wrap" id="archflow-wrap">
+          <svg viewBox="0 0 1220 452" fill="none" role="img" aria-label="Illustrative architecture: an EHR system feeds an encounter note through ingestion, a clinical NLP model performs extraction and PHI de-identification, and a confidence router splits the output. High-confidence spans move to coding, care-gap, and medication-change queues. Low-confidence spans route to a clinician or coder review queue. Every path ends in a logged decision record. Below the application layer, an AWS infrastructure lane shows the underlying model hosting, storage, encryption, and observability services.">
+            <defs>
+              <linearGradient id="beamGradA1" gradientUnits="userSpaceOnUse" x1="-160" y1="0" x2="0" y2="0">
+                <stop offset="0%" stop-color="#38C5D0" stop-opacity="0"/>
+                <stop offset="35%" stop-color="#38C5D0" stop-opacity="1"/>
+                <stop offset="65%" stop-color="#38C5D0" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#38C5D0" stop-opacity="0"/>
+                <animateTransform attributeName="gradientTransform" type="translate" values="0 0; 610 0" dur="1.3s" begin="0s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+              </linearGradient>
+              <linearGradient id="beamGradA2" gradientUnits="userSpaceOnUse" x1="-160" y1="0" x2="0" y2="0">
+                <stop offset="0%" stop-color="#38C5D0" stop-opacity="0"/>
+                <stop offset="35%" stop-color="#38C5D0" stop-opacity="1"/>
+                <stop offset="65%" stop-color="#38C5D0" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#38C5D0" stop-opacity="0"/>
+                <animateTransform attributeName="gradientTransform" type="translate" values="0 0; 610 0" dur="1.3s" begin=".65s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+              </linearGradient>
+              <linearGradient id="beamGradA3" gradientUnits="userSpaceOnUse" x1="-160" y1="0" x2="0" y2="0">
+                <stop offset="0%" stop-color="#38C5D0" stop-opacity="0"/>
+                <stop offset="35%" stop-color="#38C5D0" stop-opacity="1"/>
+                <stop offset="65%" stop-color="#38C5D0" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#38C5D0" stop-opacity="0"/>
+                <animateTransform attributeName="gradientTransform" type="translate" values="0 0; 610 0" dur="1.3s" begin="1.3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+              </linearGradient>
+              <linearGradient id="beamGradB1" gradientUnits="userSpaceOnUse" x1="-160" y1="0" x2="0" y2="0">
+                <stop offset="0%" stop-color="#37DA71" stop-opacity="0"/>
+                <stop offset="35%" stop-color="#37DA71" stop-opacity="1"/>
+                <stop offset="65%" stop-color="#37DA71" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#37DA71" stop-opacity="0"/>
+                <animateTransform attributeName="gradientTransform" type="translate" values="0 0; 610 0" dur="1.5s" begin="0s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+              </linearGradient>
+              <linearGradient id="beamGradB2" gradientUnits="userSpaceOnUse" x1="-160" y1="0" x2="0" y2="0">
+                <stop offset="0%" stop-color="#37DA71" stop-opacity="0"/>
+                <stop offset="35%" stop-color="#37DA71" stop-opacity="1"/>
+                <stop offset="65%" stop-color="#37DA71" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#37DA71" stop-opacity="0"/>
+                <animateTransform attributeName="gradientTransform" type="translate" values="0 0; 610 0" dur="1.5s" begin="1.2s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+              </linearGradient>
+              <linearGradient id="beamGradC1" gradientUnits="userSpaceOnUse" x1="-160" y1="0" x2="0" y2="0">
+                <stop offset="0%" stop-color="#e5b348" stop-opacity="0"/>
+                <stop offset="35%" stop-color="#e5b348" stop-opacity="1"/>
+                <stop offset="65%" stop-color="#e5b348" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#e5b348" stop-opacity="0"/>
+                <animateTransform attributeName="gradientTransform" type="translate" values="0 0; 610 0" dur="1.6s" begin=".4s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+              </linearGradient>
+              <linearGradient id="beamGradC2" gradientUnits="userSpaceOnUse" x1="-160" y1="0" x2="0" y2="0">
+                <stop offset="0%" stop-color="#e5b348" stop-opacity="0"/>
+                <stop offset="35%" stop-color="#e5b348" stop-opacity="1"/>
+                <stop offset="65%" stop-color="#e5b348" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#e5b348" stop-opacity="0"/>
+                <animateTransform attributeName="gradientTransform" type="translate" values="0 0; 610 0" dur="1.6s" begin="1.6s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+              </linearGradient>
+              <linearGradient id="beamGradInfra" gradientUnits="userSpaceOnUse" x1="-200" y1="0" x2="0" y2="0">
+                <stop offset="0%" stop-color="#1FA9B4" stop-opacity="0"/>
+                <stop offset="40%" stop-color="#1FA9B4" stop-opacity=".9"/>
+                <stop offset="60%" stop-color="#1FA9B4" stop-opacity=".9"/>
+                <stop offset="100%" stop-color="#1FA9B4" stop-opacity="0"/>
+                <animateTransform attributeName="gradientTransform" type="translate" values="0 0; 1180 0" dur="4.5s" begin="0s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines="0.3 0 0.4 1"/>
+              </linearGradient>
+              <pattern id="archgrid" width="28" height="28" patternUnits="userSpaceOnUse">
+                <path d="M 28 0 L 0 0 0 28" fill="none" stroke="rgba(239,247,247,.035)" stroke-width="1"/>
+              </pattern>
+
+              <!-- AWS Architecture Icons (official set, unmodified) -->
+              <symbol id="awsicon-bedrock" viewBox="0 0 80 80"><rect x="0" y="0" width="80" height="80" rx="8" fill="#01A88D"/><path fill="#FFFFFF" transform="translate(12 12)" d="M52 26.9999C50.897 26.9999 50 26.1029 50 24.9999 50 23.8969 50.897 22.9999 52 22.9999 53.103 22.9999 54 23.8969 54 24.9999 54 26.1029 53.103 26.9999 52 26.9999L52 26.9999ZM20.113 53.9079 16.865 52.0139 23.53 47.8479 22.47 46.1519 14.913 50.8749 9 47.4259 9 38.5349 14.555 34.8319 13.445 33.1679 7.959 36.8249 2 33.4199 2 28.5799 8.496 24.8679 7.504 23.1319 2 26.2769 2 22.5799 8 19.1519 14 22.5799 14 26.4339 9.485 29.1429 10.515 30.8569 15 28.1659 19.485 30.8569 20.515 29.1429 16 26.4339 16 22.5349 21.555 18.8319C21.833 18.6459 22 18.3339 22 17.9999L22 10.9999 20 10.9999 20 17.4649 14.959 20.8249 9 17.4199 9 8.57389 14 5.65789 14 13.9999 16 13.9999 16 4.49089 20.113 2.09189 28 4.72089 28 33.4339 13.485 42.1429 14.515 43.8569 28 35.7659 28 51.2789 20.113 53.9079ZM50 37.9999C50 39.1029 49.103 39.9999 48 39.9999 46.897 39.9999 46 39.1029 46 37.9999 46 36.8969 46.897 35.9999 48 35.9999 49.103 35.9999 50 36.8969 50 37.9999L50 37.9999ZM40 47.9999C40 49.1029 39.103 49.9999 38 49.9999 36.897 49.9999 36 49.1029 36 47.9999 36 46.8969 36.897 45.9999 38 45.9999 39.103 45.9999 40 46.8969 40 47.9999L40 47.9999ZM39 7.99989C39 6.89689 39.897 5.99989 41 5.99989 42.103 5.99989 43 6.89689 43 7.99989 43 9.10289 42.103 9.99989 41 9.99989 39.897 9.99989 39 9.10289 39 7.99989L39 7.99989ZM52 20.9999C50.141 20.9999 48.589 22.2799 48.142 23.9999L30 23.9999 30 18.9999 41 18.9999C41.553 18.9999 42 18.5519 42 17.9999L42 11.8579C43.72 11.4109 45 9.85789 45 7.99989 45 5.79389 43.206 3.99989 41 3.99989 38.794 3.99989 37 5.79389 37 7.99989 37 9.85789 38.28 11.4109 40 11.8579L40 16.9999 30 16.9999 30 3.99989C30 3.56889 29.725 3.18789 29.316 3.05089L20.316 0.0508918C20.042-0.0391082 19.744-0.00910819 19.496 0.135892L7.496 7.13589C7.188 7.31489 7 7.64489 7 7.99989L7 17.4199 0.504 21.1319C0.192 21.3099 0 21.6409 0 21.9999L0 33.9999C0 34.3589 0.192 34.6899 0.504 34.8679L7 38.5799 7 47.9999C7 48.3549 7.188 48.6849 7.496 48.8639L19.496 55.8639C19.65 55.9539 19.825 55.9999 20 55.9999 20.106 55.9999 20.213 55.9829 20.316 55.9489L29.316 52.9489C29.725 52.8119 30 52.4309 30 51.9999L30 39.9999 37 39.9999 37 44.1419C35.28 44.5889 34 46.1419 34 47.9999 34 50.2059 35.794 51.9999 38 51.9999 40.206 51.9999 42 50.2059 42 47.9999 42 46.1419 40.72 44.5889 39 44.1419L39 38.9999C39 38.4479 38.553 37.9999 38 37.9999L30 37.9999 30 32.9999 42.5 32.9999 44.638 35.8499C44.239 36.4719 44 37.2069 44 37.9999 44 40.2059 45.794 41.9999 48 41.9999 50.206 41.9999 52 40.2059 52 37.9999 52 35.7939 50.206 33.9999 48 33.9999 47.316 33.9999 46.682 34.1879 46.119 34.4919L43.8 31.3999C43.611 31.1479 43.314 30.9999 43 30.9999L30 30.9999 30 25.9999 48.142 25.9999C48.589 27.7199 50.141 28.9999 52 28.9999 54.206 28.9999 56 27.2059 56 24.9999 56 22.7939 54.206 20.9999 52 20.9999L52 20.9999Z"/></symbol>
+
+              <symbol id="awsicon-s3" viewBox="0 0 80 80"><rect x="0" y="0" width="80" height="80" rx="8" fill="#7AA116"/><path fill="#FFFFFF" transform="translate(13 12)" d="M47.836 30.893 48.22 28.189C51.761 30.31 51.807 31.186 51.806 31.21 51.8 31.215 51.196 31.719 47.836 30.893L47.836 30.893ZM45.893 30.353C39.773 28.501 31.25 24.591 27.801 22.961 27.801 22.947 27.805 22.934 27.805 22.92 27.805 21.595 26.727 20.517 25.401 20.517 24.077 20.517 22.999 21.595 22.999 22.92 22.999 24.245 24.077 25.323 25.401 25.323 25.983 25.323 26.511 25.106 26.928 24.761 30.986 26.682 39.443 30.535 45.608 32.355L43.17 49.561C43.163 49.608 43.16 49.655 43.16 49.702 43.16 51.217 36.453 54 25.494 54 14.419 54 7.641 51.217 7.641 49.702 7.641 49.656 7.638 49.611 7.632 49.566L2.538 12.359C6.947 15.394 16.43 17 25.5 17 34.556 17 44.023 15.4 48.441 12.374L45.893 30.353ZM2 8.478C2.072 7.162 9.634 2 25.5 2 41.364 2 48.927 7.161 49 8.478L49 8.927C48.13 11.878 38.33 15 25.5 15 12.648 15 2.843 11.868 2 8.913L2 8.478ZM51 8.5C51 5.035 41.066 0 25.5 0 9.934 0 0 5.035 0 8.5L0.094 9.254 5.642 49.778C5.775 54.31 17.861 56 25.494 56 34.966 56 45.029 53.822 45.159 49.781L47.555 32.884C48.888 33.203 49.985 33.366 50.866 33.366 52.049 33.366 52.849 33.077 53.334 32.499 53.732 32.025 53.884 31.451 53.77 30.84 53.511 29.456 51.868 27.964 48.522 26.055L50.898 9.293 51 8.5Z"/></symbol>
+
+              <symbol id="awsicon-kms" viewBox="0 0 80 80"><rect x="0" y="0" width="80" height="80" rx="8" fill="#DD344C"/><path fill="#FFFFFF" d="M51.9969 52.4963 58.9969 52.4963 58.9969 50.4963 51.9969 50.4963 51.9969 52.4963ZM42.9969 52.4963 49.9969 52.4963 49.9969 50.4963 42.9969 50.4963 42.9969 52.4963ZM33.9969 52.4963 40.9969 52.4963 40.9969 50.4963 33.9969 50.4963 33.9969 52.4963ZM44.9969 44.4963C44.9969 43.3933 45.8949 42.4963 46.9969 42.4963 48.0999 42.4963 48.9969 43.3933 48.9969 44.4963 48.9969 45.5993 48.0999 46.4963 46.9969 46.4963 45.8949 46.4963 44.9969 45.5993 44.9969 44.4963L44.9969 44.4963ZM50.9969 44.4963C50.9969 42.2903 49.2039 40.4963 46.9969 40.4963 44.7909 40.4963 42.9969 42.2903 42.9969 44.4963 42.9969 46.7023 44.7909 48.4963 46.9969 48.4963 49.2039 48.4963 50.9969 46.7023 50.9969 44.4963L50.9969 44.4963ZM36.9969 42.4963C38.0999 42.4963 38.9969 43.3933 38.9969 44.4963 38.9969 45.5993 38.0999 46.4963 36.9969 46.4963 35.8949 46.4963 34.9969 45.5993 34.9969 44.4963 34.9969 43.3933 35.8949 42.4963 36.9969 42.4963L36.9969 42.4963ZM36.9969 48.4963C39.2039 48.4963 40.9969 46.7023 40.9969 44.4963 40.9969 42.2903 39.2039 40.4963 36.9969 40.4963 34.7909 40.4963 32.9969 42.2903 32.9969 44.4963 32.9969 46.7023 34.7909 48.4963 36.9969 48.4963L36.9969 48.4963ZM65.9969 33.4963 65.9969 56.4963C65.9969 57.0483 65.5499 57.4963 64.9969 57.4963L33.9969 57.4963 33.9969 55.4963 63.9969 55.4963 63.9969 34.4963 41.9969 34.4963 41.9969 32.4963 64.9969 32.4963C65.5499 32.4963 65.9969 32.9443 65.9969 33.4963L65.9969 33.4963ZM30.6959 38.5433C30.2799 38.6743 29.9969 39.0603 29.9969 39.4963L29.9969 60.5363 27.5979 62.5933 24.9969 59.6203 24.9969 56.9963C24.9969 56.7313 24.8919 56.4763 24.7039 56.2893L22.4119 53.9963 24.7039 51.7033C24.8919 51.5163 24.9969 51.2613 24.9969 50.9963L24.9969 48.9963C24.9969 48.7313 24.8919 48.4763 24.7039 48.2893L22.4119 45.9963 24.7039 43.7033C24.8919 43.5163 24.9969 43.2613 24.9969 42.9963L24.9969 39.5063C24.9969 39.0703 24.7149 38.6843 24.2989 38.5533 19.1569 36.9233 16.1169 31.6343 17.2299 26.2493 18.0319 22.3693 21.0159 19.2583 24.8309 18.3233 28.0799 17.5263 31.4119 18.2233 33.9719 20.2303 36.5299 22.2373 37.9969 25.2503 37.9969 28.4963 37.9969 33.0493 34.9949 37.1813 30.6959 38.5433L30.6959 38.5433ZM39.9969 28.4963C39.9969 24.6323 38.2509 21.0453 35.2059 18.6563 32.1609 16.2673 28.2089 15.4363 24.3549 16.3813 19.7939 17.4983 16.2289 21.2133 15.2709 25.8443L15.2709 25.8453C14.0009 31.9903 17.2999 38.0343 22.9969 40.2153L22.9969 42.5823 20.2899 45.2893C19.8999 45.6803 19.8999 46.3123 20.2899 46.7033L22.9969 49.4103 22.9969 50.5823 20.2899 53.2893C19.8999 53.6803 19.8999 54.3123 20.2899 54.7033L22.9969 57.4103 22.9969 59.9963C22.9969 60.2383 23.0849 60.4723 23.2449 60.6553L26.7449 64.6553C26.9429 64.8803 27.2189 64.9963 27.4969 64.9963 27.7279 64.9963 27.9589 64.9173 28.1479 64.7553L31.6479 61.7553C31.8699 61.5653 31.9969 61.2883 31.9969 60.9963L31.9969 40.2043C36.7429 38.3723 39.9969 33.6623 39.9969 28.4963L39.9969 28.4963ZM27.4969 30.8663C26.1189 30.8663 24.9969 29.7453 24.9969 28.3663 24.9969 26.9883 26.1189 25.8663 27.4969 25.8663 28.8759 25.8663 29.9969 26.9883 29.9969 28.3663 29.9969 29.7453 28.8759 30.8663 27.4969 30.8663L27.4969 30.8663ZM27.4969 23.8663C25.0159 23.8663 22.9969 25.8853 22.9969 28.3663 22.9969 30.8483 25.0159 32.8663 27.4969 32.8663 29.9789 32.8663 31.9969 30.8483 31.9969 28.3663 31.9969 25.8853 29.9789 23.8663 27.4969 23.8663L27.4969 23.8663Z"/></symbol>
+
+              <symbol id="awsicon-iam" viewBox="0 0 80 80"><rect x="0" y="0" width="80" height="80" rx="8" fill="#DD344C"/><path fill="#FFFFFF" d="M14 59 66 59 66 21 14 21 14 59ZM68 20 68 60C68 60.552 67.553 61 67 61L13 61C12.447 61 12 60.552 12 60L12 20C12 19.448 12.447 19 13 19L67 19C67.553 19 68 19.448 68 20L68 20ZM44 48 59 48 59 46 44 46 44 48ZM57 42 62 42 62 40 57 40 57 42ZM44 42 52 42 52 40 44 40 44 42ZM29 46C29 45.449 28.552 45 28 45 27.448 45 27 45.449 27 46 27 46.551 27.448 47 28 47 28.552 47 29 46.551 29 46L29 46ZM31 46C31 47.302 30.161 48.401 29 48.816L29 51 27 51 27 48.815C25.839 48.401 25 47.302 25 46 25 44.346 26.346 43 28 43 29.654 43 31 44.346 31 46L31 46ZM19 53.993 36.994 54 36.996 50 33 50 33 48 36.996 48 36.998 45 33 45 33 43 36.999 43 37 40.007 19.006 40 19 53.993ZM22 38.001 34 38.006 34 31C34.001 28.697 31.197 26.677 28 26.675L27.996 26.675C24.804 26.675 22.004 28.696 22.002 31L22 38.001ZM17 54.992 17.006 39C17.006 38.734 17.111 38.48 17.299 38.292 17.486 38.105 17.741 38 18.006 38L20 38.001 20.002 31C20.004 27.512 23.59 24.675 27.996 24.675L28 24.675C32.412 24.677 36.001 27.515 36 31L36 38.007 38 38.008C38.553 38.008 39 38.456 39 39.008L38.994 55C38.994 55.266 38.889 55.52 38.701 55.708 38.514 55.895 38.259 56 37.994 56L18 55.992C17.447 55.992 17 55.544 17 54.992L17 54.992ZM60 36 62 36 62 34 60 34 60 36ZM44 36 55 36 55 34 44 34 44 36Z"/></symbol>
+
+              <symbol id="awsicon-cloudwatch" viewBox="0 0 80 80"><rect x="0" y="0" width="80" height="80" rx="8" fill="#E7157B"/><path fill="#FFFFFF" d="M55.0592 46.7774C55.0592 42.868 51.8576 39.6876 47.9221 39.6876 43.9866 39.6876 40.7859 42.868 40.7859 46.7774 40.7859 50.6867 43.9866 53.8671 47.9221 53.8671 51.8576 53.8671 55.0592 50.6867 55.0592 46.7774M57.0697 46.7774C57.0697 51.7881 52.9663 55.8642 47.9221 55.8642 42.8788 55.8642 38.7754 51.7881 38.7754 46.7774 38.7754 41.7666 42.8788 37.6905 47.9221 37.6905 52.9663 37.6905 57.0697 41.7666 57.0697 46.7774M65.5097 60.4735 58.5012 54.2026C57.9352 54.9945 57.2808 55.7174 56.554 56.3635L63.5525 62.6334C64.1496 63.1687 65.0784 63.1187 65.6182 62.5256 66.155 61.9324 66.1068 61.0108 65.5097 60.4735M47.9221 57.6616C53.9645 57.6616 58.8801 52.7787 58.8801 46.7774 58.8801 40.7751 53.9645 35.8931 47.9221 35.8931 41.8806 35.8931 36.965 40.7751 36.965 46.7774 36.965 52.7787 41.8806 57.6616 47.9221 57.6616M67.112 63.8626C66.4264 64.6166 65.4785 65 64.5285 65 63.7002 65 62.8699 64.7084 62.2075 64.1173L54.9306 57.5987C52.907 58.8968 50.5055 59.6587 47.9221 59.6587 40.7718 59.6587 34.9545 53.8801 34.9545 46.7774 34.9545 39.6746 40.7718 33.896 47.9221 33.896 55.0733 33.896 60.8906 39.6746 60.8906 46.7774 60.8906 48.8154 60.399 50.7366 59.5466 52.4512L66.8557 58.9907C68.2751 60.2659 68.3896 62.4497 67.112 63.8626M21.2803 29.3925C21.2803 29.9118 21.3125 30.429 21.3738 30.9293 21.409 31.2139 21.3205 31.4985 21.1295 31.7132 20.9778 31.8839 20.7737 31.9968 20.5505 32.0347 18.0787 32.6688 14.0105 34.588 14.0105 40.3457 14.0105 44.6934 16.424 47.0929 18.4496 48.3411 19.1412 48.7745 19.9594 49.0051 20.8229 49.0141L32.9451 49.0251 32.9431 51.0222 20.8119 51.0112C19.5664 50.9983 18.3842 50.6608 17.384 50.0347 15.3766 48.7974 12 45.8897 12 40.3457 12 33.6623 16.6 31.1919 19.3 30.3192 19.2799 30.0116 19.2699 29.7021 19.2699 29.3925 19.2699 23.9324 22.9983 18.2696 27.942 16.2216 33.7241 13.8151 39.85 15.0083 44.3263 19.411 45.7136 20.775 46.8545 22.4316 47.7301 24.3478 48.9062 23.3802 50.3557 22.846 51.8837 22.846 54.8863 22.846 58.2659 25.1097 58.8681 30.0606 61.6797 30.7046 67.6206 32.9554 67.6206 40.4226 67.6206 43.4043 66.6797 45.8667 64.8231 47.742L63.3896 46.341C64.8633 44.8532 65.6102 42.862 65.6102 40.4226 65.6102 33.891 60.1055 32.2664 57.7372 31.8719 57.4678 31.827 57.2295 31.6752 57.0757 31.4515 56.926 31.2359 56.8687 30.9712 56.9139 30.7146 56.5852 26.6605 54.1606 24.8431 51.8837 24.8431 50.4472 24.8431 49.1002 25.5381 48.1874 26.7504 47.9653 27.0439 47.6044 27.1937 47.2345 27.1398 46.8696 27.0859 46.563 26.8362 46.4373 26.4917 45.614 24.226 44.4279 22.3208 42.912 20.8309 39.0328 17.0154 33.7281 15.9809 28.7171 18.0649 24.5463 19.7924 21.2803 24.7672 21.2803 29.3925" transform="translate(4,4) scale(0.86)"/></symbol>
+            </defs>
+
+            <rect x="0" y="0" width="1220" height="452" fill="url(#archgrid)"/>
+            <g stroke="rgba(239,247,247,.1)" stroke-width="1">
+              <line x1="24" y1="10" x2="24" y2="442"/>
+              <line x1="1196" y1="10" x2="1196" y2="442"/>
+            </g>
+
+            <!-- ===== lane labels ===== -->
+            <text x="24" y="28" font-size="9.5" fill="rgba(56,197,208,.75)" letter-spacing="1.5">APPLICATION LAYER</text>
+            <line x1="24" y1="36" x2="1196" y2="36" stroke="rgba(56,197,208,.18)" stroke-width="1"/>
+
+            <!-- ===== APPLICATION LAYER wires ===== -->
+            <path class="beam-line" d="M 195 150 Q 240 150 285 150"/>
+            <path class="beam-glow" d="M 195 150 Q 240 150 285 150" stroke="url(#beamGradA1)"/>
+
+            <path class="beam-line" d="M 435 150 Q 480 150 525 150"/>
+            <path class="beam-glow" d="M 435 150 Q 480 150 525 150" stroke="url(#beamGradA2)"/>
+
+            <path class="beam-line" d="M 705 150 Q 745 150 785 150"/>
+            <path class="beam-glow" d="M 705 150 Q 745 150 785 150" stroke="url(#beamGradA3)"/>
+
+            <path class="beam-line" d="M 935 150 Q 970 105 1005 90 Q 1030 78 1055 78"/>
+            <path class="beam-glow" d="M 935 150 Q 970 105 1005 90 Q 1030 78 1055 78" stroke="url(#beamGradB1)"/>
+            <path class="beam-line" d="M 935 150 Q 970 195 1005 210 Q 1030 222 1055 222"/>
+            <path class="beam-glow" d="M 935 150 Q 970 195 1005 210 Q 1030 222 1055 222" stroke="url(#beamGradC1)"/>
+
+            <!-- ===== node: EHR SYSTEM ===== -->
+            <g class="an-group">
+              <rect class="an teal" x="35" y="122" width="160" height="56" style="--len:432"/>
+              <text x="115" y="145" font-size="12" fill="#EFF7F7" text-anchor="middle" font-weight="600">EHR SYSTEM</text>
+              <text x="115" y="162" font-size="8.5" fill="rgba(239,247,247,.5)" text-anchor="middle">HL7 v2 · FHIR R4</text>
+            </g>
+
+            <!-- ===== node: INGESTION ===== -->
+            <g class="an-group">
+              <rect class="an teal" x="285" y="122" width="150" height="56" style="--len:412"/>
+              <text x="360" y="145" font-size="12" fill="#EFF7F7" text-anchor="middle" font-weight="600">INGESTION</text>
+              <text x="360" y="162" font-size="8.5" fill="rgba(239,247,247,.5)" text-anchor="middle">NOTE HASH · SOURCE LOG</text>
+            </g>
+
+            <!-- ===== node: NLP MODEL ===== -->
+            <g class="an-group">
+              <rect class="an" x="525" y="118" width="180" height="64" style="--len:488"/>
+              <use href="#awsicon-bedrock" x="535" y="133" width="26" height="26"/>
+              <text x="628" y="138" font-size="11" fill="#EFF7F7" text-anchor="middle" font-weight="600">CLINICAL NLP MODEL</text>
+              <text x="628" y="153" font-size="8" fill="rgba(56,197,208,.85)" text-anchor="middle">FINE-TUNED EXTRACTION · NER</text>
+              <text x="628" y="167" font-size="8" fill="#E0604F" text-anchor="middle">+ PHI DE-IDENTIFICATION</text>
+            </g>
+
+            <!-- ===== node: CONFIDENCE ROUTER ===== -->
+            <g class="an-group">
+              <rect class="an" x="785" y="122" width="150" height="56" style="--len:412"/>
+              <text x="860" y="145" font-size="12" fill="#EFF7F7" text-anchor="middle" font-weight="600">CONFIDENCE ROUTER</text>
+              <text x="860" y="162" font-size="8.5" fill="rgba(239,247,247,.5)" text-anchor="middle">PER-SPAN SCORE</text>
+            </g>
+
+            <!-- ===== node: outcome A - high confidence ===== -->
+            <g class="an-group">
+              <rect class="an green" x="1055" y="50" width="140" height="56" style="--len:392"/>
+              <text x="1125" y="70" font-size="10.5" fill="#37DA71" text-anchor="middle" font-weight="600">CODING · CARE-GAP</text>
+              <text x="1125" y="84" font-size="10.5" fill="#37DA71" text-anchor="middle" font-weight="600">MED-CHANGE</text>
+              <text x="1125" y="98" font-size="7.5" fill="rgba(55,218,113,.7)" text-anchor="middle">HIGH CONFIDENCE</text>
+            </g>
+
+            <!-- ===== node: outcome B - review ===== -->
+            <g class="an-group">
+              <rect class="an amber" x="1055" y="194" width="140" height="56" style="--len:392"/>
+              <text x="1125" y="214" font-size="10.5" fill="#e5b348" text-anchor="middle" font-weight="600">CLINICIAN / CODER</text>
+              <text x="1125" y="228" font-size="10.5" fill="#e5b348" text-anchor="middle" font-weight="600">REVIEW QUEUE</text>
+              <text x="1125" y="242" font-size="7.5" fill="rgba(229,179,72,.8)" text-anchor="middle">LOW CONFIDENCE, BY DESIGN</text>
+            </g>
+
+            <text class="archnote" x="610" y="270" text-anchor="middle">EVERY PATH LOGS A DECISION RECORD IN THE INFRASTRUCTURE LAYER BELOW, WHETHER AUTOMATED OR REVIEWED.</text>
+
+            <!-- ===== AWS INFRASTRUCTURE LANE ===== -->
+            <text x="24" y="308" font-size="9.5" fill="rgba(31,169,180,.8)" letter-spacing="1.5">AWS INFRASTRUCTURE LAYER · ILLUSTRATIVE</text>
+            <line x1="24" y1="316" x2="1196" y2="316" stroke="rgba(31,169,180,.18)" stroke-width="1"/>
+
+            <path class="beam-line" d="M 24 340 L 1196 340"/>
+            <path class="beam-glow beam-glow-infra" d="M 24 340 L 1196 340" stroke="url(#beamGradInfra)"/>
+
+            <!-- tethers linking app nodes to infra services -->
+            <g stroke="rgba(239,247,247,.14)" stroke-width="1" stroke-dasharray="2 4">
+              <line x1="115" y1="178" x2="115" y2="340"/>
+              <line x1="360" y1="178" x2="200" y2="340"/>
+              <line x1="628" y1="182" x2="547" y2="340"/>
+              <line x1="860" y1="178" x2="869" y2="340"/>
+              <line x1="1125" y1="250" x2="1050" y2="340"/>
+            </g>
+
+            <g class="an-group">
+              <rect class="an teal" x="45" y="352" width="150" height="76" style="--len:452"/>
+              <use href="#awsicon-s3" x="108" y="362" width="24" height="24"/>
+              <text x="120" y="403" font-size="10" fill="#EFF7F7" text-anchor="middle" font-weight="600">S3 + KMS</text>
+              <text x="120" y="417" font-size="7.5" fill="rgba(239,247,247,.5)" text-anchor="middle">ENCRYPTED SOURCE STORE</text>
+            </g>
+            <g class="an-group">
+              <rect class="an" x="450" y="352" width="170" height="76" style="--len:492"/>
+              <use href="#awsicon-bedrock" x="523" y="362" width="24" height="24"/>
+              <text x="535" y="403" font-size="10" fill="#EFF7F7" text-anchor="middle" font-weight="600">BEDROCK / SAGEMAKER</text>
+              <text x="535" y="417" font-size="7.5" fill="rgba(239,247,247,.5)" text-anchor="middle">MODEL HOSTING, PINNED VERSION</text>
+            </g>
+            <g class="an-group">
+              <rect class="an" x="785" y="352" width="150" height="76" style="--len:452"/>
+              <use href="#awsicon-iam" x="848" y="362" width="24" height="24"/>
+              <text x="860" y="403" font-size="10" fill="#EFF7F7" text-anchor="middle" font-weight="600">IAM + PRIVATELINK</text>
+              <text x="860" y="417" font-size="7.5" fill="rgba(239,247,247,.5)" text-anchor="middle">LEAST-PRIVILEGE ACCESS</text>
+            </g>
+            <g class="an-group">
+              <rect class="an green" x="960" y="352" width="160" height="76" style="--len:472"/>
+              <use href="#awsicon-cloudwatch" x="1028" y="362" width="24" height="24"/>
+              <text x="1040" y="403" font-size="10" fill="#37DA71" text-anchor="middle" font-weight="600">CLOUDWATCH + AUDIT</text>
+              <text x="1040" y="417" font-size="7.5" fill="rgba(55,218,113,.7)" text-anchor="middle">DECISION RECORD, RETAINED</text>
+            </g>
+          </svg>
+        </div></div>
       </div>
     </div>
   </div>
@@ -1641,22 +1884,17 @@ console.log('%cYou read consoles. We like you already.\nOne HTML file. No framew
   const ANNOTATED = '62F presents with worsening <em class="dx">dyspnea on exertion</em>. Hx: <em class="dx">T2DM</em>, <em class="dx">HFrEF (EF 35%)</em>. Current meds: <em class="med">metformin 1000 mg BID</em>, <em class="med">lisinopril 20 mg</em>. <em class="lab">A1c 8.2</em> (03/2026). Pt <em class="phi" data-mask="[NAME]">Maria Alvarez</em>, <em class="phi" data-mask="[MRN]">MRN 8834412</em>. Plan: titrate <em class="med low">Entresto</em>, cardiology f/u 2 wks.';
   const REPORT = [
     ['dim', '$ chart-review --extract --deidentify --route'],
-    ['ok',  '> CODE CANDIDATES ....... I50.2x · E11.9 · CODER REVIEW'],
-    ['ok',  '> CURRENT MEDS .......... 2'],
-    ['ok',  '> PLANNED MED CHANGE .... 1 \u2192 CLINICIAN REVIEW'],
-    ['ok',  '> POSSIBLE CARE GAP ..... A1C 8.2 · APPLY PATIENT-SPECIFIC RULES'],
-    ['ok',  '> DIRECT IDS MASKED ..... 2 FIELDS · DE-ID REVIEW REQUIRED'],
-    ['ok',  '> LOW CONFIDENCE ........ 1 SPAN \u2192 HUMAN REVIEW, BY DESIGN'],
-    ['dim', '# synthetic patient. illustrative workflow. this is the boring part we love.'],
+    ['ok',  '> CODES · CARE GAP ...... I50.2x · E11.9 · A1C 8.2, CODER REVIEW'],
+    ['ok',  '> MED CHANGE · IDS ...... 1 \u2192 CLINICIAN REVIEW · 2 MASKED, DE-ID CHECK'],
+    ['ok',  '> CONFIDENCE ............ 1 LOW SPAN \u2192 HUMAN REVIEW, BY DESIGN'],
+    ['dim', '# synthetic patient. illustrative workflow.'],
   ];
   const EVIDENCE = [
     ['dim', '$ emit decision-record --for chart-review'],
-    ['ok',  '> INPUTS ............... NOTE HASH + SOURCE FEED, LOGGED'],
-    ['ok',  '> MODEL + PROMPT ....... PINNED VERSIONS, EVERY RUN'],
-    ['ok',  '> EVAL SUITE ........... PASSING BEFORE DEPLOY, WATCHED AFTER'],
-    ['ok',  '> REVIEW TRAIL ......... WHO SAW IT, WHAT CHANGED, WHEN'],
-    ['ok',  '> RETENTION ............ AUDIT-READY, ROLE-SCOPED ACCESS'],
-    ['dim', '# every ai decision ships with its receipt. auditors welcome.'],
+    ['ok',  '> INPUTS · MODEL ....... NOTE HASH + SOURCE, PINNED PROMPT/MODEL VERSION'],
+    ['ok',  '> EVALS · REVIEW ....... PASSING BEFORE DEPLOY · WHO SAW IT, WHAT CHANGED'],
+    ['ok',  '> RETENTION ............. AUDIT-READY, ROLE-SCOPED ACCESS'],
+    ['dim', '# every ai decision ships with its receipt.'],
   ];
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let started = false;
@@ -1748,6 +1986,26 @@ console.log('%cYou read consoles. We like you already.\nOne HTML file. No framew
     }, { threshold: 0.3 });
     cio.observe(body);
   } else { run(); }
+})();
+
+/* ---------- FIG. 02 view toggle (terminal log / architecture flow) ---------- */
+(function(){
+  const tabs = document.querySelectorAll('.fig2-tab');
+  if (!tabs.length) return;
+  const terminalPanel = document.getElementById('chart-body')?.closest('.chart');
+  const archPanel = document.getElementById('fig2-arch-panel');
+  const archWrap = document.getElementById('archflow-wrap');
+  let archStarted = false;
+  tabs.forEach(tab => tab.addEventListener('click', () => {
+    tabs.forEach(t => { t.classList.toggle('on', t === tab); t.setAttribute('aria-pressed', t === tab ? 'true' : 'false'); });
+    const showArch = tab.dataset.view === 'arch';
+    if (terminalPanel) terminalPanel.hidden = showArch;
+    if (archPanel) archPanel.hidden = !showArch;
+    if (showArch && !archStarted && archWrap){
+      archStarted = true;
+      requestAnimationFrame(() => archWrap.classList.add('on'));
+    }
+  }));
 })();
 
 /* ---------- FIG. 03 seat toggle ---------- */
