@@ -336,6 +336,22 @@ h1 .line:nth-child(4) > span{ animation-delay:.27s; }
 .dark .sec-head h2 i{ color: var(--teal-edge); }
 .dark .sec-head .tag{ color: var(--d-text-50); }
 .dark .lede{ color: var(--d-text-70); }
+.light-variant .sec-head h2{ color: var(--navy); }
+.light-variant .sec-head h2 i{ color: var(--teal-deep); }
+.light-variant .sec-head .tag{ color: var(--ink-60); }
+.light-variant .lede{ color: var(--ink-80); }
+.light-variant .spec{ border-color: var(--hair) !important; }
+.light-variant .spec:hover{ background: var(--card); }
+.light-variant .spec .big{ color: var(--navy); }
+.light-variant .spec .sub{ color: var(--ink-60); }
+.light-variant .spec .idx{ color: var(--teal-deep); }
+.light-variant .hc-name{ color: var(--navy); }
+.light-variant .hc-desc{ color: rgba(13,8,38,.8); }
+.light-variant .ehrfig .caps{ color: var(--ink-60); }
+.light-variant .chart{
+  box-shadow: 0 32px 70px -28px rgba(13,8,38,.35), 0 0 0 1px rgba(13,8,38,.04);
+}
+.light-variant .spec-grid{ border-color: var(--hair); }
 .hc-grid{ display:grid; grid-template-columns: minmax(0,7fr) minmax(0,5fr); gap: clamp(36px,5vw,80px); align-items: start; }
 .hc-bullets{ list-style:none; margin-top: 36px; border-top: 1px solid var(--d-hair); }
 .hc-bullets li{
@@ -636,15 +652,17 @@ footer.site ul a:hover{ color: var(--d-text); }
 .chart-legend b{ font-weight: 400; }
 .chart-legend .swatch{ display:inline-block; width: 9px; height: 9px; margin-right: 6px; vertical-align: -1px; }
 .chart-out{
-  padding: 4px 24px 22px;
-  font-family: var(--mono); font-size: 13px; line-height: 2;
-  color: #37DA71; text-shadow: 0 0 8px rgba(55,218,113,.3);
+  margin: 4px 24px 22px; padding: 14px 18px;
+  border-left: 2px solid rgba(56,197,208,.5);
+  background: rgba(239,247,247,.03);
+  font-family: var(--mono); font-size: 12.5px; line-height: 1.95;
+  color: rgba(239,247,247,.88);
   white-space: pre-wrap;
 }
-.chart-out .dim{ color: rgba(239,247,247,.45); text-shadow: none; }
+.chart-out .dim{ color: rgba(239,247,247,.42); }
 .chart-cursor{
-  display:inline-block; width: 8px; height: 14px; vertical-align: -2px;
-  background: #37DA71; box-shadow: 0 0 8px rgba(55,218,113,.6);
+  display:inline-block; width: 7px; height: 13px; vertical-align: -2px;
+  background: var(--teal-edge);
   animation: pulse 1s steps(2) infinite;
 }
 
@@ -697,6 +715,16 @@ footer.site ul a:hover{ color: var(--d-text); }
 .wo-row .v{ font-size: 14.5px; font-weight: 500; color: var(--navy); }
 .wo-foot{ padding: 18px 24px 22px; border-top: 1px solid var(--hair); display:flex; align-items:center; justify-content:space-between; gap: 12px; flex-wrap: wrap; }
 .wo-foot .micro{ font-family: var(--mono); font-size: 10.5px; letter-spacing:.06em; color: var(--ink-60); }
+.wo-more[hidden]{ display: none; }
+.wo-toggle{
+  display:flex; align-items:center; gap: 6px; width: 100%;
+  padding: 13px 24px; border: 0; border-bottom: 1px solid var(--hair);
+  background: var(--paper-2); cursor: pointer;
+  font-family: var(--mono); font-size: 11.5px; letter-spacing:.08em; text-transform: uppercase; color: var(--teal-deep);
+  text-align: left; transition: background .18s ease, padding-left .18s ease;
+}
+.wo-toggle:hover{ background: var(--card); padding-left: 28px; }
+.wo-toggle[aria-expanded="true"]{ display: none; }
 @media (max-width: 560px){ .wo-row{ grid-template-columns: minmax(0,1fr); gap: 3px; } }
 @media (max-width: 960px){ .audit-grid{ grid-template-columns:minmax(0,1fr); } }
 .pending-chip{
@@ -982,10 +1010,7 @@ footer.site ul a:hover{ color: var(--d-text); }
       <div class="pattern" id="cloud-foundations" style="scroll-margin-top:104px;">
         <span class="pn">03 · AWS &amp; cloud foundations</span>
         <h3>Build secure cloud foundations</h3>
-        <p>We build secure AWS foundations with infrastructure-as-code, identity and encryption controls, CI/CD, observability, environment separation, and cost management aligned to your operating environment.</p>
-        <div class="arc">
-          <span><b>NOTE</b>We use containers, open formats, and client-owned code when portability justifies the added cost.</span>
-        </div>
+        <p>We build secure AWS foundations with infrastructure-as-code, identity and encryption controls, CI/CD, observability, environment separation, and cost management aligned to your operating environment. We use containers, open formats, and client-owned code when portability justifies the added cost.</p>
       </div>
     </div>
   </div>
@@ -1029,7 +1054,7 @@ footer.site ul a:hover{ color: var(--d-text); }
 </div>
 
 <!-- ================== HEALTH & LIFE SCIENCES (DARK) ================== -->
-<section id="health-life-sciences" class="dark">
+<section id="health-life-sciences" class="light-variant" style="background: var(--paper-2); border-top: 1px solid var(--hair);">
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
@@ -1444,7 +1469,7 @@ footer.site ul a:hover{ color: var(--d-text); }
       <li><span class="wn">D.01</span><span><b>Experienced practitioners stay involved throughout.</b>The same practitioners remain involved from architecture through production readiness.</span></li>
       <li><span class="wn">D.02</span><span><b>Teams are matched to the problem.</b>Composition reflects the skills, responsibilities, and workload the engagement requires.</span></li>
       <li><span class="wn">D.03</span><span><b>Specialist partners are disclosed when used.</b>Their responsibilities and governance are documented before engagement.</span></li>
-      <li><span class="wn">D.04</span><span><b>You own the result.</b>Code, infrastructure, documentation, and operational knowledge are delivered to client-controlled environments.</span></li>
+      <li><span class="wn">D.04</span><span><b>You own the result.</b>See <a href="#evidence" style="color:var(--teal-edge); text-decoration:underline;">Client ownership</a> above for what that includes.</span></li>
       <li><span class="wn">D.05</span><span><b>Responsibilities are named before work begins.</b>Delivery milestones and acceptance criteria are agreed up front.</span></li>
     </ul>
   </div>
@@ -1453,21 +1478,26 @@ footer.site ul a:hover{ color: var(--d-text); }
 <!-- ================== AI OPPORTUNITY ASSESSMENT ================== -->
 <section id="assessment" style="border-top: 1px solid var(--hair);">
   <div class="wrap">
-    <div class="audit-grid reveal">
+    <div class="sec-head reveal" style="margin-bottom: 0;">
       <div>
-        <span class="tag mono" style="color:var(--teal-deep);">A DEFINED STARTING POINT</span>
-        <h2 style="font-family:var(--serif); font-weight:400; font-size:clamp(30px,3.4vw,50px); letter-spacing:-.02em; line-height:1.12; color:var(--navy); margin-top:14px;">The AI Opportunity <i style="color:var(--teal);">Assessment.</i></h2>
+        <h2>The AI Opportunity <i>Assessment.</i></h2>
         <p class="lede">Two weeks. One clear decision. We assess the workflow, data, technical options, controls, and business case, then deliver an evidence-backed recommendation and practical path forward. The right answer may be to build, buy, partner, defer, or stop.</p>
       </div>
+      <span class="tag">A DEFINED STARTING POINT</span>
+    </div>
+    <div class="reveal" style="margin-top: 40px;">
       <div class="workorder">
         <div class="wo-head"><span>AI Opportunity Assessment</span><span>Two weeks · Fixed scope</span></div>
         <div class="wo-row"><span class="k">Opportunity</span><span class="v">Defined workflow, users, pain points, target outcome, and success measure</span></div>
         <div class="wo-row"><span class="k">Data readiness</span><span class="v">Source inventory, access gaps, quality risks, and privacy constraints</span></div>
         <div class="wo-row"><span class="k">Solution blueprint</span><span class="v">Target architecture, integration points, model and vendor options, and build-versus-buy tradeoffs</span></div>
-        <div class="wo-row"><span class="k">Evaluation</span><span class="v">Test cases, quality thresholds, failure conditions, human review, and production monitoring</span></div>
-        <div class="wo-row"><span class="k">Risk &amp; controls</span><span class="v">Security, privacy, regulatory, data-handling, and operational requirements</span></div>
-        <div class="wo-row"><span class="k">Recommendation</span><span class="v">Evidence-backed decision to build, buy, partner, defer, or stop</span></div>
-        <div class="wo-row"><span class="k">Roadmap</span><span class="v">Executive decision brief, technical blueprint, prioritized next steps, dependencies, and decision gates</span></div>
+        <div class="wo-more" id="wo-more" hidden>
+          <div class="wo-row"><span class="k">Evaluation</span><span class="v">Test cases, quality thresholds, failure conditions, human review, and production monitoring</span></div>
+          <div class="wo-row"><span class="k">Risk &amp; controls</span><span class="v">Security, privacy, regulatory, data-handling, and operational requirements</span></div>
+          <div class="wo-row"><span class="k">Recommendation</span><span class="v">Evidence-backed decision to build, buy, partner, defer, or stop</span></div>
+          <div class="wo-row"><span class="k">Roadmap</span><span class="v">Executive decision brief, technical blueprint, prioritized next steps, dependencies, and decision gates</span></div>
+        </div>
+        <button type="button" class="wo-toggle" id="wo-toggle" aria-expanded="false" aria-controls="wo-more">See full scope (4 more) →</button>
         <div class="wo-foot">
           <span class="micro">PRICING · PROVIDED AFTER A SHORT QUALIFICATION CALL.</span>
           <a class="btn" href="#contact">Discuss a project →</a>
@@ -1480,17 +1510,26 @@ footer.site ul a:hover{ color: var(--d-text); }
 <!-- ================== PROCUREMENT & TRUST ================== -->
 <section id="trust" style="background: var(--paper-2); border-top: 1px solid var(--hair);">
   <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <h2>What procurement can <i>expect.</i></h2>
+        <p class="lede">The basics, stated plainly. Contract-specific terms are finalized before work begins.</p>
+      </div>
+      <span class="tag">SEC. 08 · TRUST</span>
+    </div>
     <div class="audit-grid reveal">
       <div>
-        <span class="tag mono" style="color:var(--teal-deep);">SEC. 08 · TRUST</span>
-        <h2 style="font-family:var(--serif); font-weight:400; font-size:clamp(30px,3.4vw,50px); letter-spacing:-.02em; line-height:1.12; color:var(--navy); margin-top:14px;">What procurement can <i style="color:var(--teal);">expect.</i></h2>
-        <p class="lede">Company, security, ownership, and contracting details are confirmed during procurement and documented before work begins.</p>
+        <span class="tag mono" style="color:var(--teal-deep);">COMPANY BASICS</span>
+        <ul class="why-list" style="margin-top:16px;">
+          <li><span class="wn">·</span><span><b>ClavesIQ</b>Founder-led, operating since 2025.</span></li>
+          <li><span class="wn">·</span><span><b>Incorporated federally in Canada</b>Based in Toronto, Ontario.</span></li>
+          <li><span class="wn">·</span><span><b>99 Broadway Ave, Toronto, ON</b>Registered business address.</span></li>
+        </ul>
       </div>
       <div class="workorder">
         <div class="wo-head"><span>Procurement summary</span><span>Details confirmed by engagement</span></div>
-        <div class="wo-row"><span class="k">Company</span><span class="v">Toronto, Canada. Legal and contracting details are provided privately during procurement.</span></div>
-        <div class="wo-row"><span class="k">Ownership</span><span class="v">Ownership and licensing are defined by agreement; delivery defaults to client-controlled repositories and cloud accounts.</span></div>
-        <div class="wo-row"><span class="k">Contracting</span><span class="v">DPA, BAA, and other data-protection terms are addressed during legal review when applicable.</span></div>
+        <div class="wo-row"><span class="k">Ownership</span><span class="v">Client-controlled by default. See <a href="#evidence" style="color:var(--teal-deep); text-decoration:underline;">Client ownership</a>.</span></div>
+        <div class="wo-row"><span class="k">Agreements</span><span class="v">DPAs and BAAs are signed on request as part of contracting.</span></div>
         <div class="wo-row"><span class="k">Security</span><span class="v">Least privilege, encryption, secrets management, logging, and secure offboarding are defined before access is granted.</span></div>
         <div class="wo-row"><span class="k">Regulated work</span><span class="v">Architecture can support HIPAA-regulated workflows; compliance depends on the complete technical, organizational, and contractual environment.</span></div>
       </div>
@@ -1857,6 +1896,17 @@ if ('IntersectionObserver' in window){
 } else {
   revealTargets.forEach(el => el.classList.add('in'));
 }
+
+/* ---------- assessment scope toggle ---------- */
+(function(){
+  const toggle = document.getElementById('wo-toggle');
+  const more = document.getElementById('wo-more');
+  if (!toggle || !more) return;
+  toggle.addEventListener('click', () => {
+    more.hidden = false;
+    toggle.setAttribute('aria-expanded','true');
+  });
+})();
 
 /* ---------- mobile drawer ---------- */
 (function(){
