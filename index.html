@@ -125,15 +125,25 @@ nav.primary a:hover::after{ transform: scaleX(1); }
 .btn{
   display:inline-flex; align-items:center; gap:10px; white-space: nowrap;
   font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
-  color: #fff; background: var(--navy);
+  color: #fff; background: var(--teal-deep);
   padding: 15px 24px; text-decoration: none; border: 0; cursor: pointer;
-  transition: background .25s ease, color .25s ease;
+  position: relative; overflow: hidden;
+  box-shadow: 0 1px 2px rgba(13,8,38,.12), 0 6px 16px -8px rgba(14,110,120,.45);
+  transition: background .25s ease, color .25s ease, transform .2s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease;
 }
-.btn:hover{ background: var(--green); color: var(--navy); }
+.btn:not(.ghost):not(.ghost-dark):hover{
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(13,8,38,.14), 0 14px 28px -10px rgba(14,110,120,.55);
+}
+.btn:not(.ghost):not(.ghost-dark):active{
+  transform: translateY(0); box-shadow: 0 1px 2px rgba(13,8,38,.14), 0 4px 10px -6px rgba(14,110,120,.5);
+  transition-duration: .08s;
+}
+.btn:hover{ background: var(--navy); color: #fff; }
 .btn.ghost{ background: transparent; color: var(--ink); border-bottom: 1px solid var(--ink); padding: 12px 2px; }
 .btn.ghost:hover{ color: var(--teal-deep); border-color: var(--teal-deep); background: transparent; }
-.btn.on-dark{ background: var(--green); color: var(--navy); }
-.btn.on-dark:hover{ background: var(--bone); }
+.btn.on-dark{ background: var(--bone); color: var(--navy); }
+.btn.on-dark:hover{ background: #fff; color: var(--teal-deep); }
 .btn.ghost-dark{ background: transparent; color: var(--d-text); border-bottom: 1px solid var(--d-hair); padding: 12px 2px; }
 .btn.ghost-dark:hover{ color: var(--teal-edge); border-color: var(--teal-edge); }
 
@@ -225,6 +235,7 @@ h1 .line:nth-child(4) > span{ animation-delay:.27s; }
 /* schematic */
 .schematic{ margin-top: clamp(44px, 6vh, 72px); border-top: 1px solid var(--hair); position: relative; }
 .schematic svg{ display:block; width:100%; height:auto; }
+@media (max-width: 380px){ .schematic{ display: none; } }
 .schematic .cap{ position:absolute; top: 14px; left: 0; color: var(--ink-60); }
 .schematic .cap-r{ left:auto; right:0; text-align:right; }
 @media (max-width: 700px){
@@ -232,8 +243,8 @@ h1 .line:nth-child(4) > span{ animation-delay:.27s; }
   .schematic .cap-r{ display: none; }
 }
 .draw{ stroke-dasharray: 1; stroke-dashoffset: 1; }
-.fig.in .draw{ animation: draw 1.5s cubic-bezier(.5,0,.15,1) forwards; }
-.fig.in .draw.d2{ animation-delay:.22s; } .fig.in .draw.d3{ animation-delay:.44s; } .fig.in .draw.d4{ animation-delay:.66s; }
+.fig.in .draw{ animation: draw 2.4s cubic-bezier(.5,0,.15,1) forwards; }
+.fig.in .draw.d2{ animation-delay:.4s; } .fig.in .draw.d3{ animation-delay:.8s; } .fig.in .draw.d4{ animation-delay:1.2s; }
 @keyframes draw{ to{ stroke-dashoffset: 0; } }
 .blink{ animation: pulse 2.4s ease-in-out infinite; }
 
@@ -254,6 +265,13 @@ h1 .line:nth-child(4) > span{ animation-delay:.27s; }
   .ledger > div{ border-top: 1px solid var(--hair-2); }
   .ledger > div:nth-child(3){ border-left: 0; }
   .ledger .v{ white-space: normal; }
+}
+@media (max-width: 600px){
+  .bar{ height: 66px; padding: 0 18px; }
+  .lockup{ height: 38px; }
+  .brand-tag{ font-size: 7.5px; letter-spacing: .2em; margin: -2px 0 0 2px; }
+  .menu-btn{ width: 40px; height: 40px; }
+  .status{ font-size: 10px; }
 }
 
 /* ---------- disciplines (hero accordion content, own band) ---------- */
@@ -700,6 +718,108 @@ footer.site ul a:hover{ color: var(--d-text); }
 .fieldlog .lead{ color: var(--teal-deep); display:flex; align-items:center; gap: 9px; }
 .fieldlog .lead::before{ content:""; width:7px; height:7px; border-radius:50%; background: var(--green); animation: pulse 2.2s ease-in-out infinite; }
 
+/* ---------- tier-a polish: progress, thumb, blur-reveal, buttons, accents, copy ---------- */
+#scroll-progress{
+  position: fixed; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--teal); transform: scaleX(0); transform-origin: left;
+  z-index: 200; pointer-events: none;
+}
+.seat-track{ position: relative; display: flex; gap: 10px; flex-wrap: wrap; }
+.seat-thumb{
+  position: absolute; top: 0; left: 0; background: var(--green); z-index: 0;
+  transition: transform .38s cubic-bezier(.65,0,.35,1), width .38s cubic-bezier(.65,0,.35,1), height .38s ease;
+  will-change: transform;
+}
+.seat-track .seat{ position: relative; z-index: 1; }
+.seat-track.js .seat.on{ background: transparent; border-color: transparent; color: var(--navy); font-weight: 500; }
+.sec-head.reveal h2{
+  opacity: 0; filter: blur(7px); transform: translateY(12px);
+  transition: opacity .75s ease .05s, filter .75s ease .05s, transform .75s cubic-bezier(.22,1,.24,1) .05s;
+}
+.sec-head.reveal.in h2{ opacity: 1; filter: blur(0); transform: none; }
+.btn .arr{ display: inline-block; transition: transform .3s cubic-bezier(.22,1,.24,1); }
+.btn:hover .arr{ transform: translateX(4px); }
+.btn::after{
+  content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 60%;
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,.16), transparent);
+  transform: translateX(-170%) skewX(-12deg); transition: transform .55s ease; pointer-events: none;
+}
+.btn:hover::after{ transform: translateX(320%) skewX(-12deg); }
+.btn.ghost::after, .btn.ghost-dark::after{ content: none; }
+.pattern::after, .spec::after, .workorder::after, .step::after{
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  background: var(--teal); transform: scaleX(0); transform-origin: left;
+  transition: transform .45s cubic-bezier(.7,0,.2,1);
+}
+.spec::after{ background: var(--teal-edge); }
+.pattern:hover::after, .spec:hover::after, .workorder:hover::after, .step:hover::after{ transform: scaleX(1); }
+.spec{ position: relative; }
+.workorder{ position: relative; }
+.copy-mail{
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: .14em;
+  padding: 4px 8px; margin-left: 10px; vertical-align: 1px;
+  background: transparent; border: 1px solid var(--hair); color: var(--teal-deep);
+  cursor: pointer; transition: color .2s ease, border-color .2s ease, background .2s ease;
+}
+.copy-mail:hover{ border-color: var(--teal-deep); }
+.copy-mail.done{ color: var(--navy); border-color: var(--green); background: rgba(55,218,113,.18); }
+.copy-mail.dark{ border-color: var(--d-hair); color: var(--teal-edge); }
+.copy-mail.dark.done{ color: var(--green); border-color: var(--green); background: rgba(55,218,113,.12); }
+
+/* ---------- approach: pipeline connector draw ---------- */
+.steps{ position: relative; }
+.steps::after{
+  content: ""; position: absolute; top: -1px; left: 0; height: 2px; width: 100%;
+  background: var(--teal); transform: scaleX(0); transform-origin: left;
+  transition: transform 1.8s cubic-bezier(.5,0,.15,1) .4s;
+}
+.steps.in::after{ transform: scaleX(1); }
+
+/* ---------- figure node hover emphasis ---------- */
+.claimfig svg text{ pointer-events: none; }
+.claimfig svg .node{
+  transition: opacity .25s ease, stroke .25s ease, stroke-width .25s ease, transform .3s cubic-bezier(.22,1,.24,1);
+  transform-box: fill-box; transform-origin: center;
+}
+.claimfig svg .node:hover{ stroke: #EFF7F7; stroke-width: 1.8; transform: scale(1.03); }
+.claimfig svg:has(.node:hover) .node:not(:hover){ opacity: .45; }
+
+/* ---------- card fx: tilt, spotlight, lift ---------- */
+.pattern, .spec, .workorder, .step{
+  transition: transform .18s ease-out, box-shadow .3s ease, background .3s ease;
+}
+.step{ position: relative; }
+.pattern::before, .spec::before, .workorder::before, .step::before{
+  content: ""; position: absolute; inset: 0; opacity: 0; pointer-events: none;
+  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(31,169,180,.10), transparent 65%);
+  transition: opacity .3s ease;
+}
+.spec::before{ background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(56,197,208,.13), transparent 65%); }
+.pattern:hover::before, .spec:hover::before, .workorder:hover::before, .step:hover::before{ opacity: 1; }
+@media (pointer: fine){
+  .pattern:hover, .workorder:hover, .step:hover{
+    z-index: 2;
+    box-shadow: 0 0 0 1px var(--hair), 0 22px 44px -18px rgba(13,8,38,.28);
+  }
+  .spec:hover{
+    z-index: 2;
+    box-shadow: 0 0 0 1px var(--d-hair), 0 22px 44px -18px rgba(0,0,0,.5);
+  }
+}
+/* entrance: scale + blur settle */
+.reveal-stagger > *{ opacity: 0; transform: translateY(22px) scale(.97); filter: blur(5px); transition: opacity .7s ease, transform .7s cubic-bezier(.22,1,.24,1), filter .7s ease; }
+.reveal-stagger.in > *{ opacity: 1; transform: none; filter: blur(0); }
+/* work-order rows cascade */
+.reveal .wo-row{ opacity: 0; transform: translateX(-10px); transition: opacity .5s ease, transform .5s cubic-bezier(.22,1,.24,1); }
+.reveal.in .wo-row{ opacity: 1; transform: none; }
+.reveal.in .wo-row:nth-child(2){ transition-delay: .08s; }
+.reveal.in .wo-row:nth-child(3){ transition-delay: .16s; }
+.reveal.in .wo-row:nth-child(4){ transition-delay: .24s; }
+.reveal.in .wo-row:nth-child(5){ transition-delay: .32s; }
+.reveal.in .wo-row:nth-child(6){ transition-delay: .40s; }
+.reveal.in .wo-row:nth-child(7){ transition-delay: .48s; }
+.reveal.in .wo-row:nth-child(8){ transition-delay: .56s; }
+
 /* ---------- a11y / motion ---------- */
 :focus-visible{ outline: 2px solid var(--teal); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce){
@@ -713,6 +833,7 @@ footer.site ul a:hover{ color: var(--d-text); }
 </style>
 </head>
 <body id="top">
+<div id="scroll-progress" aria-hidden="true"></div>
 
 <!-- ================== HEADER ================== -->
 <header class="top">
@@ -965,7 +1086,7 @@ footer.site ul a:hover{ color: var(--d-text); }
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
-        <h2>From problem to <i>production.</i></h2>
+        <h2>From problem to <i>solution.</i></h2>
         <p class="lede">Four steps with agreed deliverables, decision points, responsibilities, acceptance criteria, and handoff expectations.</p>
       </div>
       <span class="tag">SEC. 04 · APPROACH</span>
@@ -1010,8 +1131,11 @@ footer.site ul a:hover{ color: var(--d-text); }
 
   <div class="seat-switch" role="group" aria-label="Pick your seat">
     <span class="lbl">PICK YOUR SEAT</span>
-    <button class="seat on" data-seat="pharma" aria-pressed="true">LIFE SCIENCES / MARKET ACCESS</button>
-    <button class="seat" data-seat="payer" aria-pressed="false">CLAIMS / PAYMENT OPS</button>
+    <div class="seat-track">
+      <span class="seat-thumb" aria-hidden="true"></span>
+      <button class="seat on" data-seat="pharma" aria-pressed="true">LIFE SCIENCES / MARKET ACCESS</button>
+      <button class="seat" data-seat="payer" aria-pressed="false">CLAIMS / PAYMENT OPS</button>
+    </div>
   </div>
 
   <!-- ============ 03A: PHARMA VENDOR STACK ============ -->
@@ -1026,11 +1150,11 @@ footer.site ul a:hover{ color: var(--d-text); }
         <text x="640" y="24" font-size="10.5" fill="rgba(239,247,247,.45)" text-anchor="middle" letter-spacing="1">LICENSED · PARTNER · PUBLIC · CLIENT-OWNED SOURCES</text>
 
         <!-- vendor feed nodes -->
-        <g class="node aux">
-          <rect class="draw"    pathLength="1" x="65"  y="40" width="250" height="56" fill="rgba(239,247,247,.02)" stroke="rgba(56,197,208,.45)" stroke-width="1.2"/>
-          <rect class="draw d2" pathLength="1" x="375" y="40" width="250" height="56" fill="rgba(239,247,247,.02)" stroke="rgba(56,197,208,.45)" stroke-width="1.2"/>
-          <rect class="draw d3" pathLength="1" x="685" y="40" width="250" height="56" fill="rgba(239,247,247,.02)" stroke="rgba(56,197,208,.45)" stroke-width="1.2"/>
-          <rect class="draw d4" pathLength="1" x="995" y="40" width="250" height="56" fill="rgba(239,247,247,.02)" stroke="rgba(56,197,208,.45)" stroke-width="1.2"/>
+        <g>
+          <rect class="node aux draw"    pathLength="1" x="65"  y="40" width="250" height="56" fill="rgba(239,247,247,.02)" stroke="rgba(56,197,208,.45)" stroke-width="1.2"/>
+          <rect class="node aux draw d2" pathLength="1" x="375" y="40" width="250" height="56" fill="rgba(239,247,247,.02)" stroke="rgba(56,197,208,.45)" stroke-width="1.2"/>
+          <rect class="node aux draw d3" pathLength="1" x="685" y="40" width="250" height="56" fill="rgba(239,247,247,.02)" stroke="rgba(56,197,208,.45)" stroke-width="1.2"/>
+          <rect class="node aux draw d4" pathLength="1" x="995" y="40" width="250" height="56" fill="rgba(239,247,247,.02)" stroke="rgba(56,197,208,.45)" stroke-width="1.2"/>
         </g>
         <g font-size="10.5" fill="#EFF7F7" text-anchor="middle">
           <text x="190"  y="63">PAYER, PLAN &amp; POLICY</text>
@@ -1387,7 +1511,7 @@ footer.site ul a:hover{ color: var(--d-text); }
       <div>
         <div class="where">
           <div class="where-row"><span class="k">First call</span><span class="v">30 minutes · No deck</span></div>
-          <div class="where-row"><span class="k">Email</span><span class="v"><a href="mailto:tech@clavesiq.com">tech@clavesiq.com</a></span></div>
+          <div class="where-row"><span class="k">Email</span><span class="v"><a href="mailto:tech@clavesiq.com">tech@clavesiq.com</a><button class="copy-mail" type="button" data-copy="tech@clavesiq.com" aria-label="Copy email address">COPY</button></span></div>
           <div class="where-row"><span class="k">Hours</span><span class="v">US time-zone overlap, ET-anchored</span></div>
         </div>
       </div>
@@ -1457,7 +1581,7 @@ footer.site ul a:hover{ color: var(--d-text); }
       <p>AI systems, data platforms, and cloud engineering for health and life sciences and other regulated or data-intensive organizations. Serving the US and Canada.</p>
       <div class="foot-contact">
         <span>99 BROADWAY AVE · TORONTO, ON M4P 0E3</span>
-        <a href="mailto:tech@clavesiq.com">TECH@CLAVESIQ.COM</a>
+        <span><a href="mailto:tech@clavesiq.com">TECH@CLAVESIQ.COM</a><button class="copy-mail dark" type="button" data-copy="tech@clavesiq.com" aria-label="Copy email address">COPY</button></span>
       </div>
     </div>
     <div>
@@ -1640,6 +1764,91 @@ console.log('%cYou read consoles. We like you already.\nOne HTML file. No framew
     });
   }));
 })();
+
+/* ---------- card tilt + spotlight (desktop, motion-safe) ---------- */
+(function(){
+  if (!matchMedia('(pointer: fine)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.pattern, .spec, .workorder, .step').forEach(card => {
+    let raf = null;
+    card.addEventListener('mousemove', e => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = null;
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        card.style.setProperty('--mx', (x / r.width * 100) + '%');
+        card.style.setProperty('--my', (y / r.height * 100) + '%');
+        const ry = ((x / r.width) - 0.5) * 5;
+        const rx = ((y / r.height) - 0.5) * -5;
+        card.style.transform = 'perspective(900px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) translateY(-3px)';
+      });
+    });
+    card.addEventListener('mouseleave', () => {
+      if (raf) { cancelAnimationFrame(raf); raf = null; }
+      card.style.transform = '';
+      card.style.removeProperty('--mx');
+      card.style.removeProperty('--my');
+    });
+  });
+})();
+
+/* ---------- scroll progress hairline ---------- */
+(function(){
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  let raf = null;
+  function update(){
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? h.scrollTop / max : 0) + ')';
+  }
+  addEventListener('scroll', () => { if (raf) return; raf = requestAnimationFrame(() => { raf = null; update(); }); }, { passive: true });
+  addEventListener('resize', update);
+  update();
+})();
+
+/* ---------- seat toggle sliding thumb ---------- */
+(function(){
+  const track = document.querySelector('.seat-track');
+  const thumb = document.querySelector('.seat-thumb');
+  if (!track || !thumb) return;
+  track.classList.add('js');
+  function place(){
+    const on = track.querySelector('.seat.on');
+    if (!on) return;
+    thumb.style.width = on.offsetWidth + 'px';
+    thumb.style.height = on.offsetHeight + 'px';
+    thumb.style.transform = 'translate(' + on.offsetLeft + 'px,' + on.offsetTop + 'px)';
+  }
+  track.querySelectorAll('.seat').forEach(b => b.addEventListener('click', () => requestAnimationFrame(place)));
+  addEventListener('resize', place);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+  addEventListener('load', place);
+  place();
+})();
+
+/* ---------- CTA arrow micro-slide ---------- */
+document.querySelectorAll('.btn').forEach(b => {
+  if (b.childElementCount === 0 && b.innerHTML.includes('\u2192')) {
+    b.innerHTML = b.innerHTML.replace('\u2192', '<span class="arr">\u2192</span>');
+  }
+});
+
+/* ---------- copy email ---------- */
+document.querySelectorAll('.copy-mail').forEach(btn => {
+  let t = null;
+  btn.addEventListener('click', () => {
+    const text = btn.dataset.copy || '';
+    const done = () => {
+      btn.classList.add('done');
+      btn.textContent = 'COPIED \u2713';
+      clearTimeout(t);
+      t = setTimeout(() => { btn.classList.remove('done'); btn.textContent = 'COPY'; }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done).catch(done);
+    else done();
+  });
+});
 
 /* ---------- reveal on scroll ---------- */
 const revealTargets = document.querySelectorAll('.reveal, .reveal-stagger, .fig');
